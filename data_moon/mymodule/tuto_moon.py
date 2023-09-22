@@ -55,7 +55,6 @@ def tuto_click(cla):
         if imgs_ is not None and imgs_ != False:
             print("q_clear_1", imgs_)
             click_pos_reg(imgs_.x, imgs_.y, cla)
-
         else:
             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -64,7 +63,6 @@ def tuto_click(cla):
             if imgs_ is not None and imgs_ != False:
                 print("tuto_click1", imgs_)
                 click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(0.1)
                 q_click = True
             else:
                 full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click2.PNG"
@@ -96,6 +94,7 @@ def tuto_click(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("move", imgs_)
                     click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.1)
                     break
                 time.sleep(0.1)
 

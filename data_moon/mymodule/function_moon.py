@@ -435,7 +435,7 @@ def click_pos_2(pos_1, pos_2, cla):
             # pyautogui.moveTo(pos_1 + random_int() + coordinate, pos_2 + random_int())
             # time.sleep(0.2)
             pyautogui.click(pos_1 + random_int() + coordinate, pos_2 + random_int())
-            time.sleep(0.5)
+        time.sleep(0.1)
 
     except Exception as e:
         print("error:", e)
@@ -523,7 +523,7 @@ def click_pos_reg(pos_1, pos_2, cla):
             # pyautogui.moveTo(pos_1 + random_int() + coordinate, pos_2 + random_int())
 
             pyautogui.click(pos_1 + random_int() + coordinate, pos_2 + random_int())
-            time.sleep(0.5)
+        time.sleep(0.1)
 
 
     except Exception as e:
