@@ -32,7 +32,7 @@ def _stop_please(cla):
             print("18_1")
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
-        
+
 
     except Exception as e:
         print(e)
