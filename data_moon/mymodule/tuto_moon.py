@@ -80,6 +80,8 @@ def tuto_click(cla):
                     if imgs_ is not None and imgs_ != False:
                         print("tuto_click4", imgs_)
                         drag_pos_reg(imgs_.x, imgs_.y, imgs_.x, imgs_.y + 350, cla)
+                    else:
+                        drag_pos_reg(800, 120, 800, 120 + 350, cla)
 
         time.sleep(0.5)
 
