@@ -19,8 +19,9 @@ def go_test():
 
     from get_item import get_event
     from repair_moon import budy_sohwan, hyungsang_sohwan, my_stat_up
+    from potion_moon import maul_potion_small_only
+    from jadong_moon import map_open_check
 
-    from tuto_moon import tuto_start
 
     print("tst")
     cla = "one"
@@ -34,5 +35,5 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    my_stat_up(cla)
+    map_open_check(cla)
 

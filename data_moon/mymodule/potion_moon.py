@@ -17,7 +17,7 @@ def maul_potion_small_only(cla):
 
     from action_moon import loading, clean_screen
     from get_item import get_items
-    from tuto_moon import tuto_stat_up
+    from repair_moon import my_stat_up
 
 
     try:
