@@ -43,6 +43,7 @@ from function_moon import imgs_set, imgs_set_, click_pos_2, random_int, text_che
 from massenger import line_monitor, line_to_me
 from schedule import myQuest_play_check, myQuest_play_add
 from tuto_moon import tuto_start
+from dead import dead_die
 
 
 from stop_event18 import _stop_please
@@ -3225,6 +3226,11 @@ class game_Playing(QThread):
                                 print("result_schedule", result_schedule)
                                 character_id = result_schedule[0][1]
                                 result_schedule_ = result_schedule[0][2]
+
+                                # 절전 파악
+
+                                # 죽었는지 파악
+                                dead_die(v_.now_cla, result_schedule_)
 
                                 # 오토 시작
                                 if result_schedule_ == "튜토육성":

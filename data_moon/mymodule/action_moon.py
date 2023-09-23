@@ -117,6 +117,103 @@ def moving(cla):
         print(e)
         return 0
 
+def clean_screen(cla):
+    import numpy as np
+    import cv2
+    from function_moon import imgs_set_, click_pos_reg, click_pos_2
+    from schedule import myQuest_play_add
+
+    try:
+        print("clean_screen")
+
+        cleaned = False
+        cleaned_count = 0
+        while cleaned is False:
+            cleaned_count += 1
+            if cleaned_count > 7:
+                cleaned = True
+
+            have_x = False
+
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\x_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(30, 30, 960, 1030, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                have_x = True
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\x_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(30, 30, 960, 1030, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                have_x = True
+
+            if have_x == True:
+                for i in range(10):
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\x_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(30, 30, 960, 1030, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\x_2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(30, 30, 960, 1030, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            break
+                    time.sleep(0.3)
+
+            else:
+
+                result_out = out_check(cla)
+                if result_out == True:
+                    cleaned = True
+                else:
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\x_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(100, 100, 960, 1030, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.1)
+
+
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
+
+def out_check(cla):
+    import numpy as np
+    import cv2
+    from function_moon import imgs_set_, click_pos_reg, click_pos_2
+    from schedule import myQuest_play_add
+
+    try:
+        print("out_check")
+
+        out = False
+
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\out_talk.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(5, 970, 50, 1030, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("out_talk", imgs_)
+            out = True
+
+
+
+        return out
+    except Exception as e:
+        print(e)
+        return 0
 
 
 def menu_open(cla):
@@ -142,6 +239,8 @@ def menu_open(cla):
             if imgs_ is not None and imgs_ != False:
                 opened = True
             else:
+                clean_screen(cla)
+                time.sleep(0.1)
                 click_pos_2(920, 60, cla)
                 for i in range(10):
                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\menu_character_select.PNG"

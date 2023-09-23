@@ -16,9 +16,12 @@ def dead_die(cla, sche):
     from function_moon import imgs_set_, click_pos_reg, click_pos_2
 
     from action_moon import loading
+    from get_item import get_items
+    from potion_moon import maul_potion_small_only
+    from schedule import myQuest_play_add
+    from repair_moon import repair_start
 
 
-    from tuto_moon import tuto_start
     try:
 
         dead = False
@@ -47,6 +50,18 @@ def dead_die(cla, sche):
                     if imgs_ is not None and imgs_ != False:
                         loading(cla)
                 time.sleep(0.5)
+
+        if dead == True:
+            if sche == "튜토육성":
+                get_items(cla)
+                repair_start(cla)
+                maul_potion_small_only(cla)
+
+                v_.tuto_dead += 1
+                if v_.tuto_dead > 4:
+                    myQuest_play_add(cla, sche)
+
+
     except Exception as e:
         print(e)
 

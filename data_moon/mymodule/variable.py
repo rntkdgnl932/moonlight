@@ -5,6 +5,8 @@ now_cla = 'none'
 now_arduino = "none"
 
 # 달빛조각사 관련
+# 튜토리얼 죽은 횟수
+tuto_dead = 0
 
 
 # 버젼

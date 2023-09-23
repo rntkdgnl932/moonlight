@@ -38,11 +38,48 @@ def tuto_click(cla):
     import numpy as np
     import cv2
 
-    from function_moon import click_pos_reg, click_pos_2, imgs_set_, mouse_move_cpp
+    from function_moon import click_pos_reg, click_pos_2, imgs_set_, mouse_move_cpp, drag_pos_reg
     try:
         print("tuto_click", cla)
 
         tuto_skip(cla)
+
+        # 최초 드래그해서 위로 끌어 올리기
+
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(850, 100, 900, 450, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("tuto_click1", imgs_)
+
+            drag_pos_reg(imgs_.x, imgs_.y, imgs_.x, imgs_.y + 350, cla)
+        else:
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(850, 100, 900, 450, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("tuto_click2", imgs_)
+                drag_pos_reg(imgs_.x, imgs_.y, imgs_.x, imgs_.y + 350, cla)
+            else:
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click3.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(850, 100, 900, 450, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("tuto_click3", imgs_)
+                    drag_pos_reg(imgs_.x, imgs_.y, imgs_.x, imgs_.y + 350, cla)
+                else:
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click4.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(850, 100, 900, 450, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("tuto_click4", imgs_)
+                        drag_pos_reg(imgs_.x, imgs_.y, imgs_.x, imgs_.y + 350, cla)
+
+        time.sleep(0.5)
 
 
         q_click = False
@@ -82,6 +119,15 @@ def tuto_click(cla):
                         print("tuto_click3", imgs_)
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         q_click = True
+                    else:
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click4.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(850, 100, 900, 150, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("tuto_click4", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            q_click = True
 
         mouse_move_cpp(500, 500, cla)
         if q_click == True:
@@ -336,3 +382,4 @@ def tuto_skip(cla):
     except Exception as e:
         print(e)
         return 0
+
