@@ -348,6 +348,15 @@ def tuto_tutorial(cla):
             print("hyungsang_out_click2", imgs_)
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
+        # 설득하기
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tutorial\\talking_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(500, 400, 800, 520, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("talking_1", imgs_)
+            click_pos_2(470, 530, cla)
+
     except Exception as e:
         print(e)
         return 0
