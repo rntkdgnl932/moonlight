@@ -38,6 +38,8 @@ def tuto_click(cla):
     import numpy as np
     import cv2
 
+    from repair_moon import my_stat_up
+
     from function_moon import click_pos_reg, click_pos_2, imgs_set_, mouse_move_cpp, drag_pos_reg
     try:
         print("tuto_click", cla)
@@ -92,6 +94,7 @@ def tuto_click(cla):
         if imgs_ is not None and imgs_ != False:
             print("q_clear_1", imgs_)
             click_pos_reg(imgs_.x, imgs_.y, cla)
+            my_stat_up(cla)
         else:
             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -369,12 +372,12 @@ def tuto_skip(cla):
         if imgs_ is not None and imgs_ != False:
             print("skip_1", imgs_)
             click_pos_reg(imgs_.x, imgs_.y, cla)
-        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\skip_1.PNG"
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\skip_2.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(0, 30, 950, 800, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            print("skip_1...", imgs_)
+            print("skip_2...", imgs_)
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
         confirm_all(cla)
