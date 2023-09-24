@@ -40,7 +40,7 @@ def tuto_click(cla):
 
     from repair_moon import my_stat_up
 
-    from function_moon import click_pos_reg, click_pos_2, imgs_set_, mouse_move_cpp, drag_pos_reg
+    from function_moon import click_pos_reg, click_pos_2, imgs_set_, mouse_move_cpp, drag_pos_reg, drag_pos
     try:
         print("tuto_click", cla)
 
@@ -81,7 +81,7 @@ def tuto_click(cla):
                         print("tuto_click4", imgs_)
                         drag_pos_reg(imgs_.x, imgs_.y, imgs_.x, imgs_.y + 350, cla)
                     else:
-                        drag_pos_reg(800, 120, 800, 120 + 350, cla)
+                        drag_pos(800, 120, 800, 120 + 350, cla)
 
         time.sleep(0.5)
 
