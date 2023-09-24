@@ -264,7 +264,7 @@ def map_spot_in_region(cla, sche):
 
         y_plus = 0
 
-        if result_spot[2] = "바란" or result_spot[2] = "세라보그외곽":
+        if result_spot[2] == "바란" or result_spot[2] == "세라보그외곽":
             y_plus = 100
 
         result_random_num = 0
