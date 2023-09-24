@@ -60,6 +60,10 @@ def dead_die(cla, sche):
                 v_.tuto_dead += 1
                 if v_.tuto_dead > 1:
                     myQuest_play_add(cla, sche)
+            else:
+                get_items(cla)
+                repair_start(cla)
+                maul_potion_small_only(cla)
 
         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\exp_recovery.PNG"
         img_array = np.fromfile(full_path, np.uint8)

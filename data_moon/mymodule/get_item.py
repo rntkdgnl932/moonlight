@@ -526,7 +526,7 @@ def get_upjuk(cla):
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         break
-                    time.sleep(0.3)
+                    time.sleep(0.2)
 
                 click_pos_2(875, 1015, cla)
 
@@ -545,6 +545,7 @@ def get_upjuk(cla):
                         else:
                             click_pos_2(935, 55, cla)
                     else:
+                        get = True
                         break
                     time.sleep(0.4)
 
