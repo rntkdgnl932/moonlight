@@ -44,6 +44,7 @@ from massenger import line_monitor, line_to_me
 from schedule import myQuest_play_check, myQuest_play_add
 from tuto_moon import tuto_start
 from dead import dead_die
+from jadong_moon import jadong_start
 
 
 from stop_event18 import _stop_please
@@ -985,47 +986,43 @@ class FirstTab(QWidget):
 
         # 사냥터
         dir_path = "C:\\my_games\\moonlight\\data_moon"
-        file_path1 = dir_path + "\\jadong\\ares_elia.txt"
-        file_path2 = dir_path + "\\jadong\\ares_loona.txt"
-        file_path3 = dir_path + "\\jadong\\ares_jalis.txt"
-        file_path4 = dir_path + "\\jadong\\ares_ocooloos.txt"
+        file_path1 = dir_path + "\\jadong\\moon_serabog.txt"
+        file_path2 = dir_path + "\\jadong\\moon_baran.txt"
+        file_path3 = dir_path + "\\jadong\\moon_countryregion.txt"
+        file_path4 = dir_path + "\\jadong\\moon_yourokina.txt"
 
         if os.path.isfile(file_path1) == True:
             with open(file_path1, "r", encoding='utf-8-sig') as file:
-                read_elia = file.read().splitlines()
+                read_serabog = file.read().splitlines()
                 list5 = []
-                for i in range(len(read_elia)):
-                    read_ready = read_elia[i].split("/")
-                    read_result = read_ready[2] + "/" + read_ready[0]
-                    list5.append(read_result)
-                list5.insert(0, "< 엘리아 >")
+                for i in range(len(read_serabog)):
+                    read_ready = read_serabog[i].split("_")
+                    list5.append(read_ready[0])
+                list5.insert(0, "< 세라보그 >")
 
             with open(file_path2, "r", encoding='utf-8-sig') as file:
-                read_loona = file.read().splitlines()
+                read_baran = file.read().splitlines()
                 list55 = []
-                for i in range(len(read_loona)):
-                    read_2_ready = read_loona[i].split("/")
-                    read_2_result = read_2_ready[2] + "/" + read_2_ready[0]
-                    list55.append(read_2_result)
-                list55.insert(0, "< 루나 >")
+                for i in range(len(read_baran)):
+                    read_2_ready = read_baran[i].split("_")
+                    list55.append(read_2_ready[0])
+                list55.insert(0, "< 바란 >")
 
             with open(file_path3, "r", encoding='utf-8-sig') as file:
-                read_jalis = file.read().splitlines()
+                read_countryregioon = file.read().splitlines()
                 list555 = []
-                for i in range(len(read_jalis)):
-                    read_2_ready = read_jalis[i].split("/")
-                    read_2_result = read_2_ready[2] + "/" + read_2_ready[0]
-                    list555.append(read_2_result)
-                list555.insert(0, "< 자리스 >")
+                for i in range(len(read_countryregioon)):
+                    read_2_ready = read_countryregioon[i].split("_")
+                    list555.append(read_2_ready[0])
+                list555.insert(0, "< 국경지대 >")
 
             with open(file_path4, "r", encoding='utf-8-sig') as file:
-                read_ocooloos = file.read().splitlines()
+                read_yourokina = file.read().splitlines()
                 list5555 = []
-                for i in range(len(read_ocooloos)):
-                    read_2_ready = read_ocooloos[i].split("/")
-                    read_2_result = read_2_ready[2] + "/" + read_2_ready[0]
-                    list5555.append(read_2_result)
-                list5555.insert(0, "< 오쿨루스 >")
+                for i in range(len(read_yourokina)):
+                    read_2_ready = read_yourokina[i].split("_")
+                    list5555.append(read_2_ready[0])
+                list5555.insert(0, "< 유로키나산맥 >")
 
             # with open(file_path3, "r", encoding='utf-8-sig') as file:
             #     read_1 = file.read()
@@ -1040,25 +1037,25 @@ class FirstTab(QWidget):
         cb5 = QComboBox()
         #list5 = ['자동 사냥터 선택1', '사냥_콜리아 삼거리', '사냥_마른땅 벌목지', '사냥_실바인 진흙탕', '사냥_실바인 저수지']
         cb5.addItems(list5)
-        jadong1 = QPushButton('엘리아 추가')
+        jadong1 = QPushButton('세라보그 추가')
         jadong1.clicked.connect(self.onActivated_hunt_add)
 
         cb55 = QComboBox()
         #list55 = ['자동 사냥터 선택2', '사냥_콜리아 삼거리', '사냥_마른땅 벌목지', '사냥_실바인 진흙탕', '사냥_실바인 저수지']
         cb55.addItems(list55)
-        jadong2 = QPushButton('루나 추가')
+        jadong2 = QPushButton('바란 추가')
         jadong2.clicked.connect(self.onActivated_hunt_add_2)
 
         cb555 = QComboBox()
         #list555 = ['자동 사냥터 선택3', '사냥_콜리아 삼거리', '사냥_마른땅 벌목지', '사냥_실바인 진흙탕', '사냥_실바인 저수지']
         cb555.addItems(list555)
-        jadong3 = QPushButton('자리스 추가')
+        jadong3 = QPushButton('국경지대 추가')
         jadong3.clicked.connect(self.onActivated_hunt_add_3)
 
         cb5555 = QComboBox()
         # list555 = ['자동 사냥터 선택3', '사냥_콜리아 삼거리', '사냥_마른땅 벌목지', '사냥_실바인 진흙탕', '사냥_실바인 저수지']
         cb5555.addItems(list5555)
-        jadong4 = QPushButton('오쿨루스 추가')
+        jadong4 = QPushButton('유로키나산맥 추가')
         jadong4.clicked.connect(self.onActivated_hunt_add_4)
 
 
@@ -1551,40 +1548,40 @@ class FirstTab(QWidget):
 
     def onActivated_hunt(self, text):
         global onHunt
-        if text != 0 and text != '< 엘리아 >':
+        if text != 0 and text != '< 세라보그 >':
             onHunt = text
             print('onHunt', onHunt)
         else:
             onHunt = 'none'
-            pyautogui.alert(button='넵', text='사냥터를 선택해 주시지예', title='엘리아')
+            pyautogui.alert(button='넵', text='사냥터를 선택해 주시지예', title='세라보그')
             print("자동 사냥터를 선택해 주세요.")
     def onActivated_hunt2(self, text):
         global onHunt2
-        if text != 0 and text != '< 루나 >':
+        if text != 0 and text != '< 바란 >':
             onHunt2 = text
             print('onHunt2', onHunt2)
         else:
             onHunt2 = 'none'
-            pyautogui.alert(button='넵', text='사냥터를 선택해 주시지예', title='루나')
+            pyautogui.alert(button='넵', text='사냥터를 선택해 주시지예', title='바란')
             print("자동 사냥터를 선택해 주세요.")
     def onActivated_hunt3(self, text):
         global onHunt3
-        if text != 0 and text != '< 자리스 >':
+        if text != 0 and text != '< 국경지대 >':
             onHunt3 = text
             print('onHunt3', onHunt3)
         else:
             onHunt3 = 'none'
-            pyautogui.alert(button='넵', text='사냥터를 선택해 주시지예', title='자리스')
+            pyautogui.alert(button='넵', text='사냥터를 선택해 주시지예', title='국경지대')
             print("자동 사냥터를 선택해 주세요.")
 
     def onActivated_hunt4(self, text):
         global onHunt4
-        if text != 0 and text != '< 오쿨루스 >':
+        if text != 0 and text != '< 유로키나산맥 >':
             onHunt4 = text
             print('onHunt4', onHunt4)
         else:
             onHunt4 = 'none'
-            pyautogui.alert(button='넵', text='사냥터를 선택해 주시지예', title='오쿨루스')
+            pyautogui.alert(button='넵', text='사냥터를 선택해 주시지예', title='유로키나산맥')
             print("자동 사냥터를 선택해 주세요.")
 
     def onActivated_maul(self, text):
@@ -1713,12 +1710,12 @@ class FirstTab(QWidget):
         global onCharacter, onHunt
         char_ = onCharacter
         # hun_ = onHunt
-        hun_ = "사냥/elia/" + onHunt
+        hun_ = "사냥/serabog/" + onHunt
         if onCharacter == 0:
             pyautogui.alert(button='넵', text='캐릭터를 선택해 주시지예', title='뭐합니꺼')
-        elif onHunt == '< 엘리아 >' or onHunt == 'none':
+        elif onHunt == '< 세라보그 >' or onHunt == 'none':
             pyautogui.alert(button='넵', text='던전을 선택해 주시지예', title='뭐합니꺼')
-        elif onCharacter != 0 and onHunt != '< 엘리아 >':
+        elif onCharacter != 0 and onHunt != '< 세라보그 >':
             print('char_', char_)
             print('dun_', hun_)
 
@@ -1734,12 +1731,12 @@ class FirstTab(QWidget):
         global onCharacter, onHunt2
         char_ = onCharacter
         # hun_ = onHunt2
-        hun_ = "사냥/loona/" + onHunt2
+        hun_ = "사냥/baran/" + onHunt2
         if onCharacter == 0:
             pyautogui.alert(button='넵', text='캐릭터를 선택해 주시지예', title='뭐합니꺼')
-        elif onHunt2 == '< 루나 >' or onHunt2 == 'none':
+        elif onHunt2 == '< 바란 >' or onHunt2 == 'none':
             pyautogui.alert(button='넵', text='던전을 선택해 주시지예', title='뭐합니꺼')
-        elif onCharacter != 0 and onHunt2 != '< 루나 >':
+        elif onCharacter != 0 and onHunt2 != '< 바란 >':
             print('char_', char_)
             print('dun_', hun_)
 
@@ -1755,12 +1752,12 @@ class FirstTab(QWidget):
         global onCharacter, onHunt3
         char_ = onCharacter
         # hun_ = "사냥_" + "첼라노_" + onHunt3
-        hun_ = "사냥/jalis/" + onHunt3
+        hun_ = "사냥/countryregioon/" + onHunt3
         if onCharacter == 0:
             pyautogui.alert(button='넵', text='캐릭터를 선택해 주시지예', title='뭐합니꺼')
-        elif onHunt3 == '< 자리스 >' or onHunt3 == 'none':
+        elif onHunt3 == '< 국경지대 >' or onHunt3 == 'none':
             pyautogui.alert(button='넵', text='던전을 선택해 주시지예', title='뭐합니꺼')
-        elif onCharacter != 0 and onHunt3 != '< 자리스 >':
+        elif onCharacter != 0 and onHunt3 != '< 국경지대 >':
             print('char_', char_)
             print('dun_', hun_)
 
@@ -1776,12 +1773,12 @@ class FirstTab(QWidget):
     def onActivated_hunt_add_4(self):
         global onCharacter, onHunt4
         char_ = onCharacter
-        hun_ = "사냥/ocooloos/" + onHunt4
+        hun_ = "사냥/yourokina/" + onHunt4
         if onCharacter == 0:
             pyautogui.alert(button='넵', text='캐릭터를 선택해 주시지예', title='뭐합니꺼')
-        elif onHunt4 == '< 오쿨루스 >' or onHunt4 == 'none':
+        elif onHunt4 == '< 유로키나산맥 >' or onHunt4 == 'none':
             pyautogui.alert(button='넵', text='던전을 선택해 주시지예', title='뭐합니꺼')
-        elif onCharacter != 0 and onHunt4 != '< 오쿨루스 >':
+        elif onCharacter != 0 and onHunt4 != '< 유로키나산맥 >':
             print('char_', char_)
             print('dun_', hun_)
 
@@ -2651,19 +2648,19 @@ class FirstTab(QWidget):
                             if j < 3:
                                 reset_schedule_ += complete_[j] + ":"
                             if j == 3:
-
-                                if '_' in complete_[2]:
-                                    dunjeon_spl_ = complete_[2].split("_")
-                                    print("dunjeon_spl_[0]", dunjeon_spl_[0])
-                                    print("dunjeon_spl_[1]", dunjeon_spl_[1])
-
-                                    # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
-                                    if dunjeon_spl_[1] == "신전":
-                                        reset_schedule_ += complete_[j] + ":"
-                                    else:
-                                        reset_schedule_ += '대기중:'
-                                else:
-                                    reset_schedule_ += '대기중:'
+                                reset_schedule_ += '대기중:'
+                                # if '_' in complete_[2]:
+                                #     dunjeon_spl_ = complete_[2].split("_")
+                                #     print("dunjeon_spl_[0]", dunjeon_spl_[0])
+                                #     print("dunjeon_spl_[1]", dunjeon_spl_[1])
+                                #
+                                #     # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                #     if dunjeon_spl_[1] == "신전":
+                                #         reset_schedule_ += complete_[j] + ":"
+                                #     else:
+                                #         reset_schedule_ += '대기중:'
+                                # else:
+                                #     reset_schedule_ += '대기중:'
 
                                 # if complete_[2] == "지하감옥":
                                 #     reset_schedule_ += complete_[j] + ":"
@@ -2672,19 +2669,19 @@ class FirstTab(QWidget):
                             if 3 < j < 7:
                                 reset_schedule_ += complete_[j] + ":"
                             if j == 7:
-
-                                if '_' in complete_[6]:
-                                    dunjeon_spl_ = complete_[6].split("_")
-                                    print("dunjeon_spl_[0]", dunjeon_spl_[0])
-                                    print("dunjeon_spl_[1]", dunjeon_spl_[1])
-
-                                    # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
-                                    if dunjeon_spl_[1] == "신전":
-                                        reset_schedule_ += complete_[j] + "\n"
-                                    else:
-                                        reset_schedule_ += "대기중\n"
-                                else:
-                                    reset_schedule_ += "대기중\n"
+                                reset_schedule_ += "대기중\n"
+                                # if '_' in complete_[6]:
+                                #     dunjeon_spl_ = complete_[6].split("_")
+                                #     print("dunjeon_spl_[0]", dunjeon_spl_[0])
+                                #     print("dunjeon_spl_[1]", dunjeon_spl_[1])
+                                #
+                                #     # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                #     if dunjeon_spl_[1] == "신전":
+                                #         reset_schedule_ += complete_[j] + "\n"
+                                #     else:
+                                #         reset_schedule_ += "대기중\n"
+                                # else:
+                                #     reset_schedule_ += "대기중\n"
 
                                 # if complete_[6] == "지하감옥":
                                 #     reset_schedule_ += complete_[j] + "\n"
@@ -2739,45 +2736,12 @@ class FirstTab(QWidget):
                         if j < 3:
                             reset_schedule_ += complete_[j] + ":"
                         if j == 3:
-
-                            if '_' in complete_[2]:
-                                dunjeon_spl_ = complete_[2].split("_")
-                                print("dunjeon_spl_[0]", dunjeon_spl_[0])
-                                print("dunjeon_spl_[1]", dunjeon_spl_[1])
-
-                                # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
-                                if dunjeon_spl_[1] == "신전":
-                                    reset_schedule_ += complete_[j] + ":"
-                                else:
-                                    reset_schedule_ += '대기중:'
-                            else:
-                                reset_schedule_ += '대기중:'
-
-                            # if complete_[2] == "지하감옥":
-                            #     reset_schedule_ += complete_[j] + ":"
-                            # else:
-                            #     reset_schedule_ += '대기중:'
+                            reset_schedule_ += '대기중:'
                         if 3 < j < 7:
                             reset_schedule_ += complete_[j] + ":"
                         if j == 7:
 
-                            if '_' in complete_[6]:
-                                dunjeon_spl_ = complete_[6].split("_")
-                                print("dunjeon_spl_[0]", dunjeon_spl_[0])
-                                print("dunjeon_spl_[1]", dunjeon_spl_[1])
-
-                                # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
-                                if dunjeon_spl_[1] == "신전":
-                                    reset_schedule_ += complete_[j] + "\n"
-                                else:
-                                    reset_schedule_ += "대기중\n"
-                            else:
-                                reset_schedule_ += "대기중\n"
-
-                            # if complete_[6] == "지하감옥":
-                            #     reset_schedule_ += complete_[j] + "\n"
-                            # else:
-                            #     reset_schedule_ += "대기중\n"
+                            reset_schedule_ += '대기중\n'
 
                 print('reset_schedule_', reset_schedule_)
                 # with open(file_path, "w", encoding='utf-8-sig') as file:
@@ -3235,6 +3199,10 @@ class game_Playing(QThread):
                                 # 오토 시작
                                 if result_schedule_ == "튜토육성":
                                     tuto_start(v_.now_cla)
+
+                                elif "사냥" in result_schedule_:
+                                    jadong_start(v_.now_cla, result_schedule_)
+
 
 
 

@@ -60,7 +60,7 @@ def loading(cla):
                     loaded_counting += 1
                     if loaded_counting > 3:
                         loaded = True
-            time.sleep(0.7)
+            time.sleep(0.5)
 
 
 
@@ -80,11 +80,13 @@ def moving(cla):
 
         moved = False
         moved_count = 0
+        moved_count_msg = 0
 
         moved_counting = 0
 
         while moved is False:
             moved_count += 1
+            moved_count_msg += 1
             if moved_count > 7:
                 moved = True
 
@@ -93,9 +95,11 @@ def moving(cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(250, 820, 650, 1040, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
-                print("move_1", imgs_)
+                if moved_count_msg < 4:
+                    print("move_1", imgs_)
                 moved_count = 0
                 moved_counting = 0
+
                 # 이동하기
                 full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\confirm\\move.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -109,7 +113,7 @@ def moving(cla):
                 if moved_counting > 3:
                     moved = True
 
-            time.sleep(0.7)
+            time.sleep(0.5)
 
 
 
@@ -256,6 +260,84 @@ def menu_open(cla):
         print(e)
         return 0
 
+def attack_check_and_attack(cla):
+    import numpy as np
+    import cv2
+    from function_moon import imgs_set_, click_pos_reg, click_pos_2
+    from schedule import myQuest_play_add
+
+    try:
+        print("attack_check_and_attack")
+
+        attack = False
+        attack_count = 0
+        while attack is False:
+            attack_count += 1
+            if attack_count > 7:
+                attack = True
+
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\auto_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(890, 860, 960, 920, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                attack = True
+            else:
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\auto_2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(890, 860, 960, 920, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    attack = True
+                else:
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\auto_3.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(890, 860, 960, 920, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        attack = True
+
+            if attack == False:
+
+                clean_screen(cla)
+                time.sleep(0.1)
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\ready_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(890, 860, 960, 920, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    attack = True
+                else:
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\ready_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(890, 860, 960, 920, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        attack = True
+                    else:
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\ready_3.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(890, 860, 960, 920, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            attack = True
+                        else:
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\ready_4.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(890, 860, 960, 920, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                attack = True
+
+
+
+    except Exception as e:
+        print(e)
+        return 0
 
 def confirm_all(cla):
     import numpy as np
@@ -317,6 +399,14 @@ def confirm_all(cla):
         imgs_ = imgs_set_(300, 500, 700, 800, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             print("exit_1", imgs_)
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+        # 자동사냥 이동
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\move_confirm.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(450, 560, 630, 630, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
 

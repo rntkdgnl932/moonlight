@@ -234,6 +234,16 @@ def budy_sohwan(cla):
 
                         for i in range(10):
 
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\repair\\full.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(520, 630, 620, 680, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.1)
+                                click_pos_2(550, 700, cla)
+                                time.sleep(0.1)
+
                             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\repair\\confirm_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -392,6 +402,16 @@ def hyungsang_sohwan(cla):
                             time.sleep(0.3)
 
                         for i in range(10):
+
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\repair\\full.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(520, 630, 620, 680, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.1)
+                                click_pos_2(550, 700, cla)
+                                time.sleep(0.1)
 
                             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\repair\\confirm_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
