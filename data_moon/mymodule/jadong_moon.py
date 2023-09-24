@@ -14,6 +14,7 @@ def jadong_start(cla, sche):
     from function_moon import imgs_set_
 
     from action_moon import attack_check_and_attack
+    from potion_moon import potion_check
 
 
     try:
@@ -48,6 +49,7 @@ def jadong_start(cla, sche):
         if imgs_ is not None and imgs_ != False:
             print("자동사냥중")
             attack_check_and_attack(cla)
+            potion_check(cla)
         # 전투중(해당맵에 있는지 파악후 공격중인지 파악하기, 물약 파악하기)
         else:
             # 전투중 아닐때
@@ -260,13 +262,18 @@ def map_spot_in_region(cla, sche):
         if cla == "four":
             plus = 960 * 3
 
+        y_plus = 0
+
+        if result_spot[2] = "바란" or result_spot[2] = "세라보그외곽":
+            y_plus = 100
+
         result_random_num = 0
         contect_random_num = 0
 
         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\teleport_click.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        for i in pyautogui.locateAllOnScreen(img, region=(10 + plus, 100, 530, 400),
+        for i in pyautogui.locateAllOnScreen(img, region=(10 + plus, 100 + y_plus, 530, 400),
                                              confidence=0.8):
             result_random_num += 1
             last_x = i.left
@@ -282,7 +289,7 @@ def map_spot_in_region(cla, sche):
         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\teleport_click.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        for i in pyautogui.locateAllOnScreen(img, region=(10 + plus, 100, 530, 400),
+        for i in pyautogui.locateAllOnScreen(img, region=(10 + plus, 100 + y_plus, 530, 400),
                                              confidence=0.8):
             contect_random_num += 1
             last_x = i.left

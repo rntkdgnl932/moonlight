@@ -7,6 +7,53 @@ sys.path.append('C:/my_games/moonlight/data_moon/mymodule')
 
 import variable as v_
 
+
+def potion_check(cla):
+    import numpy as np
+    import cv2
+    import pyautogui
+    import random
+
+    from function_moon import imgs_set_, click_pos_reg, click_pos_2
+
+    from action_moon import loading, clean_screen, out_check
+    from get_item import get_items
+    from repair_moon import my_stat_up
+
+
+    try:
+        print("potion check")
+        not_potion = False
+
+
+        result_out = out_check(cla)
+        if result_out == True:
+
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\no_potion_small.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(410, 970, 480, 1040, cla, img, 0.93)
+            if imgs_ is not None and imgs_ != False:
+                print("small potion", imgs_)
+                not_potion = True
+
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\no_potion_middle.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(410, 970, 480, 1040, cla, img, 0.93)
+            if imgs_ is not None and imgs_ != False:
+                print("middle potion", imgs_)
+                not_potion = True
+
+        if not_potion == True:
+            v_.need_potion += 1
+            if v_.need_potion > 3:
+                maul_potion_small_only(cla)
+
+    except Exception as e:
+        print(e)
+
+
 def maul_potion_small_only(cla):
     import numpy as np
     import cv2
@@ -88,9 +135,9 @@ def maul_potion_small_only(cla):
                 imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     buy = True
-                    click_pos_2(350, 670, cla)
+                    click_pos_2(480, 670, cla)
                     time.sleep(0.1)
-                    click_pos_2(350, 670, cla)
+                    click_pos_2(480, 670, cla)
                     time.sleep(0.1)
                     click_pos_2(545, 735, cla)
                     time.sleep(0.1)
@@ -109,12 +156,19 @@ def maul_potion_small_only(cla):
                         if imgs_ is not None and imgs_ != False:
                             break
                         else:
-                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\small_potion_click.PNG"
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\middle_buy.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(50, 120, 100, 170, cla, img, 0.8)
+                            imgs_ = imgs_set_(50, 200, 120, 260, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\small_potion_click.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(50, 120, 100, 170, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.2)
         # 나가기
         for i in range(10):

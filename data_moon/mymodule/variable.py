@@ -7,6 +7,8 @@ now_arduino = "none"
 # 달빛조각사 관련
 # 튜토리얼 죽은 횟수
 tuto_dead = 0
+# 물약 카운터
+need_potion = 0
 
 
 # 버젼

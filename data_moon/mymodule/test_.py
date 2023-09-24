@@ -35,7 +35,26 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    attack_check_and_attack(cla)
+    maul_potion_small_only(cla)
+
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\no_potion_small.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(410, 970, 480, 1040, cla, img, 0.93)
+    if imgs_ is not None and imgs_ != False:
+        print("small potion", imgs_)
+    else:
+        print("nonono small")
+
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\no_potion_middle.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(410, 970, 480, 1040, cla, img, 0.93)
+    if imgs_ is not None and imgs_ != False:
+        print("middle potion", imgs_)
+    else:
+        print("nonono middle")
+
 
     # for i in range(4):
     #     pyautogui.moveTo(600, 660 , 0.2)

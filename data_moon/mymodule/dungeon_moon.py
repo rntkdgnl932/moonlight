@@ -15,6 +15,7 @@ def dungeon_start(cla, sche):
 
     from action_moon import attack_check_and_attack
     from schedule import myQuest_play_add
+    from potion_moon import potion_check
 
 
     try:
@@ -50,6 +51,8 @@ def dungeon_start(cla, sche):
 
         if d_in_ == True:
             print("던전 돌고 있는 중")
+            attack_check_and_attack(cla)
+            potion_check(cla)
         else:
             complete = dungeon_in(cla, sche)
 
