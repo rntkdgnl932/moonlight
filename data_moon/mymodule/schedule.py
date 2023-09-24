@@ -144,10 +144,7 @@ def myQuest_play_check(cla, data):
                                 file.write(reset_schedule_)
                 refresh_ = True
                 # 초기화 할때 변경해야할 전역 변수
-                v_.gardiun_juljun_count = 0
-                v_.dark_demen_count = 0
-                # v_.penetra = False
-                # v_.gorgon = False
+                v_.tuto_dead = 0
 
 
         else:
@@ -542,10 +539,7 @@ def myQuest_play_add(cla, data):
 
 
             # 초기화 할때 변경해야할 전역 변수
-            v_.gardiun_juljun_count = 0
-            v_.dark_demen_count = 0
-            # v_.penetra = False
-            # v_.gorgon = False
+            v_.tuto_dead = 0
 
 
         add_result = 'check'

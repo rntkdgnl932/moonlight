@@ -47,6 +47,12 @@ def go_test():
     # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
     # imgs_ = imgs_set_(650, 450, 900, 770, cla, img, 0.87)
     # if imgs_ is not None and imgs_ != False:
+
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\bosang_get_2.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(650, 450, 900, 770, cla, img, 0.87)
+    # if imgs_ is not None and imgs_ != False:
     #     print("bosang_get_2", imgs_)
     #
     # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\bosang_get_3.PNG"
