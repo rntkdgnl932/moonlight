@@ -48,6 +48,10 @@ def tuto_click(cla):
 
         # 최초 드래그해서 위로 끌어 올리기
 
+        # 일시적인 오류로 클릭하기
+        click_pos_2(480, 555, cla)
+        time.sleep(0.1)
+
         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
