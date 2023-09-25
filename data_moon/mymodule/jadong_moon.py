@@ -47,9 +47,18 @@ def jadong_start(cla, sche):
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(50, 110, 160, 160, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            print("자동사냥중")
-            attack_check_and_attack(cla)
-            potion_check(cla)
+
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\maul\\chango.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(800, 970, 920, 1040, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("마을이다. 사냥터로 이동하자")
+                jadong_spot_in(cla, sche)
+            else:
+                print("자동사냥중")
+                attack_check_and_attack(cla)
+                potion_check(cla)
         # 전투중(해당맵에 있는지 파악후 공격중인지 파악하기, 물약 파악하기)
         else:
             # 전투중 아닐때

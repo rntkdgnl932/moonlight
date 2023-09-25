@@ -35,13 +35,39 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\repair\\jangchak\\jangchack.PNG"
+    y_plus = 100
+
+    result_random_num = 0
+    contect_random_num = 0
+
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\teleport_click.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(820, 760, 930, 840, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("realtime : jangchak", imgs_)
-        click_pos_reg(imgs_.x, imgs_.y, cla)
+    for i in pyautogui.locateAllOnScreen(img, region=(10 + plus, 100 + y_plus, 530, 400),
+                                         confidence=0.8):
+        result_random_num += 1
+        last_x = i.left
+        last_y = i.top
+        # print(result_random_num, "=> last_x : ", last_x, ", last_y :", last_y)
+
+    # print(result_random_num)
+
+    result = random.randint(1, result_random_num)
+
+    print("result", result)
+
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\teleport_click.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    for i in pyautogui.locateAllOnScreen(img, region=(10 + plus, 100 + y_plus, 530, 400),
+                                         confidence=0.8):
+        contect_random_num += 1
+        last_x = i.left
+        last_y = i.top
+        if result == contect_random_num:
+            break
+
+    print("last_x : ", last_x, ", last_y :", last_y)
 
 
     # for i in range(4):
