@@ -118,6 +118,16 @@ def get_event(cla):
     from action_moon import clean_screen
     try:
         print("get_event")
+
+        if cla == "one":
+            plus = 0
+        elif cla == "two":
+            plus = 960
+        elif cla == "three":
+            plus = 960 * 2
+        elif cla == "four":
+            plus = 960 * 3
+
         get = False
         get_count = 0
 
@@ -273,11 +283,11 @@ def get_event(cla):
 
                                         if drag_count < 11:
                                             mouse_move_cpp(600, 660, cla)
-                                            pyautogui.dragTo(600, 500, 0.5)
+                                            pyautogui.dragTo(600 + plus, 500, 0.5)
                                             time.sleep(0.2)
                                         else:
                                             mouse_move_cpp(600, 500, cla)
-                                            pyautogui.dragTo(600, 660, 0.5)
+                                            pyautogui.dragTo(600 + plus, 660, 0.5)
                                             time.sleep(0.2)
                                     else:
                                         drag = False
@@ -320,11 +330,11 @@ def get_event(cla):
 
                                             if drag_count < 8:
                                                 mouse_move_cpp(600, 660, cla)
-                                                pyautogui.dragTo(600, 500, 0.5)
+                                                pyautogui.dragTo(600 + plus, 500, 0.5)
                                                 time.sleep(0.2)
                                             else:
                                                 mouse_move_cpp(600, 500, cla)
-                                                pyautogui.dragTo(600, 660, 0.5)
+                                                pyautogui.dragTo(600 + plus, 660, 0.5)
                                                 time.sleep(0.2)
                                         else:
                                             drag = False

@@ -36,19 +36,14 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\region_information.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(560, 950, 620, 1000, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("region_information", imgs_)
+    mouse_move_cpp(600, 500, cla)
+    pyautogui.dragTo(600 + plus, 660, 0.5)
 
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\region_information2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(560, 950, 620, 1000, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("region_information2", imgs_)
+    time.sleep(0.5)
+
+    mouse_move_cpp(600, 500, cla)
+    pyautogui.dragTo(600 , 660, 0.5)
+
     # for i in range(4):
     #     pyautogui.moveTo(600, 660 , 0.2)
     #     pyautogui.dragTo(600, 500 , 0.5)
