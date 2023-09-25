@@ -49,6 +49,7 @@ from dungeon_moon import dungeon_start
 from temporary_event import temporary_event_start
 from repair_moon import repair_start
 from get_item import get_items
+from potion_moon import maul_potion_small_only
 
 
 from stop_event18 import _stop_please
@@ -3193,6 +3194,7 @@ class game_Playing(QThread):
 
                                     repair_start(v_.now_cla)
                                     get_items(v_.now_cla)
+                                    maul_potion_small_only(v_.now_cla)
                                     myQuest_play_add(v_.now_cla, result_schedule_)
 
                                 elif "사냥" in result_schedule_:
