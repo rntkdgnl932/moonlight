@@ -218,12 +218,25 @@ def budy_sohwan(cla):
                 not_have_skillbook = 0
 
                 for s in range(10):
+
+                    budy_open = False
+
                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\repair\\budy_1.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(620, 120, 960, 900, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
+                        budy_open = True
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\repair\\budy_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(620, 120, 960, 900, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        budy_open = True
+
+                    if budy_open == True:
                         for i in range(10):
                             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\repair\\open.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
