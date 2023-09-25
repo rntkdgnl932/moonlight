@@ -97,7 +97,7 @@ def moving(cla):
             if imgs_ is not None and imgs_ != False:
                 if moved_count_msg < 4:
                     print("move_1", imgs_)
-                elif moved_count_msg > 200:
+                elif moved_count_msg > 201:
                     moved = True
                 moved_count = 0
                 moved_counting = 0
