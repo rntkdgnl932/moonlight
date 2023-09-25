@@ -146,6 +146,17 @@ def clean_screen(cla):
             if cleaned_count > 7:
                 cleaned = True
 
+
+            # 절전모드 끄기
+
+            # 던전 입장 표시 끄기
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\cancle.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(220, 470, 700, 900, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+
             have_x = False
 
             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\x_1.PNG"
