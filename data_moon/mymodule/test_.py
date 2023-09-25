@@ -35,25 +35,26 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    maul_potion_small_only(cla)
-
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\no_potion_small.PNG"
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\bosang_get_3.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(410, 970, 480, 1040, cla, img, 0.93)
+    imgs_ = imgs_set_(650, 450, 900, 770, cla, img, 0.9)
     if imgs_ is not None and imgs_ != False:
-        print("small potion", imgs_)
-    else:
-        print("nonono small")
+        print("bosang_get_3 90", imgs_)
 
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\no_potion_middle.PNG"
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\bosang_get_3.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(410, 970, 480, 1040, cla, img, 0.93)
+    imgs_ = imgs_set_(650, 450, 900, 770, cla, img, 0.92)
     if imgs_ is not None and imgs_ != False:
-        print("middle potion", imgs_)
-    else:
-        print("nonono middle")
+        print("bosang_get_3 92", imgs_)
+
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\bosang_get_3.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(650, 450, 900, 770, cla, img, 0.93)
+    if imgs_ is not None and imgs_ != False:
+        print("bosang_get_3 93", imgs_)
 
 
     # for i in range(4):
