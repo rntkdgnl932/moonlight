@@ -47,7 +47,7 @@ from dead import dead_die
 from jadong_moon import jadong_start
 from dungeon_moon import dungeon_start
 from temporary_event import temporary_event_start
-from repair_moon import repair_start
+from repair_moon import repair_start, realtime
 from get_item import get_items
 from potion_moon import maul_potion_small_only
 
@@ -3185,6 +3185,9 @@ class game_Playing(QThread):
 
                                 # 일시적인 이벤트(5000)
                                 temporary_event_start(v_.now_cla)
+
+                                # 지속적인 이벤트(5000)
+                                realtime(v_.now_cla)
 
                                 # 오토 시작
                                 if result_schedule_ == "튜토육성":

@@ -35,26 +35,13 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\bosang_get_3.PNG"
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\repair\\jangchak\\jangchack.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(650, 450, 900, 770, cla, img, 0.9)
+    imgs_ = imgs_set_(820, 760, 930, 840, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("bosang_get_3 90", imgs_)
-
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\bosang_get_3.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(650, 450, 900, 770, cla, img, 0.92)
-    if imgs_ is not None and imgs_ != False:
-        print("bosang_get_3 92", imgs_)
-
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\bosang_get_3.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(650, 450, 900, 770, cla, img, 0.93)
-    if imgs_ is not None and imgs_ != False:
-        print("bosang_get_3 93", imgs_)
+        print("realtime : jangchak", imgs_)
+        click_pos_reg(imgs_.x, imgs_.y, cla)
 
 
     # for i in range(4):
