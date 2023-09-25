@@ -74,22 +74,25 @@ def dead_die(cla, sche):
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
             for i in range(10):
-                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\exp_recovery_title.PNG"
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\anymore_exp_recovery.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(400, 320, 540, 380, cla, img, 0.8)
+                imgs_ = imgs_set_(390, 470, 570, 530, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    print("exp recovery title", imgs_)
-                    click_pos_2(470, 710, cla)
+                    print("anymore exp recovery", imgs_)
+                    clean_screen(cla)
+                    break
                 else:
-                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\anymore_exp_recovery.PNG"
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\exp_recovery_title.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(390, 470, 570, 530, cla, img, 0.8)
+                    imgs_ = imgs_set_(400, 320, 540, 380, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        print("anymore exp recovery", imgs_)
-                        clean_screen(cla)
-                        break
+                        print("exp recovery title", imgs_)
+                        click_pos_2(470, 710, cla)
+                time.sleep(0.3)
+
+
 
 
 

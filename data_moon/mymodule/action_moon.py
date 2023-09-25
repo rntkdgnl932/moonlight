@@ -106,8 +106,17 @@ def moving(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(450, 500, 700, 700, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    print("move", imgs_)
+                    print("move : move", imgs_)
                     click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
+                    # 던전 입장
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\confirm\\dun_in.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(500, 720, 580, 780, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("move : dun_in", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
             else:
                 moved_counting += 1
                 if moved_counting > 3:

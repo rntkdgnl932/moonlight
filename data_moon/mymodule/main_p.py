@@ -46,6 +46,9 @@ from tuto_moon import tuto_start
 from dead import dead_die
 from jadong_moon import jadong_start
 from dungeon_moon import dungeon_start
+from temporary_event import temporary_event_start
+from repair_moon import repair_start
+from get_item import get_items
 
 
 from stop_event18 import _stop_please
@@ -896,7 +899,7 @@ class FirstTab(QWidget):
         # 마을 의뢰
         self.com_group6 = QGroupBox('육성, 퀘스트, 각종템받기, 거래소등록하기')
         cb6 = QComboBox()
-        list6 = ['스케쥴 선택', '캐릭터바꾸기', '물약채우기', '튜토육성', '메인퀘스트']
+        list6 = ['스케쥴 선택', '캐릭터바꾸기', '각종템받기', '튜토육성']
         cb6.addItems(list6)
         vbox6 = QHBoxLayout()
         vbox6.addWidget(cb6)
@@ -3179,9 +3182,18 @@ class game_Playing(QThread):
                                 # 죽었는지 파악
                                 dead_die(v_.now_cla, result_schedule_)
 
+                                # 일시적인 이벤트(5000)
+                                temporary_event_start(v_.now_cla)
+
                                 # 오토 시작
                                 if result_schedule_ == "튜토육성":
                                     tuto_start(v_.now_cla)
+
+                                elif result_schedule_ == "각종템받기":
+
+                                    repair_start(v_.now_cla)
+                                    get_items(v_.now_cla)
+                                    myQuest_play_add(v_.now_cla, result_schedule_)
 
                                 elif "사냥" in result_schedule_:
                                     jadong_start(v_.now_cla, result_schedule_)
