@@ -90,7 +90,9 @@ def dead_die(cla, sche):
                     if imgs_ is not None and imgs_ != False:
                         print("exp recovery title : click_pos_2(470, 710, cla)", imgs_)
                         click_pos_2(470, 710, cla)
-                        time.sleep(0.1)
+                        if i > 8:
+                            clean_screen(cla)
+                            break
                 time.sleep(0.3)
 
 
