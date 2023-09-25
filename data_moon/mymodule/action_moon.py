@@ -365,7 +365,10 @@ def confirm_all(cla):
     import numpy as np
     import cv2
     from function_moon import imgs_set_, click_pos_reg, click_pos_2
-    from schedule import myQuest_play_add
+    from schedule import myQuest_play_add, myQuest_play_check
+    from get_item import get_items
+    from repair_moon import repair_start
+    from potion_moon import maul_potion_small_only
 
     try:
         print("confirm_all")
@@ -421,7 +424,38 @@ def confirm_all(cla):
         imgs_ = imgs_set_(300, 500, 700, 800, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             print("exit_1", imgs_)
-            click_pos_reg(imgs_.x, imgs_.y, cla)
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\failed.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(300, 300, 700, 800, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\confirm\\exit_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(300, 500, 700, 800, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                    result_schedule = myQuest_play_check(v_.now_cla, "check")
+                    print("confirm_all : result_schedule", result_schedule)
+                    character_id = result_schedule[0][1]
+                    sche = result_schedule[0][2]
+
+                    if sche == "튜토육성":
+                        get_items(cla)
+                        repair_start(cla)
+                        maul_potion_small_only(cla)
+
+                        v_.tuto_dead += 1
+                        if v_.tuto_dead > 1:
+                            myQuest_play_add(cla, sche)
+            else:
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\confirm\\exit_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(300, 500, 700, 800, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
 
         # 자동사냥 이동
         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\move_confirm.PNG"
