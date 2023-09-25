@@ -88,8 +88,9 @@ def dead_die(cla, sche):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(400, 320, 540, 380, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        print("exp recovery title", imgs_)
+                        print("exp recovery title : click_pos_2(470, 710, cla)", imgs_)
                         click_pos_2(470, 710, cla)
+                        time.sleep(0.1)
                 time.sleep(0.3)
 
 
