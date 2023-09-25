@@ -23,6 +23,36 @@ def dungeon_start(cla, sche):
 
         complete = False
 
+        d_in_ = dungeon_ing_check(cla)
+
+
+
+        if d_in_ == True:
+            print("던전 돌고 있는 중")
+            attack_check_and_attack(cla)
+            potion_check(cla)
+        else:
+            complete = dungeon_in(cla, sche)
+
+        if complete == True:
+            myQuest_play_add(cla, sche)
+
+
+    except Exception as e:
+        print(e)
+
+def dungeon_ing_check(cla):
+    import numpy as np
+    import cv2
+
+    from function_moon import imgs_set_
+
+    from action_moon import attack_check_and_attack
+
+
+    try:
+        print("dungeon_ing_check")
+
         d_in_ = False
 
         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\stair_ing1.PNG"
@@ -49,21 +79,9 @@ def dungeon_start(cla, sche):
                     attack_check_and_attack(cla)
                     d_in_ = True
 
-        if d_in_ == True:
-            print("던전 돌고 있는 중")
-            attack_check_and_attack(cla)
-            potion_check(cla)
-        else:
-            complete = dungeon_in(cla, sche)
-
-        if complete == True:
-            myQuest_play_add(cla, sche)
-
-
+        return d_in_
     except Exception as e:
         print(e)
-
-
 
 def dungeon_in(cla, sche):
     import numpy as np

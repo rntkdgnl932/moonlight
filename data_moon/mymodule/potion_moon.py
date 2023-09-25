@@ -63,8 +63,7 @@ def maul_potion_small_only(cla):
     from function_moon import imgs_set_, click_pos_reg, click_pos_2
 
     from action_moon import loading, clean_screen
-    from get_item import get_items
-    from repair_moon import my_stat_up
+    from dungeon_moon import dungeon_ing_check
 
 
     try:
@@ -84,6 +83,20 @@ def maul_potion_small_only(cla):
             if imgs_ is not None and imgs_ != False:
                 in_maul = True
             else:
+                result_dun = dungeon_ing_check(cla)
+
+                if result_dun == True:
+                    click_pos_2(925, 270, cla)
+                    for i in range(10):
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\dun_out_confirm.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(510, 560, 580, 620, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            break
+                        time.sleep(0.5)
+
                 clean_screen(cla)
                 click_pos_2(25, 180, cla)
                 for i in range(10):
