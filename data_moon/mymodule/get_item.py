@@ -180,6 +180,17 @@ def get_event(cla):
                     time.sleep(0.7)
 
                     for i in range(10):
+                        # 일시적인 이벤트?
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\temporary_event\\rullet_go.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(670, 630, 760, 680, cla, img, 0.83)
+                        if imgs_ is not None and imgs_ != False:
+                            print("rullet_go", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            break
+
+
                         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\bosang_get_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -241,7 +252,7 @@ def get_event(cla):
                             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\bosang_get_3.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(650, 450, 900, 770, cla, img, 0.93)
+                            imgs_ = imgs_set_(650, 450, 900, 770, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
                                 print("bosang_get_3", imgs_)
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
