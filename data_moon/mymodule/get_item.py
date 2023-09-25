@@ -288,7 +288,7 @@ def get_event(cla):
                         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\jangbi_up\\jangbi_up.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(400, 350, 580, 420, cla, img, 0.8)
+                        imgs_ = imgs_set_(200, 350, 400, 420, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             drag = True
                             drag_count = 0
@@ -315,7 +315,7 @@ def get_event(cla):
                                         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\jangbi_up\\jangbi_up.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(400, 350, 580, 420, cla, img, 0.8)
+                                        imgs_ = imgs_set_(200, 350, 400, 420, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
 
                                             if drag_count < 8:
