@@ -256,6 +256,30 @@ def dungeon_in(cla, sche):
                                                 d_in_ = True
                                                 complete = True
                                                 break
+                                            else:
+                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\dungeon_title.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(10, 30, 120, 100, cla, img, 0.8)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\already_dun1.PNG"
+                                                    img_array = np.fromfile(full_path, np.uint8)
+                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                    imgs_ = imgs_set_(370, 120, 500, 170, cla, img, 0.8)
+                                                    if imgs_ is not None and imgs_ != False:
+                                                        d_in_ = True
+                                                        click_pos_2(935, 55, cla)
+                                                        break
+                                                    else:
+                                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\already_dun2.PNG"
+                                                        img_array = np.fromfile(full_path, np.uint8)
+                                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                        imgs_ = imgs_set_(370, 120, 500, 170, cla, img, 0.8)
+                                                        if imgs_ is not None and imgs_ != False:
+                                                            d_in_ = True
+                                                            click_pos_2(935, 55, cla)
+                                                            break
+
                         time.sleep(0.3)
 
 
@@ -265,7 +289,7 @@ def dungeon_in(cla, sche):
                     click_pos_2(250, 100, cla)
                     time.sleep(0.5)
 
-                    if result_dun_detail[0] == "뒤틀린린":
+                    if result_dun_detail[0] == "뒤틀린":
 
                         click_pos_2(150, 400, cla)
 
