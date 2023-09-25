@@ -21,6 +21,7 @@ def go_test():
     from repair_moon import budy_sohwan, hyungsang_sohwan, my_stat_up
     from potion_moon import maul_potion_small_only
     from jadong_moon import map_open_check
+    from character_select_and_game_start import game_start_screen, character_change
 
 
     print("tst")
@@ -35,14 +36,7 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\moon_black_screen.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(0, 0, 100, 100, cla, img, 0.9)
-    if imgs_ is not None and imgs_ != False:
-        print("moon_black_screen", imgs_)
-    else:
-        print("없다...s")
+    game_start_screen(cla, 1)
 
     # for i in range(4):
     #     pyautogui.moveTo(600, 660 , 0.2)

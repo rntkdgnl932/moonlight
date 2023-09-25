@@ -50,6 +50,7 @@ from temporary_event import temporary_event_start
 from repair_moon import repair_start, realtime
 from get_item import get_items
 from potion_moon import maul_potion_small_only
+from character_select_and_game_start import game_start_screen
 
 
 from stop_event18 import _stop_please
@@ -3170,13 +3171,23 @@ class game_Playing(QThread):
 
                             else:
 
-                                # 18 이벤트창부터 끄자
-                                _stop_please(v_.now_cla)
-
+                                # 스케쥴부터 불러오기
                                 result_schedule = myQuest_play_check(v_.now_cla, "check")
                                 print("result_schedule", result_schedule)
                                 character_id = result_schedule[0][1]
                                 result_schedule_ = result_schedule[0][2]
+
+
+                                # 게임 시작 화면인지 분석부터 하기
+                                game_start_screen(v_.now_cla, character_id)
+
+
+
+
+                                # 18 이벤트창부터 끄자
+                                _stop_please(v_.now_cla)
+
+
 
                                 # 절전 파악
 

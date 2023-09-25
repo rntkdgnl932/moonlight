@@ -264,8 +264,13 @@ def out_check(cla):
         imgs_ = imgs_set_(5, 970, 50, 1030, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             print("out_talk", imgs_)
-            out = True
-
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\moon_black_screen.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 0, 100, 100, cla, img, 0.9)
+            if imgs_ is not None and imgs_ != False:
+                print("out_check : not moon_black_screen", imgs_)
+                out = True
 
 
         return out
