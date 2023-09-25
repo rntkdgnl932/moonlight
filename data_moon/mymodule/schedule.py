@@ -146,6 +146,7 @@ def myQuest_play_check(cla, data):
                 # 초기화 할때 변경해야할 전역 변수
                 v_.tuto_dead = 0
                 v_.need_potion = 0
+                v_.black_screen_count = 0
 
 
         else:
@@ -540,6 +541,7 @@ def myQuest_play_add(cla, data):
             # 초기화 할때 변경해야할 전역 변수
             v_.tuto_dead = 0
             v_.need_potion = 0
+            v_.black_screen_count = 0
 
 
         add_result = 'check'

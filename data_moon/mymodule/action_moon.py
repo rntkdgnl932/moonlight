@@ -138,6 +138,7 @@ def clean_screen(cla):
     from function_moon import imgs_set_, click_pos_reg, click_pos_2
     from schedule import myQuest_play_check
     from dead import dead_die
+    from massenger import line_to_me
 
     try:
         print("clean_screen")
@@ -151,6 +152,22 @@ def clean_screen(cla):
 
 
             # 절전모드 끄기
+
+            # 비정상 블랙 스크린
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\moon_black_screen.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 0, 100, 100, cla, img, 0.9)
+            if imgs_ is not None and imgs_ != False:
+                v_.black_screen_count = 0
+            else:
+                v_.black_screen_count += 1
+                print("블랙스크린 100회 될 경우 알림감", v_.black_screen_count)
+                if v_.black_screen_count > 100:
+                    data = "달조 블랙스크린이다!!!"
+                    v_.black_screen_count = 0
+                    line_to_me(cla, data)
+
 
             # 던전 입장 표시 끄기
             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\cancle.PNG"

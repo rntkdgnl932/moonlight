@@ -35,40 +35,14 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    y_plus = 100
-
-    result_random_num = 0
-    contect_random_num = 0
-
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\teleport_click.PNG"
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\moon_black_screen.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    for i in pyautogui.locateAllOnScreen(img, region=(10 + plus, 100 + y_plus, 530, 400),
-                                         confidence=0.8):
-        result_random_num += 1
-        last_x = i.left
-        last_y = i.top
-        # print(result_random_num, "=> last_x : ", last_x, ", last_y :", last_y)
-
-    # print(result_random_num)
-
-    result = random.randint(1, result_random_num)
-
-    print("result", result)
-
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\teleport_click.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    for i in pyautogui.locateAllOnScreen(img, region=(10 + plus, 100 + y_plus, 530, 400),
-                                         confidence=0.8):
-        contect_random_num += 1
-        last_x = i.left
-        last_y = i.top
-        if result == contect_random_num:
-            break
-
-    print("last_x : ", last_x, ", last_y :", last_y)
-
+    imgs_ = imgs_set_(0, 0, 100, 100, cla, img, 0.9)
+    if imgs_ is not None and imgs_ != False:
+        print("moon_black_screen", imgs_)
+    else:
+        print("없다...s")
 
     # for i in range(4):
     #     pyautogui.moveTo(600, 660 , 0.2)
