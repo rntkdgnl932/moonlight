@@ -65,35 +65,46 @@ def dead_die(cla, sche):
                 repair_start(cla)
                 maul_potion_small_only(cla)
 
-        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\exp_recovery.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(200, 30, 350, 100, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("exp recovery...", imgs_)
-            click_pos_reg(imgs_.x, imgs_.y, cla)
+        if v_.not_boohwal == False:
 
-            for i in range(10):
-                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\anymore_exp_recovery.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(390, 470, 570, 530, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    print("anymore exp recovery", imgs_)
-                    clean_screen(cla)
-                    break
-                else:
-                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\exp_recovery_title.PNG"
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\exp_recovery.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(200, 30, 350, 100, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("exp recovery...", imgs_)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                for i in range(10):
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\anymore_exp_recovery.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(400, 320, 540, 380, cla, img, 0.8)
+                    imgs_ = imgs_set_(390, 470, 570, 530, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        print("exp recovery title : click_pos_2(470, 710, cla)", imgs_)
-                        click_pos_2(470, 710, cla)
-                        if i > 8:
-                            clean_screen(cla)
+                        print("anymore exp recovery", imgs_)
+                        clean_screen(cla)
+                        break
+                    else:
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\dead_nabi.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(300, 280, 650, 450, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            v_.not_boohwal = True
                             break
-                time.sleep(0.3)
+
+                        else:
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\exp_recovery_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 320, 540, 380, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("exp recovery title : click_pos_2(470, 710, cla)", imgs_)
+                                click_pos_2(470, 710, cla)
+                                if i > 8:
+                                    clean_screen(cla)
+                                    break
+                    time.sleep(0.3)
 
 
 

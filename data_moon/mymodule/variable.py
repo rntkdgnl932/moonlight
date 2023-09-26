@@ -11,6 +11,8 @@ tuto_dead = 0
 need_potion = 0
 # 블랙스크린 카운터
 black_screen_count = 0
+# 부활금지
+not_boohwal = False
 
 
 # 버젼

@@ -147,6 +147,7 @@ def myQuest_play_check(cla, data):
                 v_.tuto_dead = 0
                 v_.need_potion = 0
                 v_.black_screen_count = 0
+                v_.not_boohwal = False
 
 
         else:
@@ -542,6 +543,7 @@ def myQuest_play_add(cla, data):
             v_.tuto_dead = 0
             v_.need_potion = 0
             v_.black_screen_count = 0
+            v_.not_boohwal = False
 
 
         add_result = 'check'
