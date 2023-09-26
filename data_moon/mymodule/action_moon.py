@@ -169,6 +169,9 @@ def clean_screen(cla):
                     v_.black_screen_count = 0
                     line_to_me(cla, data)
 
+            # 각종 대답 오케이
+            confirm_all(cla)
+            time.sleep(0.1)
 
             # 던전 입장 표시 끄기
             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\cancle.PNG"
@@ -437,6 +440,13 @@ def confirm_all(cla):
         if imgs_ is not None and imgs_ != False:
             print("confirm_1", imgs_)
             click_pos_reg(imgs_.x, imgs_.y, cla)
+        else:
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\repair\\sohwan_confirm.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(250, 980, 800, 1040, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
 
         # 이동하기
         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\confirm\\move.PNG"
