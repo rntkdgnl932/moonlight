@@ -38,7 +38,6 @@ def go_test():
         plus = 960 * 3
 
     soojib_boonhae_start(cla)
-
     # for i in range(4):
     #     pyautogui.moveTo(600, 660 , 0.2)
     #     pyautogui.dragTo(600, 500 , 0.5)

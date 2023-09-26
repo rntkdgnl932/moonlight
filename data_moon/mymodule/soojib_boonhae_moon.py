@@ -13,6 +13,7 @@ def soojib_boonhae_start(cla):
         print("soojib_boonhe")
         soojib_start(cla)
         clean_screen(cla)
+        boonhae_start(cla)
 
 
     except Exception as e:
@@ -327,3 +328,121 @@ def boonhae_cheking(cla):
     except Exception as e:
         print(e)
 
+def boonhae_start(cla):
+    import numpy as np
+    import cv2
+
+    from function_moon import imgs_set_, click_pos_reg, click_pos_2
+    from action_moon import menu_open, clean_screen
+    try:
+        print("boonhae_start")
+
+        boonhae = False
+        boonhae_count = 0
+        while boonhae is False:
+            boonhae_count += 1
+            if boonhae_count > 7:
+                boonhae = True
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\repair\\boonhae_click.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(750, 920, 840, 970, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                x_reg = imgs_.x
+                y_reg = imgs_.y
+                for i in range(10):
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\jangbi_gaejo_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 10, 150, 80, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    else:
+                        click_pos_reg(x_reg, y_reg, cla)
+                    time.sleep(0.5)
+                for i in range(2):
+                    # 수집록 장비
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\soojib_boonhae\\boonhae_checked_off_soojib.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(815, 940, 890, 985, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.1)
+
+                    # 일반
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\soojib_boonhae\\boonhae_checked_off_common.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(645, 970, 690, 1040, cla, img, 0.95)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.1)
+
+                    # # 고급
+                    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\soojib_boonhae\\boonhae_checked_off_gogb.PNG"
+                    # img_array = np.fromfile(full_path, np.uint8)
+                    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    # imgs_ = imgs_set_(700, 970, 760, 1040, cla, img, 0.95)
+                    # if imgs_ is not None and imgs_ != False:
+                    #     click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #     time.sleep(0.1)
+
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\soojib_boonhae\\boonhae_click.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(260, 960, 360, 1030, cla, img, 0.95)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.1)
+
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\soojib_boonhae\\boonhae_result.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(410, 50, 550, 120, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.1)
+
+                for i in range(2):
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\soojib_boonhae\\boonhae_result.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(410, 50, 550, 120, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.2)
+
+                for i in range(5):
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\jangbi_gaejo_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 10, 150, 80, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        clean_screen(cla)
+                    else:
+                        boonhae = True
+                        break
+                    time.sleep(0.5)
+
+            else:
+                menu_open(cla)
+                click_pos_2(870, 65, cla)
+
+                for i in range(10):
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\repair\\boonhae_click.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(750, 920, 840, 970, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    time.sleep(0.5)
+
+            time.sleep(0.3)
+
+
+
+
+
+    except Exception as e:
+        print(e)

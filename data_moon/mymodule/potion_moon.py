@@ -64,10 +64,15 @@ def maul_potion_small_only(cla):
 
     from action_moon import loading, clean_screen
     from dungeon_moon import dungeon_ing_check
+    from soojib_boonhae_moon import soojib_boonhae_start
 
 
     try:
         print("maul_potion")
+
+        # 수집분해부터 하기
+        soojib_boonhae_start(cla)
+        time.sleep(0.1)
 
         in_maul = False
         in_maul_count = 0
