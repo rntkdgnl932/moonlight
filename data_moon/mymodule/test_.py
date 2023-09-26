@@ -22,10 +22,11 @@ def go_test():
     from potion_moon import maul_potion_small_only
     from jadong_moon import map_open_check
     from character_select_and_game_start import game_start_screen, character_change
+    from soojib_boonhae_moon import soojib_boonhae_start, soojib_setting
 
 
     print("tst")
-    cla = "two"
+    cla = "one"
 
     plus = 0
 
@@ -36,13 +37,7 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    mouse_move_cpp(600, 500, cla)
-    pyautogui.dragTo(600 + plus, 660, 0.5)
-
-    time.sleep(0.5)
-
-    mouse_move_cpp(600, 500, cla)
-    pyautogui.dragTo(600 , 660, 0.5)
+    soojib_boonhae_start(cla)
 
     # for i in range(4):
     #     pyautogui.moveTo(600, 660 , 0.2)
