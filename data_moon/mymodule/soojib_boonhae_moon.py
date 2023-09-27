@@ -51,7 +51,7 @@ def soojib_start(cla):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_2(110, 100, cla)
                     soojib_setting(cla)
-                    soojib_join(cla)
+                    soojib_join(cla, "attack")
                     time.sleep(0.1)
 
                 # 방어
@@ -62,7 +62,7 @@ def soojib_start(cla):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_2(250, 100, cla)
                     soojib_setting(cla)
-                    soojib_join(cla)
+                    soojib_join(cla, "amor")
                     time.sleep(0.1)
 
                 # 기타
@@ -73,7 +73,7 @@ def soojib_start(cla):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_2(390, 100, cla)
                     soojib_setting(cla)
-                    soojib_join(cla)
+                    soojib_join(cla, "etc")
                     time.sleep(0.1)
 
                 # 이벤트
@@ -83,7 +83,7 @@ def soojib_start(cla):
                 imgs_ = imgs_set_(500, 60, 560, 110, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_2(530, 100, cla)
-                    soojib_join(cla)
+                    soojib_join(cla, "event")
                     time.sleep(0.1)
 
             else:
@@ -173,14 +173,14 @@ def soojib_setting(cla):
     except Exception as e:
         print(e)
 
-def soojib_join(cla):
+def soojib_join(cla, data):
     import numpy as np
     import cv2
 
     from function_moon import imgs_set_, click_pos_reg, click_pos_2
 
     try:
-        print("soojib join")
+        print("soojib join", data)
 
         soojib = False
         soojib_count = 0
@@ -209,6 +209,29 @@ def soojib_join(cla):
                         print("join click", imgs_)
                         click_pos_reg(imgs_.x + 5, imgs_.y + 5, cla)
                         time.sleep(0.3)
+                        if data == "event":
+                            for i in range(10):
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\soojib_boonhae\\soojib_confirm.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(490, 610, 600, 700, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    break
+                                time.sleep(0.3)
+                            for i in range(10):
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\soojib_boonhae\\soojib_confirm.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(490, 610, 600, 700, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("join soojib_confirm", imgs_)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(0.3)
+                                else:
+                                    break
+                                time.sleep(0.3)
+
+
 
                     complete = False
 
