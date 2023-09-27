@@ -91,6 +91,7 @@ def dead_die(cla, sche):
                         imgs_ = imgs_set_(300, 280, 650, 450, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             v_.not_boohwal = True
+                            clean_screen(cla)
                             break
 
                         else:
