@@ -37,7 +37,14 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    get_event(cla)
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\dead_nabi.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(300, 280, 650, 450, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("good", imgs_)
+    else:
+        print("notnornotnotnot")
 
 
 
