@@ -306,12 +306,25 @@ def get_event(cla):
                                 time.sleep(0.5)
                     else:
                         # 시즌패스일 경우와 아닌경우(드래그 필요한 경우)
+                        # 한가위 이벤트
+                        drag = False
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\temporary\\hangawe_drag.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(210, 400, 340, 460, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            drag = True
+
+
                         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\pass_mission\\pass_mission_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(400, 350, 580, 420, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             drag = True
+
+                        if drag is True:
+
                             drag_count = 0
                             while drag is True:
                                 drag_count += 1
