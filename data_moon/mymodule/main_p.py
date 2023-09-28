@@ -3205,7 +3205,7 @@ class game_Playing(QThread):
                                 # 오토 시작
                                 if result_schedule_ == "캐릭터바꾸기":
                                     character_change(v_.now_cla, character_id)
-                                    myQuest_play_add(cla, v_.now_cla)
+                                    myQuest_play_add(v_.now_cla, result_schedule_)
 
                                 elif result_schedule_ == "튜토육성":
                                     tuto_start(v_.now_cla)
