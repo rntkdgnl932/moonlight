@@ -50,7 +50,7 @@ from temporary_event import temporary_event_start
 from repair_moon import repair_start, realtime
 from get_item import get_items
 from potion_moon import maul_potion_small_only
-from character_select_and_game_start import game_start_screen
+from character_select_and_game_start import game_start_screen, character_change
 
 
 from stop_event18 import _stop_please
@@ -3194,6 +3194,8 @@ class game_Playing(QThread):
                                 # 죽었는지 파악
                                 dead_die(v_.now_cla, result_schedule_)
 
+
+
                                 # 일시적인 이벤트(5000)
                                 temporary_event_start(v_.now_cla)
 
@@ -3201,7 +3203,10 @@ class game_Playing(QThread):
                                 realtime(v_.now_cla)
 
                                 # 오토 시작
-                                if result_schedule_ == "튜토육성":
+                                if result_schedule_ == "캐릭터바꾸기":
+                                    character_change(v_.now_cla)
+
+                                elif result_schedule_ == "튜토육성":
                                     tuto_start(v_.now_cla)
 
                                 elif result_schedule_ == "각종템받기":
