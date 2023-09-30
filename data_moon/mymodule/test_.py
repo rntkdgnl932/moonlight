@@ -19,14 +19,15 @@ def go_test():
 
     from get_item import get_event
     from repair_moon import budy_sohwan, hyungsang_sohwan, my_stat_up
-    from potion_moon import maul_potion_small_only
+    from potion_moon import maul_potion_small_only, maul_potion_full, quick_slot_check
     from jadong_moon import map_open_check
     from character_select_and_game_start import game_start_screen, character_change
     from soojib_boonhae_moon import soojib_boonhae_start, soojib_setting
+    from auction_moon import price_check
 
 
     print("tst")
-    cla = "two"
+    cla = "one"
 
     plus = 0
 
@@ -37,14 +38,28 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\dead_nabi.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(300, 600, 650, 800, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("good", imgs_)
-    else:
-        print("notnornotnotnot")
+    # quick_slot_check(cla)
+
+    price_check(cla)
+    # for i in range(10):
+    #     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\one_price\\" + str(
+    #         i) + ".PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_(362, 475, 370, 500, cla, img, 0.8)
+    #     if imgs_ is not None and imgs_ != False:
+    #         result_num = str(i)
+    #         print("숫자 : ", result_num, imgs_)
+
+
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\market_list_title.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(430, 300, 525, 365, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("good", imgs_)
+    # else:
+    #     print("notnornotnotnot")
 
 
 
