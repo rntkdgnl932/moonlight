@@ -135,7 +135,7 @@ def dungeon_in(cla, sche):
                     time.sleep(0.5)
 
                     if result_dun_detail[0] == "홍염의신전":
-                        click_pos_2(150, 400, cla)
+                        click_pos_2(160, 580, cla)
 
                         if int(result_dun_detail[1]) > 5:
 
@@ -160,7 +160,7 @@ def dungeon_in(cla, sche):
 
 
                     if result_dun_detail[0] == "얼음유적지":
-                        click_pos_2(450, 400, cla)
+                        click_pos_2(450, 580, cla)
 
                         if int(result_dun_detail[1]) > 5:
 
@@ -185,7 +185,7 @@ def dungeon_in(cla, sche):
 
 
                     if result_dun_detail[0] == "마리아스의동굴":
-                        click_pos_2(750, 400, cla)
+                        click_pos_2(750, 580, cla)
 
                         dun_stair = int(result_dun_detail[1])
 
