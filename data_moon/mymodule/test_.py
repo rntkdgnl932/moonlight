@@ -23,7 +23,7 @@ def go_test():
     from jadong_moon import map_open_check
     from character_select_and_game_start import game_start_screen, character_change
     from soojib_boonhae_moon import soojib_boonhae_start, soojib_setting
-    from auction_moon import price_check
+    from auction_moon import price_check, auction_start, how_many
 
 
     print("tst")
@@ -40,13 +40,63 @@ def go_test():
 
     # quick_slot_check(cla)
 
-    price_check(cla)
+    auction_start(cla)
+
+    # how_many(cla)
+
     # for i in range(10):
-    #     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\one_price\\" + str(
+    #     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\num_click\\" + str(
     #         i) + ".PNG"
     #     img_array = np.fromfile(full_path, np.uint8)
     #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    #     imgs_ = imgs_set_(362, 475, 370, 500, cla, img, 0.8)
+    #     imgs_ = imgs_set_(500, 480, 750, 630, cla, img, 0.95)
+    #     if imgs_ is not None and imgs_ != False:
+    #         print("숫자 : ", i, imgs_)
+    #         click_pos_reg(imgs_.x, imgs_.y, cla)
+    #         time.sleep(0.1)
+
+    #
+    # file_path = "C:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\one_price\\number.txt"
+    #
+    # with open(file_path, "r", encoding='utf-8-sig') as file:
+    #     read_num = file.read().splitlines()
+    #     print("read_num", read_num)
+    #     for i in range(len(read_num)):
+    #         print(read_num[i])
+    #         print(read_num[i][0])
+    #         print(read_num[i][1])
+    #
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\only_price\\1000.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(580, 460, 700, 490, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("1000", imgs_)
+    #
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\only_price\\gijoon.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(580, 460, 700, 490, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("gijoon", imgs_)
+    #     x_reg = imgs_.x
+    #
+    # for i in range(10):
+    #     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\howmany\\" + str(
+    #         i) + ".PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_(450, 535, 488, 565, cla, img, 0.8)
+    #     if imgs_ is not None and imgs_ != False:
+    #         result_num = str(i)
+    #         print("숫자 : ", result_num, imgs_)
+
+    # for i in range(10):
+    #     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\howmany\\" + str(
+    #         i) + ".PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_(450, 585, 488, 625, cla, img, 0.8)
     #     if imgs_ is not None and imgs_ != False:
     #         result_num = str(i)
     #         print("숫자 : ", result_num, imgs_)

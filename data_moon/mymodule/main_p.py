@@ -51,6 +51,7 @@ from repair_moon import repair_start, realtime
 from get_item import get_items
 from potion_moon import maul_potion_small_only, maul_potion_full
 from character_select_and_game_start import game_start_screen, character_change
+from auction_moon import auction_start
 
 
 from stop_event18 import _stop_please
@@ -901,7 +902,7 @@ class FirstTab(QWidget):
         # 마을 의뢰
         self.com_group6 = QGroupBox('육성, 퀘스트, 각종템받기, 거래소등록하기')
         cb6 = QComboBox()
-        list6 = ['스케쥴 선택', '캐릭터바꾸기', '각종템받기', '버프와물약사기', '튜토육성']
+        list6 = ['스케쥴 선택', '캐릭터바꾸기', '각종템받기', '버프와물약사기', '거래소등록', '튜토육성']
         cb6.addItems(list6)
         vbox6 = QHBoxLayout()
         vbox6.addWidget(cb6)
@@ -3212,6 +3213,10 @@ class game_Playing(QThread):
 
                                 elif result_schedule_ == "버프와물약사기":
                                     maul_potion_full(v_.now_cla)
+                                    myQuest_play_add(v_.now_cla, result_schedule_)
+
+                                elif result_schedule_ == "거래소등록":
+                                    auction_start(v_.now_cla)
                                     myQuest_play_add(v_.now_cla, result_schedule_)
 
                                 elif result_schedule_ == "각종템받기":
