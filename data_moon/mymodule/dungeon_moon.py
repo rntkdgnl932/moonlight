@@ -125,7 +125,7 @@ def dungeon_in(cla, sche):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(10, 30, 120, 100, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
-                print("hi")
+                print("dungeon hi")
 
                 # 던전종류 클릭
                 if result_dun[1] == "균열":
@@ -185,36 +185,47 @@ def dungeon_in(cla, sche):
 
 
                     if result_dun_detail[0] == "마리아스의동굴":
-                        click_pos_2(750, 580, cla)
 
-                        dun_stair = int(result_dun_detail[1])
-
-                        y_reg = 95 + (dun_stair * 55)
-                        time.sleep(0.1)
-
-                        for i in range(10):
-                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\cave_in_check.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(10, 300, 200, 500, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_2(100, y_reg, cla)
-                                time.sleep(0.2)
-                                click_pos_2(875, 1005, cla)
-                                break
-                            time.sleep(0.3)
-                    # 공통 진입 부분
-                    for i in range(15):
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\stair_ing1.PNG"
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\dun_lock.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(40, 100, 130, 160, cla, img, 0.8)
+                        imgs_ = imgs_set_(600, 400, 880, 700, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-                            attack_check_and_attack(cla)
-                            d_in_ = True
-                            break
+                            print("던전 미오픈...완료로 간주함")
+                            complete = True
+                            for i in range(10):
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\dungeon_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(10, 30, 120, 100, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_2(935, 55, cla)
+                                else:
+                                    break
+                                time.sleep(0.5)
                         else:
-                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\stair_ing2.PNG"
+                            click_pos_2(750, 580, cla)
+
+                            dun_stair = int(result_dun_detail[1])
+
+                            y_reg = 95 + (dun_stair * 55)
+                            time.sleep(0.1)
+
+                            for i in range(10):
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\cave_in_check.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(10, 300, 200, 500, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_2(100, y_reg, cla)
+                                    time.sleep(0.2)
+                                    click_pos_2(875, 1005, cla)
+                                    break
+                                time.sleep(0.3)
+                    if complete != True:
+                        # 공통 진입 부분
+                        for i in range(15):
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\stair_ing1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(40, 100, 130, 160, cla, img, 0.8)
@@ -232,23 +243,23 @@ def dungeon_in(cla, sche):
                                     d_in_ = True
                                     break
                                 else:
-                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\loding_1.PNG"
+                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\stair_ing2.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(250, 920, 650, 1040, cla, img, 0.8)
+                                    imgs_ = imgs_set_(40, 100, 130, 160, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
-                                        loading(cla)
+                                        attack_check_and_attack(cla)
+                                        d_in_ = True
+                                        break
                                     else:
-                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\dun_complete.PNG"
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\loding_1.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(370, 130, 550, 170, cla, img, 0.8)
+                                        imgs_ = imgs_set_(250, 920, 650, 1040, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
-                                            d_in_ = True
-                                            complete = True
-                                            break
+                                            loading(cla)
                                         else:
-                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\dun_low_level.PNG"
+                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\dun_complete.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                             imgs_ = imgs_set_(370, 130, 550, 170, cla, img, 0.8)
@@ -257,21 +268,21 @@ def dungeon_in(cla, sche):
                                                 complete = True
                                                 break
                                             else:
-                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\dungeon_title.PNG"
+                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\dun_low_level.PNG"
                                                 img_array = np.fromfile(full_path, np.uint8)
                                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                imgs_ = imgs_set_(10, 30, 120, 100, cla, img, 0.8)
+                                                imgs_ = imgs_set_(370, 130, 550, 170, cla, img, 0.8)
                                                 if imgs_ is not None and imgs_ != False:
-                                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\already_dun1.PNG"
+                                                    d_in_ = True
+                                                    complete = True
+                                                    break
+                                                else:
+                                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\dungeon_title.PNG"
                                                     img_array = np.fromfile(full_path, np.uint8)
                                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                    imgs_ = imgs_set_(370, 120, 500, 170, cla, img, 0.8)
+                                                    imgs_ = imgs_set_(10, 30, 120, 100, cla, img, 0.8)
                                                     if imgs_ is not None and imgs_ != False:
-                                                        d_in_ = True
-                                                        click_pos_2(935, 55, cla)
-                                                        break
-                                                    else:
-                                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\already_dun2.PNG"
+                                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\already_dun1.PNG"
                                                         img_array = np.fromfile(full_path, np.uint8)
                                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                                         imgs_ = imgs_set_(370, 120, 500, 170, cla, img, 0.8)
@@ -279,8 +290,17 @@ def dungeon_in(cla, sche):
                                                             d_in_ = True
                                                             click_pos_2(935, 55, cla)
                                                             break
+                                                        else:
+                                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\already_dun2.PNG"
+                                                            img_array = np.fromfile(full_path, np.uint8)
+                                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                            imgs_ = imgs_set_(370, 120, 500, 170, cla, img, 0.8)
+                                                            if imgs_ is not None and imgs_ != False:
+                                                                d_in_ = True
+                                                                click_pos_2(935, 55, cla)
+                                                                break
 
-                        time.sleep(0.3)
+                            time.sleep(0.3)
 
 
                 elif result_dun[1] == "심연":
