@@ -37,6 +37,8 @@ def auction_start(cla):
 
                 auction_end = False
 
+                not_registery = False
+
                 # 거래 직전까지 진입
                 for i in range(10):
                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_in.PNG"
@@ -134,8 +136,18 @@ def auction_start(cla):
                                     imgs_ = imgs_set_(430, 300, 525, 365, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
                                         print("market_list_title", imgs_)
-                                        result_price = price_check(cla)
-                                        break
+
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\not_registery.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(270, 450, 700, 700, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            print("not_registery : 끝내기", imgs_)
+                                            not_registery = True
+                                            break
+                                        else:
+                                            result_price = price_check(cla)
+                                            break
                                     else:
                                         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\market_list_click.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
@@ -144,127 +156,132 @@ def auction_start(cla):
                                         if imgs_ is not None and imgs_ != False:
                                             click_pos_reg(imgs_.x, imgs_.y, cla)
                                     time.sleep(0.5)
-                                # 최종가격  result_many * result_price
-                                this_price_ready = float(result_many) * float(result_price)
-                                print("this_price_ready", this_price_ready)
-                                this_price = int(this_price_ready)
-                                print("this_price", this_price)
 
-                                # 가격이 10원 이하면 취소 누르기
-                                if this_price > 10:
+                                if not_registery == False:
 
-                                    click_pos_2(370, 610, cla)
-                                    time.sleep(0.1)
-                                    click_pos_2(370, 610, cla)
-                                    time.sleep(0.1)
+                                    # 최종가격  result_many * result_price
+                                    this_price_ready = float(result_many) * float(result_price)
+                                    print("this_price_ready", this_price_ready)
+                                    this_price = int(this_price_ready)
+                                    print("this_price", this_price)
 
-                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\num_click\\ac.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(500, 480, 750, 630, cla, img, 0.95)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    # 가격이 10원 이하면 취소 누르기
+                                    if this_price > 10:
+
+                                        click_pos_2(370, 610, cla)
                                         time.sleep(0.1)
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        click_pos_2(370, 610, cla)
                                         time.sleep(0.1)
 
-                                    str_price = str(this_price)
-                                    for n in range(len(str_price)):
-                                        print(n, str_price[n])
-                                        if str_price[n] == "0":
-                                            click_pos_2(620, 610, cla)
-                                        elif str_price[n] == "1":
-                                            click_pos_2(545, 510, cla)
-                                        elif str_price[n] == "2":
-                                            click_pos_2(620, 510, cla)
-                                        elif str_price[n] == "3":
-                                            click_pos_2(700, 510, cla)
-                                        elif str_price[n] == "4":
-                                            click_pos_2(545, 545, cla)
-                                        elif str_price[n] == "5":
-                                            click_pos_2(620, 545, cla)
-                                        elif str_price[n] == "6":
-                                            click_pos_2(700, 545, cla)
-                                        elif str_price[n] == "7":
-                                            click_pos_2(545, 575, cla)
-                                        elif str_price[n] == "8":
-                                            click_pos_2(620, 575, cla)
-                                        elif str_price[n] == "9":
-                                            click_pos_2(700, 575, cla)
-                                        time.sleep(0.3)
-
-
-                                    # 최종 누른것과 계산한 결과 같은지 파악하기
-                                    result_equal = last_price_equal(cla)
-                                    if str_price == result_equal:
-                                        for j in range(10):
-                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_confirm_4.PNG"
-                                            img_array = np.fromfile(full_path, np.uint8)
-                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(500, 630, 590, 680, cla, img, 0.8)
-                                            if imgs_ is not None and imgs_ != False:
-                                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                                                time.sleep(0.1)
-                                                break
-                                            else:
-                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_confirm_2.PNG"
-                                                img_array = np.fromfile(full_path, np.uint8)
-                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                imgs_ = imgs_set_(525, 710, 620, 750, cla, img, 0.8)
-                                                if imgs_ is not None and imgs_ != False:
-                                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                            time.sleep(0.5)
-
-
-
-                                    else:
-                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_cancle.PNG"
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\num_click\\ac.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(370, 710, 440, 750, cla, img, 0.8)
+                                        imgs_ = imgs_set_(500, 480, 750, 630, cla, img, 0.95)
                                         if imgs_ is not None and imgs_ != False:
                                             click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.1)
-
-                                    for k in range(10):
-                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\registration_auction_title.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(440, 315, 555, 365, cla, img, 0.8)
-                                        if imgs_ is not None and imgs_ != False:
-                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_cancle.PNG"
-                                            img_array = np.fromfile(full_path, np.uint8)
-                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(370, 710, 440, 750, cla, img, 0.8)
-                                            if imgs_ is not None and imgs_ != False:
-                                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_confirm_4.PNG"
-                                            img_array = np.fromfile(full_path, np.uint8)
-                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(500, 630, 590, 680, cla, img, 0.8)
-                                            if imgs_ is not None and imgs_ != False:
-                                                click_pos_reg(imgs_.x, imgs_.y, cla)
                                             time.sleep(0.1)
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                            time.sleep(0.1)
+
+                                        str_price = str(this_price)
+                                        for n in range(len(str_price)):
+                                            print(n, str_price[n])
+                                            if str_price[n] == "0":
+                                                click_pos_2(620, 610, cla)
+                                            elif str_price[n] == "1":
+                                                click_pos_2(545, 510, cla)
+                                            elif str_price[n] == "2":
+                                                click_pos_2(620, 510, cla)
+                                            elif str_price[n] == "3":
+                                                click_pos_2(700, 510, cla)
+                                            elif str_price[n] == "4":
+                                                click_pos_2(545, 545, cla)
+                                            elif str_price[n] == "5":
+                                                click_pos_2(620, 545, cla)
+                                            elif str_price[n] == "6":
+                                                click_pos_2(700, 545, cla)
+                                            elif str_price[n] == "7":
+                                                click_pos_2(545, 575, cla)
+                                            elif str_price[n] == "8":
+                                                click_pos_2(620, 575, cla)
+                                            elif str_price[n] == "9":
+                                                click_pos_2(700, 575, cla)
+                                            time.sleep(0.3)
+
+
+                                        # 최종 누른것과 계산한 결과 같은지 파악하기
+                                        result_equal = last_price_equal(cla)
+                                        if str_price == result_equal:
+                                            for j in range(10):
+                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_confirm_4.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(500, 630, 590, 680, cla, img, 0.8)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                    time.sleep(0.1)
+                                                    break
+                                                else:
+                                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_confirm_2.PNG"
+                                                    img_array = np.fromfile(full_path, np.uint8)
+                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                    imgs_ = imgs_set_(525, 710, 620, 750, cla, img, 0.8)
+                                                    if imgs_ is not None and imgs_ != False:
+                                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                time.sleep(0.5)
+
+
+
                                         else:
-                                            break
-                                        time.sleep(0.4)
-                                else:
-                                    print("10원 이하다 취소 누르자")
-                                    for k in range(10):
-                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\registration_auction_title.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(440, 315, 555, 365, cla, img, 0.8)
-                                        if imgs_ is not None and imgs_ != False:
                                             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_cancle.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                             imgs_ = imgs_set_(370, 710, 440, 750, cla, img, 0.8)
                                             if imgs_ is not None and imgs_ != False:
                                                 click_pos_reg(imgs_.x, imgs_.y, cla)
-                                        else:
-                                            break
-                                        time.sleep(0.4)
+                                        time.sleep(0.1)
+
+                                        for k in range(10):
+                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\registration_auction_title.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(440, 315, 555, 365, cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_cancle.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(370, 710, 440, 750, cla, img, 0.8)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_confirm_4.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(500, 630, 590, 680, cla, img, 0.8)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                time.sleep(0.1)
+                                            else:
+                                                break
+                                            time.sleep(0.4)
+                                    else:
+                                        print("10원 이하다 취소 누르자")
+                                        for k in range(10):
+                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\registration_auction_title.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(440, 315, 555, 365, cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_cancle.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(370, 710, 440, 750, cla, img, 0.8)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                            else:
+                                                break
+                                            time.sleep(0.4)
+                                else:
+                                    print("등록 오류...끝!")
                             else:
                                 print("끝!")
                                 break
