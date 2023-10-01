@@ -27,7 +27,7 @@ def go_test():
 
 
     print("tst")
-    cla = "one"
+    cla = "two"
 
     plus = 0
 
@@ -40,7 +40,14 @@ def go_test():
 
     # quick_slot_check(cla)
 
-    auction_start(cla)
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\exp_recovery_title.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(400, 320, 540, 380, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("exp recovery title : click_pos_2(470, 710, cla)", imgs_)
+    else:
+        print("ntmckkkckkdkdk")
 
     # how_many(cla)
 
