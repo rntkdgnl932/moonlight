@@ -163,12 +163,12 @@ def auction_start(cla):
                                                         print("not_registery : 끝내기", imgs_)
                                                         not_registery = True
                                                     else:
-                                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\not_registery.PNG"
+                                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\not_registery2.PNG"
                                                         img_array = np.fromfile(full_path, np.uint8)
                                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                                         imgs_ = imgs_set_(270, 450, 700, 700, cla, img, 0.8)
                                                         if imgs_ is not None and imgs_ != False:
-                                                            print("not_registery : 끝내기", imgs_)
+                                                            print("not_registery2 : 끝내기", imgs_)
                                                             not_registery = True
                                             time.sleep(0.5)
 
