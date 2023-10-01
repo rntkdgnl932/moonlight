@@ -343,6 +343,8 @@ def auction_start(cla):
                             imgs_ = imgs_set_(670, 160, 960, 330, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                                if i > 7:
+                                    auction_ready = True
                         time.sleep(0.5)
 
 
