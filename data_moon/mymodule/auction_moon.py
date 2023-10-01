@@ -136,14 +136,43 @@ def auction_start(cla):
                                     imgs_ = imgs_set_(430, 300, 525, 365, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
                                         print("market_list_title", imgs_)
+                                        for k in range(10):
+                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\only_price\\gijoon.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(580, 450, 700, 500, cla, img, 0.85)
+                                            if imgs_ is not None and imgs_ != False:
+                                                print("gijoon", imgs_)
+                                                not_registery = False
+                                                break
+                                            else:
+                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\only_price\\gijoon2.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(580, 450, 700, 500, cla, img, 0.85)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    print("gijoon2", imgs_)
+                                                    not_registery = False
+                                                    break
+                                                else:
+                                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\not_registery.PNG"
+                                                    img_array = np.fromfile(full_path, np.uint8)
+                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                    imgs_ = imgs_set_(270, 450, 700, 700, cla, img, 0.8)
+                                                    if imgs_ is not None and imgs_ != False:
+                                                        print("not_registery : 끝내기", imgs_)
+                                                        not_registery = True
+                                                    else:
+                                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\not_registery.PNG"
+                                                        img_array = np.fromfile(full_path, np.uint8)
+                                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                        imgs_ = imgs_set_(270, 450, 700, 700, cla, img, 0.8)
+                                                        if imgs_ is not None and imgs_ != False:
+                                                            print("not_registery : 끝내기", imgs_)
+                                                            not_registery = True
+                                            time.sleep(0.5)
 
-                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\not_registery.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(270, 450, 700, 700, cla, img, 0.8)
-                                        if imgs_ is not None and imgs_ != False:
-                                            print("not_registery : 끝내기", imgs_)
-                                            not_registery = True
+                                        if not_registery == True:
                                             break
                                         else:
                                             result_price = price_check(cla)
