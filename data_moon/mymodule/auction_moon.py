@@ -311,6 +311,7 @@ def auction_start(cla):
                                             time.sleep(0.4)
                                 else:
                                     print("등록 오류...끝!")
+                                    break
                             else:
                                 print("끝!")
                                 break
