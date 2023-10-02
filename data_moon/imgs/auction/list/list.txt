@@ -1,10 +1,13 @@
+earing_1
 jangab_pyungwon_1
 malyuksuk
 neck_pyungwon1
 neck_pyungwon2
+sand_timer_1
 segongsuk
 silver
 soojungsuk
+soomgyul
 up_bangugoo_1
 up_moogi_1
 wood
