@@ -38,16 +38,37 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    # quick_slot_check(cla)
+    get_event(cla)
 
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\exp_recovery_title.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(400, 320, 540, 380, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("exp recovery title : click_pos_2(470, 710, cla)", imgs_)
-    else:
-        print("ntmckkkckkdkdk")
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_point_2.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(220, 450, 835, 755, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("get_point_2", imgs_)
+    #
+    #     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\seven_four.PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_(220, 450, 900, 520, cla, img, 0.97)
+    #     if imgs_ is not None and imgs_ != False:
+    #         print("seven_four", imgs_)
+    #
+    #     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\seven_four2.PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_(220, 450, 900, 520, cla, img, 0.97)
+    #     if imgs_ is not None and imgs_ != False:
+    #         print("seven_four2", imgs_)
+
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\exp_recovery_title.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(400, 320, 540, 380, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("exp recovery title : click_pos_2(470, 710, cla)", imgs_)
+    # else:
+    #     print("ntmckkkckkdkdk")
 
     # how_many(cla)
 

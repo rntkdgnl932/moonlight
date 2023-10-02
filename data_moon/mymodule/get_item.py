@@ -361,7 +361,22 @@ def get_event(cla):
                                                 pyautogui.dragTo(600 + plus, 660, 0.5)
                                                 time.sleep(0.2)
                                         else:
-                                            drag = False
+                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\temporary\\hangawe_drag.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(210, 400, 340, 460, cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+
+                                                if drag_count < 11:
+                                                    mouse_move_cpp(600, 660, cla)
+                                                    pyautogui.dragTo(600 + plus, 500, 0.5)
+                                                    time.sleep(0.2)
+                                                else:
+                                                    mouse_move_cpp(600, 500, cla)
+                                                    pyautogui.dragTo(600 + plus, 660, 0.5)
+                                                    time.sleep(0.2)
+                                            else:
+                                                drag = False
                                     else:
                                         drag = False
                                 time.sleep(0.5)
@@ -421,12 +436,26 @@ def get_event(cla):
                                 if imgs_ is not None and imgs_ != False:
                                     print("get_point_2", imgs_)
 
+                                    seven_four = False
+
                                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\seven_four.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     imgs_ = imgs_set_(220, 450, 900, 520, cla, img, 0.97)
                                     if imgs_ is not None and imgs_ != False:
                                         print("seven_four", imgs_)
+                                        seven_four = True
+
+                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\seven_four2.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(220, 450, 900, 520, cla, img, 0.97)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("seven_four2", imgs_)
+                                        seven_four = True
+
+
+                                    if seven_four == True:
                                         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_point_2.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
