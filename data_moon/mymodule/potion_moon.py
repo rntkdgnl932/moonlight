@@ -61,10 +61,11 @@ def maul_potion_small_only(cla):
     from action_moon import loading, clean_screen
     from dungeon_moon import dungeon_ing_check
     from soojib_boonhae_moon import soojib_boonhae_start
+    from schedule import myQuest_play_check
 
 
     try:
-        print("maul_potion")
+        print("maul_potion_small_only")
 
         # 수집분해부터 하기
         soojib_boonhae_start(cla)
@@ -84,9 +85,17 @@ def maul_potion_small_only(cla):
             if imgs_ is not None and imgs_ != False:
                 in_maul = True
             else:
-                result_dun = dungeon_ing_check(cla)
+
+                # 스케쥴부터 불러오기
+                result_schedule = myQuest_play_check(v_.now_cla, "check")
+                print("maul_potion_small_only : result_schedule", result_schedule)
+                character_id = result_schedule[0][1]
+                result_schedule_ = result_schedule[0][2]
+
+                result_dun = dungeon_ing_check(cla, result_schedule_)
 
                 if result_dun == True:
+                    clean_screen(cla)
                     click_pos_2(925, 270, cla)
                     for i in range(10):
                         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\dun_out_confirm.PNG"
@@ -97,6 +106,8 @@ def maul_potion_small_only(cla):
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             break
                         time.sleep(0.5)
+
+                    loading(cla)
 
                 clean_screen(cla)
                 click_pos_2(25, 180, cla)

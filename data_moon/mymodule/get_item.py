@@ -22,7 +22,7 @@ def get_items_sub(cla):
     try:
         print("get_items")
         get_post(cla)
-        get_event(cla)
+        get_event_sub(cla)
         get_upjuk(cla)
         get_moster_dalsung(cla)
 

@@ -470,8 +470,9 @@ def map_spot_in_region(cla, sche):
                     if imgs_ is not None and imgs_ != False:
                         loading(cla)
                 time.sleep(1)
-
-        # 자동 사냥 특수한 경우
+        #########
+        # 아래부터는 자동 사냥 특수한 경우
+        #########
 
         # 모레평원은 무기부터 획득하도록 해보자
         if result_datas[0] == "모래평원":

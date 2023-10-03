@@ -48,7 +48,7 @@ from jadong_moon import jadong_start
 from dungeon_moon import dungeon_start
 from temporary_event import temporary_event_start
 from repair_moon import repair_start, realtime
-from get_item import get_items, get_items_sub
+from get_item import get_items, get_items_sub, get_event, get_event_sub
 from potion_moon import maul_potion_small_only, maul_potion_full
 from character_select_and_game_start import game_start_screen, character_change
 from auction_moon import auction_start
@@ -3190,7 +3190,16 @@ class game_Playing(QThread):
 
 
 
-                                # 절전 파악
+                                # 이벤트 화면인지 파악
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\event_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 300, 545, 345, v_.now_cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    if int(character_id) == 1:
+                                        get_event(v_.now_cla)
+                                    else:
+                                        get_event_sub(v_.now_cla)
 
                                 # 죽었는지 파악
                                 dead_die(v_.now_cla, result_schedule_)

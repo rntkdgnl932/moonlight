@@ -38,14 +38,12 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    get_event_sub(cla)
-
-    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_point_2.PNG"
-    # img_array = np.fromfile(full_path, np.uint8)
-    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    # imgs_ = imgs_set_(220, 450, 835, 755, cla, img, 0.8)
-    # if imgs_ is not None and imgs_ != False:
-    #     print("get_point_2", imgs_)
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\world_in_title_1.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(40, 100, 160, 160, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("world_in_title_1", imgs_)
     #
     #     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\seven_four.PNG"
     #     img_array = np.fromfile(full_path, np.uint8)
