@@ -38,12 +38,21 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\world_in_title_1.PNG"
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\no_potion_small.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(40, 100, 160, 160, cla, img, 0.8)
+    imgs_ = imgs_set_(410, 970, 480, 1040, cla, img, 0.93)
     if imgs_ is not None and imgs_ != False:
-        print("world_in_title_1", imgs_)
+        print("small potion", imgs_)
+        not_potion = True
+
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\no_potion_middle.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(410, 970, 480, 1040, cla, img, 0.93)
+    if imgs_ is not None and imgs_ != False:
+        print("middle potion", imgs_)
+        not_potion = True
     #
     #     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\seven_four.PNG"
     #     img_array = np.fromfile(full_path, np.uint8)

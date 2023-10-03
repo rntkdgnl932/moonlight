@@ -32,19 +32,24 @@ def potion_check(cla):
             if imgs_ is not None and imgs_ != False:
                 print("small potion", imgs_)
                 not_potion = True
-
-            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\no_potion_middle.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(410, 970, 480, 1040, cla, img, 0.93)
-            if imgs_ is not None and imgs_ != False:
-                print("middle potion", imgs_)
-                not_potion = True
+            else:
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\no_potion_middle.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(410, 970, 480, 1040, cla, img, 0.93)
+                if imgs_ is not None and imgs_ != False:
+                    print("middle potion", imgs_)
+                    not_potion = True
+                else:
+                    print("포션 있다.", v_.need_potion)
+                    v_.need_potion = 0
 
         if not_potion == True:
             v_.need_potion += 1
+            print("3회 이상 물약 없을 시 물약 사러 ㄱㄱ", v_.need_potion)
             if v_.need_potion > 3:
                 maul_potion_small_only(cla)
+                v_.need_potion = 0
 
     except Exception as e:
         print(e)
