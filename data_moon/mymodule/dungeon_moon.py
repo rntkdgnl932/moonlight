@@ -11,7 +11,7 @@ def dungeon_start(cla, sche):
     import numpy as np
     import cv2
 
-    from function_moon import imgs_set_
+    from function_moon import imgs_set_, click_pos_reg
 
     from action_moon import attack_check_and_attack
     from schedule import myQuest_play_add
@@ -21,7 +21,13 @@ def dungeon_start(cla, sche):
     try:
         print("dungeon_start")
 
-
+        # 던전 입장 표시 끄기
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\cancle.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(220, 470, 700, 900, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
 
 
         complete = False
