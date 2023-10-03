@@ -58,7 +58,7 @@ def dead_die(cla, sche):
                 maul_potion_small_only(cla)
 
                 v_.tuto_dead += 1
-                if v_.tuto_dead > 1:
+                if v_.tuto_dead > 0:
                     myQuest_play_add(cla, sche)
             else:
                 get_items(cla)
