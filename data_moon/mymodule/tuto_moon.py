@@ -39,6 +39,7 @@ def tuto_click(cla):
     import cv2
 
     from repair_moon import my_stat_up
+    from dungeon_moon import dungeon_ing_check
 
     from function_moon import click_pos_reg, click_pos_2, imgs_set_, mouse_move_cpp, drag_pos_reg, drag_pos
     try:
