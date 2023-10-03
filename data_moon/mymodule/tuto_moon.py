@@ -52,6 +52,35 @@ def tuto_click(cla):
         click_pos_2(480, 555, cla)
         time.sleep(0.1)
 
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_check1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(888, 110, 905, 130, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("good tuto")
+        else:
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_check2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(800, 100, 900, 140, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("tuto_check2 tuto")
+                click_pos_2(925, 120, cla)
+                time.sleep(0.5)
+            else:
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_check3.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(800, 100, 900, 140, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("tuto_check3 tuto")
+                    click_pos_2(925, 120, cla)
+                    time.sleep(0.5)
+                else:
+                    print("tuto click...ready")
+                    click_pos_2(925, 120, cla)
+                    time.sleep(0.5)
+
         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
