@@ -78,7 +78,7 @@ def character_change(cla, character_id):
     from function_moon import imgs_set_, click_pos_reg, click_pos_2
 
     from action_moon import loading, clean_screen, out_check, menu_open
-    from get_item import get_event
+    from get_item import get_event, get_event_sub
     from repair_moon import repair_start
 
     from massenger import line_to_me
@@ -206,7 +206,7 @@ def character_change(cla, character_id):
                                     get_event(cla)
 
                                 else:
-                                    clean_screen(cla)
+                                    get_event_sub(cla)
 
                         else:
                             # 로딩중 확인

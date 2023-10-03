@@ -17,7 +17,7 @@ def go_test():
 
     from action_moon import menu_open, clean_screen, out_check, attack_check_and_attack
 
-    from get_item import get_event
+    from get_item import get_event, get_event_sub
     from repair_moon import budy_sohwan, hyungsang_sohwan, my_stat_up
     from potion_moon import maul_potion_small_only, maul_potion_full, quick_slot_check
     from jadong_moon import map_open_check
@@ -27,7 +27,7 @@ def go_test():
 
 
     print("tst")
-    cla = "two"
+    cla = "one"
 
     plus = 0
 
@@ -38,7 +38,7 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    get_event(cla)
+    get_event_sub(cla)
 
     # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_point_2.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

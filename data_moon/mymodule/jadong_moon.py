@@ -471,8 +471,59 @@ def map_spot_in_region(cla, sche):
                         loading(cla)
                 time.sleep(1)
 
+        # 자동 사냥 특수한 경우
 
-        # and는 다시한번 이동후, 다시한번 맵 자체로 랜덤 찍어서 사냥하기
+        # 모레평원은 무기부터 획득하도록 해보자
+        if result_datas[0] == "모래평원":
+
+            # 지도 펼치기
+            map_in = False
+            map_in_count = 0
+            while map_in is False:
+                map_in_count += 1
+                if map_in_count > 7:
+                    map_in = True
+
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\now_reg.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(860, 950, 950, 1000, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+
+                    map_in = True
+
+                    # 모래평원 특수 위치
+                    click_pos_2(890, 525, cla)
+
+                    # 지도 비활성화 하기
+                    for i in range(3):
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\now_reg.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(860, 950, 950, 1000, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(935, 55, cla)
+                        else:
+                            break
+                        time.sleep(0.5)
+
+                    # 이동중
+                    moving(cla)
+
+
+
+
+                else:
+                    click_pos_2(130, 210, cla)
+                    for i in range(10):
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\now_reg.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(860, 950, 950, 1000, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        time.sleep(0.3)
+
 
     except Exception as e:
         print(e)

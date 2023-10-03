@@ -48,7 +48,7 @@ from jadong_moon import jadong_start
 from dungeon_moon import dungeon_start
 from temporary_event import temporary_event_start
 from repair_moon import repair_start, realtime
-from get_item import get_items
+from get_item import get_items, get_items_sub
 from potion_moon import maul_potion_small_only, maul_potion_full
 from character_select_and_game_start import game_start_screen, character_change
 from auction_moon import auction_start
@@ -3221,10 +3221,16 @@ class game_Playing(QThread):
 
                                 elif result_schedule_ == "각종템받기":
 
-                                    repair_start(v_.now_cla)
-                                    get_items(v_.now_cla)
-                                    maul_potion_small_only(v_.now_cla)
-                                    myQuest_play_add(v_.now_cla, result_schedule_)
+                                    if int(character_id) == 1:
+                                        repair_start(v_.now_cla)
+                                        get_items(v_.now_cla)
+                                        maul_potion_small_only(v_.now_cla)
+                                        myQuest_play_add(v_.now_cla, result_schedule_)
+                                    else:
+                                        repair_start(v_.now_cla)
+                                        get_items_sub(v_.now_cla)
+                                        maul_potion_small_only(v_.now_cla)
+                                        myQuest_play_add(v_.now_cla, result_schedule_)
 
                                 elif "사냥" in result_schedule_:
                                     jadong_start(v_.now_cla, result_schedule_)
