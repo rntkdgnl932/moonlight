@@ -73,7 +73,7 @@ def moving(cla):
     import numpy as np
     import cv2
     from function_moon import imgs_set_, click_pos_reg, click_pos_2
-    from schedule import myQuest_play_add
+    from schedule import myQuest_play_add, myQuest_play_check
 
     try:
         print("moving")
@@ -98,6 +98,17 @@ def moving(cla):
                 if moved_count_msg < 4:
                     print("move_1", imgs_)
                 elif moved_count_msg > 201:
+
+                    # 스케쥴부터 불러오기
+                    result_schedule = myQuest_play_check(v_.now_cla, "check")
+                    print("result_schedule", result_schedule)
+                    character_id = result_schedule[0][1]
+                    result_schedule_ = result_schedule[0][2]
+
+                    if result_schedule_ == "튜토육성":
+                        click_pos_2(480, 555, cla)
+                        time.sleep(0.1)
+
                     moved = True
                 moved_count = 0
                 moved_counting = 0

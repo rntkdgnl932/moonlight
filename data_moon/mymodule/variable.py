@@ -14,6 +14,9 @@ black_screen_count = 0
 # 부활금지
 not_boohwal = False
 
+# 튜토리얼 moving error
+moving_error = 0
+
 
 # 버젼
 
