@@ -22,12 +22,12 @@ def go_test():
     from potion_moon import maul_potion_small_only, maul_potion_full, quick_slot_check
     from jadong_moon import map_open_check
     from character_select_and_game_start import game_start_screen, character_change
-    from soojib_boonhae_moon import soojib_boonhae_start, soojib_setting
+    from soojib_boonhae_moon import soojib_boonhae_start, soojib_setting, soojib_start
     from auction_moon import price_check, auction_start, how_many
 
 
     print("tst")
-    cla = "one"
+    cla = "two"
 
     plus = 0
 
@@ -38,21 +38,16 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\no_potion_small.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(410, 970, 480, 1040, cla, img, 0.93)
-    if imgs_ is not None and imgs_ != False:
-        print("small potion", imgs_)
-        not_potion = True
+    soojib_start(cla)
+    clean_screen(cla)
 
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\no_potion_middle.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(410, 970, 480, 1040, cla, img, 0.93)
-    if imgs_ is not None and imgs_ != False:
-        print("middle potion", imgs_)
-        not_potion = True
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\seven\\hangawe_special_chulsuk.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(210, 350, 660, 420, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("hangawe_special_chulsuk", imgs_)
+
     #
     #     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\seven_four.PNG"
     #     img_array = np.fromfile(full_path, np.uint8)

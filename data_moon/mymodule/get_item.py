@@ -187,7 +187,7 @@ def get_event(cla):
                     time.sleep(0.2)
 
 
-
+                # 타이틀에 포인트 클릭하기
                 full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_point_3.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -257,8 +257,9 @@ def get_event(cla):
 
 
                         time.sleep(0.1)
-
+                    ############
                     # 한가위 수집 이벤트 관련 패스하기
+                    ##########
                     gyohwan = False
 
                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\ex\\gyohwan1.PNG"
@@ -276,6 +277,7 @@ def get_event(cla):
                         if imgs_ is not None and imgs_ != False:
                             print("gyohwan2", imgs_)
                             gyohwan = True
+
                     if gyohwan == True:
                         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\ex\\season_event.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -316,18 +318,30 @@ def get_event(cla):
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(0.5)
                     else:
-                        # 시즌패스일 경우와 아닌경우(드래그 필요한 경우)
-                        # 한가위 이벤트
+                        #######
+                        # 드래그 필요한 경우
+                        #######
+
                         drag = False
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\temporary\\hangawe_drag.PNG"
+
+                        # 시즌 이벤트에 한가위 이벤트
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\hangawe_drag.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(210, 400, 340, 460, cla, img, 0.8)
+                        imgs_ = imgs_set_(210, 350, 550, 420, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             drag = True
 
+                        # 시즌 이벤트에 대륙 정화 미션 이벤트
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\junghwa_mission.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(210, 350, 550, 420, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            drag = True
 
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\pass_mission\\pass_mission_title.PNG"
+                        # 시즌패스에 패스미션
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\pass_mission_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(400, 350, 580, 420, cla, img, 0.8)
@@ -357,7 +371,7 @@ def get_event(cla):
                                         print("get_point_3", imgs_)
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
 
-                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\pass_mission\\pass_mission_title.PNG"
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\pass_mission_title.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                         imgs_ = imgs_set_(400, 350, 580, 420, cla, img, 0.8)
@@ -372,10 +386,10 @@ def get_event(cla):
                                                 pyautogui.dragTo(600 + plus, 660, 0.5)
                                                 time.sleep(0.2)
                                         else:
-                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\temporary\\hangawe_drag.PNG"
+                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\junghwa_mission.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(210, 400, 340, 460, cla, img, 0.8)
+                                            imgs_ = imgs_set_(210, 350, 550, 420, cla, img, 0.8)
                                             if imgs_ is not None and imgs_ != False:
 
                                                 if drag_count < 11:
@@ -387,200 +401,204 @@ def get_event(cla):
                                                     pyautogui.dragTo(600 + plus, 660, 0.5)
                                                     time.sleep(0.2)
                                             else:
-                                                drag = False
+                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\hangawe_drag.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(210, 350, 550, 420, cla, img, 0.8)
+                                                if imgs_ is not None and imgs_ != False:
+
+                                                    if drag_count < 11:
+                                                        mouse_move_cpp(600, 660, cla)
+                                                        pyautogui.dragTo(600 + plus, 500, 0.5)
+                                                        time.sleep(0.2)
+                                                    else:
+                                                        mouse_move_cpp(600, 500, cla)
+                                                        pyautogui.dragTo(600 + plus, 660, 0.5)
+                                                        time.sleep(0.2)
+                                                else:
+                                                    drag = False
                                     else:
                                         drag = False
                                 time.sleep(0.5)
                         else:
-                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\jangbi_up\\jangbi_up.PNG"
+                            # 첫번째 seven_four
+
+                            seven_four = False
+
+                            # 시즌이벤트에 데일리 7일 미션
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\seven_four\\daily_seven_mission.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(200, 350, 400, 420, cla, img, 0.8)
+                            imgs_ = imgs_set_(220, 350, 630, 420, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-                                drag = True
-                                drag_count = 0
-                                while drag is True:
-                                    drag_count += 1
-                                    if drag_count > 13:
-                                        drag = False
-                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\bosang_get_3.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(650, 450, 900, 770, cla, img, 0.9)
-                                    if imgs_ is not None and imgs_ != False:
-                                        print("bosang_get_3", imgs_)
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    else:
-                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_point_3.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(50, y_reg, 80, 770, cla, img, 0.8)
-                                        if imgs_ is not None and imgs_ != False:
-                                            print("get_point_3", imgs_)
-                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                print("daily_seven_mission", imgs_)
+                                seven_four = True
 
-                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\jangbi_up\\jangbi_up.PNG"
-                                            img_array = np.fromfile(full_path, np.uint8)
-                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(200, 350, 400, 420, cla, img, 0.8)
-                                            if imgs_ is not None and imgs_ != False:
-
-                                                if drag_count < 8:
-                                                    mouse_move_cpp(600, 660, cla)
-                                                    pyautogui.dragTo(600 + plus, 500, 0.5)
-                                                    time.sleep(0.2)
-                                                else:
-                                                    mouse_move_cpp(600, 500, cla)
-                                                    pyautogui.dragTo(600 + plus, 660, 0.5)
-                                                    time.sleep(0.2)
-                                            else:
-                                                drag = False
-                                        else:
-                                            drag = False
-                                    time.sleep(0.5)
-                            else:
-
+                            if seven_four == True:
                                 full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_point_2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(220, 450, 835, 510, cla, img, 0.8)
+                                imgs_ = imgs_set_(220, 450, 880, 510, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     print("get_point_2", imgs_)
+                                    click_pos_reg(imgs_.x + 20, imgs_.y + 5, cla)
 
-                                    seven_four = False
-
-                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\seven_four.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(220, 450, 900, 520, cla, img, 0.97)
-                                    if imgs_ is not None and imgs_ != False:
-                                        print("seven_four", imgs_)
-                                        seven_four = True
-
-                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\seven_four2.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(220, 450, 900, 520, cla, img, 0.97)
-                                    if imgs_ is not None and imgs_ != False:
-                                        print("seven_four2", imgs_)
-                                        seven_four = True
-
-
-                                    if seven_four == True:
-                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_point_2.PNG"
+                                    # 1
+                                    click_pos_2(520, 550, cla)
+                                    for i in range(10):
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_item_1.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(220, 450, 835, 755, cla, img, 0.8)
+                                        imgs_ = imgs_set_(390, 440, 480, 490, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
-                                            print("get_point_2", imgs_)
-                                            click_pos_reg(imgs_.x + 20, imgs_.y + 5, cla)
+                                            print("get_item_1")
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                            break
+                                        else:
+                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\x_1.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(560, 260, 630, 340, cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                print("x_1")
+                                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                break
+                                        time.sleep(0.2)
+                                    # 2
+                                    click_pos_2(840, 550, cla)
+                                    for i in range(10):
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_item_1.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(390, 440, 480, 490, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            print("get_item_1")
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                            break
+                                        else:
+                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\x_1.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(560, 260, 630, 340, cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                print("x_1")
+                                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                break
+                                        time.sleep(0.2)
+                                    # 3
+                                    click_pos_2(520, 630, cla)
+                                    for i in range(10):
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_item_1.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(390, 440, 480, 490, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            print("get_item_1")
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                            break
+                                        else:
+                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\x_1.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(560, 260, 630, 340, cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                print("x_1")
+                                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                break
+                                        time.sleep(0.2)
 
-                                            # 1
-                                            click_pos_2(520, 550, cla)
-                                            for i in range(10):
-                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_item_1.PNG"
-                                                img_array = np.fromfile(full_path, np.uint8)
-                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                imgs_ = imgs_set_(390, 440, 480, 490, cla, img, 0.8)
-                                                if imgs_ is not None and imgs_ != False:
-                                                    print("get_item_1")
-                                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                                    break
-                                                else:
-                                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\x_1.PNG"
-                                                    img_array = np.fromfile(full_path, np.uint8)
-                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                    imgs_ = imgs_set_(560, 260, 630, 340, cla, img, 0.8)
-                                                    if imgs_ is not None and imgs_ != False:
-                                                        print("x_1")
-                                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                                        break
-                                                time.sleep(0.2)
-                                            # 2
-                                            click_pos_2(840, 550, cla)
-                                            for i in range(10):
-                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_item_1.PNG"
-                                                img_array = np.fromfile(full_path, np.uint8)
-                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                imgs_ = imgs_set_(390, 440, 480, 490, cla, img, 0.8)
-                                                if imgs_ is not None and imgs_ != False:
-                                                    print("get_item_1")
-                                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                                    break
-                                                else:
-                                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\x_1.PNG"
-                                                    img_array = np.fromfile(full_path, np.uint8)
-                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                    imgs_ = imgs_set_(560, 260, 630, 340, cla, img, 0.8)
-                                                    if imgs_ is not None and imgs_ != False:
-                                                        print("x_1")
-                                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                                        break
-                                                time.sleep(0.2)
-                                            # 3
-                                            click_pos_2(520, 630, cla)
-                                            for i in range(10):
-                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_item_1.PNG"
-                                                img_array = np.fromfile(full_path, np.uint8)
-                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                imgs_ = imgs_set_(390, 440, 480, 490, cla, img, 0.8)
-                                                if imgs_ is not None and imgs_ != False:
-                                                    print("get_item_1")
-                                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                                    break
-                                                else:
-                                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\x_1.PNG"
-                                                    img_array = np.fromfile(full_path, np.uint8)
-                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                    imgs_ = imgs_set_(560, 260, 630, 340, cla, img, 0.8)
-                                                    if imgs_ is not None and imgs_ != False:
-                                                        print("x_1")
-                                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                                        break
-                                                time.sleep(0.2)
-
-                                            # 4
-                                            click_pos_2(840, 630, cla)
-                                            for i in range(10):
-                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_item_1.PNG"
-                                                img_array = np.fromfile(full_path, np.uint8)
-                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                imgs_ = imgs_set_(390, 440, 480, 490, cla, img, 0.8)
-                                                if imgs_ is not None and imgs_ != False:
-                                                    print("get_item_1")
-                                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                                    break
-                                                else:
-                                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\x_1.PNG"
-                                                    img_array = np.fromfile(full_path, np.uint8)
-                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                    imgs_ = imgs_set_(560, 260, 630, 340, cla, img, 0.8)
-                                                    if imgs_ is not None and imgs_ != False:
-                                                        print("x_1")
-                                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                                        break
-                                                time.sleep(0.2)
+                                    # 4
+                                    click_pos_2(840, 630, cla)
+                                    for i in range(10):
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_item_1.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(390, 440, 480, 490, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            print("get_item_1")
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                            break
+                                        else:
+                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\x_1.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(560, 260, 630, 340, cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                print("x_1")
+                                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                break
+                                        time.sleep(0.2)
 
 
+                            else:
+                                # 접속보상에 매일출석 이벤트(28일짜리)
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\daily_attend\\daily_attend_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(490, 355, 700, 430, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("daily_attend_title...", imgs_)
 
+                                    last_x = 0
+                                    last_y = 0
+
+                                    if cla == "one":
+                                        plus = 0
+                                    if cla == "two":
+                                        plus = 960
+                                    if cla == "three":
+                                        plus = 960 * 2
+                                    if cla == "four":
+                                        plus = 960 * 3
+
+                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\chulsuk_checked.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    for i in pyautogui.locateAllOnScreen(img, region=(310 + plus, 440, 480, 280),
+                                                                         confidence=0.8):
+                                        last_x = i.left
+                                        last_y = i.top
+                                        print("last_x", last_x)
+                                        print("last_y", last_y)
+
+                                    if last_x == 0:
+                                        click_pos_2(355, 480, cla)
+                                    elif last_x > 720 + plus:
+                                        if last_y < 515:
+                                            click_pos_2(355, 550, cla)
+                                        elif last_y < 580:
+                                            click_pos_2(355, 550, cla)
+                                        elif last_y < 650:
+                                            click_pos_2(355, 550, cla)
+                                        else:
+                                            print("다 받았다.")
                                     else:
-                                        # ???
-                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_point_2.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(220, 450, 835, 510, cla, img, 0.9)
-                                        if imgs_ is not None and imgs_ != False:
-                                            print("get_point_2", imgs_)
-                                            click_pos_reg(imgs_.x + 20, imgs_.y + 50, cla)
+                                        click_pos_reg(last_x + 67, last_y, cla)
+                                    time.sleep(0.2)
+
                                 else:
-                                    # 매일출석 이벤트
-                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\daily_attend\\daily_attend_title.PNG"
+                                    # seven
+
+                                    seven = False
+
+                                    # 접속보상에 이브의 특별 출석
+                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\seven\\eve_special_chulsuk.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(490, 355, 700, 430, cla, img, 0.8)
+                                    imgs_ = imgs_set_(210, 350, 660, 420, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
-                                        print("daily_attend_title...", imgs_)
+                                        print("eve_special_chulsuk", imgs_)
+                                        seven = True
+                                    # 접속보상에 한가위 특별 출석
+                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\seven\\hangawe_special_chulsuk.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(210, 350, 660, 420, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("hangawe_special_chulsuk", imgs_)
+                                        seven = True
 
+                                    if seven == True:
                                         last_x = 0
                                         last_y = 0
 
@@ -596,7 +614,10 @@ def get_event(cla):
                                         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\chulsuk_checked.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        for i in pyautogui.locateAllOnScreen(img, region=(310 + plus, 440, 480, 280),
+                                        for i in pyautogui.locateAllOnScreen(img,
+                                                                             region=(
+                                                                                     245 + plus, 690, 780 - 245,
+                                                                                     735 - 690),
                                                                              confidence=0.8):
                                             last_x = i.left
                                             last_y = i.top
@@ -604,27 +625,37 @@ def get_event(cla):
                                             print("last_y", last_y)
 
                                         if last_x == 0:
-                                            click_pos_2(355, 480, cla)
-                                        elif last_y > 720:
-                                            if y_reg < 520:
-                                                click_pos_2(355, 550, cla)
-                                            elif y_reg < 580:
-                                                click_pos_2(355, 550, cla)
-                                            elif y_reg < 650:
-                                                click_pos_2(355, 550, cla)
-                                            else:
-                                                print("다 받았다.")
+                                            click_pos_2(270, 710, cla)
+                                        elif last_x > 800 + plus:
+                                            print("다 받음")
                                         else:
-                                            click_pos_reg(last_x + 67, last_y, cla)
+                                            click_pos_reg(last_x + 100, last_y, cla)
+                                        time.sleep(0.2)
 
                                     else:
-                                        # 한가위 특별 출석 이벤트
-                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\hangawe_chulsuk\\hangawe_chulsuk_title.PNG"
+                                        # ten
+
+                                        ten = False
+
+                                        # 접속보상에 뉴월드 특별 출석
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\ten\\newworld_special_chulsuk.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(210, 350, 460, 420, cla, img, 0.8)
+                                        imgs_ = imgs_set_(210, 350, 620, 420, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
-                                            print("hangawe_chulsuk_title...", imgs_)
+                                            print("newworld_special_chulsuk...1", imgs_)
+                                            ten = True
+
+                                        # 접속보상에 뉴월드 특별 출석2
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\ten\\newworld_special_chulsuk2.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(210, 350, 620, 420, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            print("newworld_special_chulsuk...2", imgs_)
+                                            ten = True
+
+                                        if ten == True:
 
                                             last_x = 0
                                             last_y = 0
@@ -642,7 +673,8 @@ def get_event(cla):
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                             for i in pyautogui.locateAllOnScreen(img,
-                                                                                 region=(245 + plus, 690, 780 - 245, 735 - 690),
+                                                                                 region=(235 + plus, 570, 680 - 235,
+                                                                                         740 - 570),
                                                                                  confidence=0.8):
                                                 last_x = i.left
                                                 last_y = i.top
@@ -651,10 +683,15 @@ def get_event(cla):
 
                                             if last_x == 0:
                                                 click_pos_2(270, 710, cla)
-                                            elif last_x > 800:
-                                                print("다 받음")
+                                            elif last_y > 640 and last_x > 600 + plus:
+                                                    print("다 받음")
+
+                                            elif last_y < 640 and last_x > 600 + plus:
+                                                    click_pos_2(270, 710, cla)
                                             else:
                                                 click_pos_reg(last_x + 100, last_y, cla)
+                                            time.sleep(0.2)
+
                     # 마무리
                     for i in range(10):
                         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_item_1.PNG"
