@@ -443,7 +443,7 @@ def get_event(cla):
                                 full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_point_2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(220, 450, 835, 755, cla, img, 0.8)
+                                imgs_ = imgs_set_(220, 450, 835, 510, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     print("get_point_2", imgs_)
 
@@ -564,10 +564,11 @@ def get_event(cla):
 
 
                                     else:
+                                        # ???
                                         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_point_2.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(220, 450, 835, 755, cla, img, 0.9)
+                                        imgs_ = imgs_set_(220, 450, 835, 510, cla, img, 0.9)
                                         if imgs_ is not None and imgs_ != False:
                                             print("get_point_2", imgs_)
                                             click_pos_reg(imgs_.x + 20, imgs_.y + 50, cla)
@@ -615,6 +616,45 @@ def get_event(cla):
                                                 print("다 받았다.")
                                         else:
                                             click_pos_reg(last_x + 67, last_y, cla)
+
+                                    else:
+                                        # 한가위 특별 출석 이벤트
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\hangawe_chulsuk\\hangawe_chulsuk_title.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(210, 350, 460, 420, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            print("hangawe_chulsuk_title...", imgs_)
+
+                                            last_x = 0
+                                            last_y = 0
+
+                                            if cla == "one":
+                                                plus = 0
+                                            if cla == "two":
+                                                plus = 960
+                                            if cla == "three":
+                                                plus = 960 * 2
+                                            if cla == "four":
+                                                plus = 960 * 3
+
+                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\chulsuk_checked.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            for i in pyautogui.locateAllOnScreen(img,
+                                                                                 region=(245 + plus, 690, 780 - 245, 735 - 690),
+                                                                                 confidence=0.8):
+                                                last_x = i.left
+                                                last_y = i.top
+                                                print("last_x", last_x)
+                                                print("last_y", last_y)
+
+                                            if last_x == 0:
+                                                click_pos_2(270, 710, cla)
+                                            elif last_x > 800:
+                                                print("다 받음")
+                                            else:
+                                                click_pos_reg(last_x + 100, last_y, cla)
                     # 마무리
                     for i in range(10):
                         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\get_item_1.PNG"
