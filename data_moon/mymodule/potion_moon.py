@@ -249,7 +249,13 @@ def maul_potion_full(cla):
                 in_maul = True
 
             else:
-                result_dun = dungeon_ing_check(cla)
+                # 스케쥴부터 불러오기
+                result_schedule = myQuest_play_check(v_.now_cla, "check")
+                print("maul_potion_small_only : result_schedule", result_schedule)
+                character_id = result_schedule[0][1]
+                result_schedule_ = result_schedule[0][2]
+
+                result_dun = dungeon_ing_check(cla, result_schedule_)
 
                 if result_dun == True:
                     click_pos_2(925, 270, cla)

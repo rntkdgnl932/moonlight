@@ -46,7 +46,20 @@ def tuto_click(cla):
 
         tuto_skip(cla)
 
-        # 최초 드래그해서 위로 끌어 올리기
+        # 최초 던전 중인지 파악하기...
+        result_dun = dungeon_ing_check(cla)
+
+        if result_dun == True:
+            click_pos_2(925, 270, cla)
+            for i in range(10):
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\dun_out_confirm.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(510, 560, 580, 620, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    break
+                time.sleep(0.5)
 
         # 일시적인 오류로 클릭하기
         click_pos_2(480, 555, cla)

@@ -61,20 +61,67 @@ def dungeon_ing_check(cla, sche):
     try:
         print("dungeon_ing_check")
 
-        # 스케쥴에서 던전 정보 뽑기
-        result_dun = sche.split("/")
-        # result_dun[0] => 던전
-        # result_dun[1] => 균열, 심연, 월드
-        # result_dun[2] => 던전종류_층수
-        result_dun_detail = result_dun[2].split("_")
-        # result_dun_detail[0] => 균열(홈염의신전, 얼음유적지, 마리아스의동굴), 심연(뒤틀린심연), 월드(스피렌의안뜰)
-        # result_dun_detail[1] => 층수
-
-
         d_in_ = False
 
-        if result_dun[1] == "균열":
+        if '던전' in sche:
 
+            # 스케쥴에서 던전 정보 뽑기
+            result_dun = sche.split("/")
+            # result_dun[0] => 던전
+            # result_dun[1] => 균열, 심연, 월드
+            # result_dun[2] => 던전종류_층수
+            result_dun_detail = result_dun[2].split("_")
+            # result_dun_detail[0] => 균열(홈염의신전, 얼음유적지, 마리아스의동굴), 심연(뒤틀린심연), 월드(스피렌의안뜰)
+            # result_dun_detail[1] => 층수
+
+
+            d_in_ = False
+
+            if result_dun[1] == "균열":
+
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\stair_ing1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(40, 100, 130, 160, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    attack_check_and_attack(cla)
+                    d_in_ = True
+                else:
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\stair_ing2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(40, 100, 130, 160, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        attack_check_and_attack(cla)
+                        d_in_ = True
+                    else:
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\stair_ing3.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(40, 100, 130, 160, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            attack_check_and_attack(cla)
+                            d_in_ = True
+
+            elif result_dun[1] == "월드":
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\world_in_title_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(40, 100, 160, 160, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    attack_check_and_attack(cla)
+                    d_in_ = True
+                else:
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\world_in_title_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(40, 100, 160, 160, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        attack_check_and_attack(cla)
+                        d_in_ = True
+
+        else:
+            # 스케쥴이 던전이 아닐 경우...
             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\stair_ing1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -91,30 +138,29 @@ def dungeon_ing_check(cla, sche):
                     attack_check_and_attack(cla)
                     d_in_ = True
                 else:
-                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\stair_ing2.PNG"
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\stair_ing3.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(40, 100, 130, 160, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         attack_check_and_attack(cla)
                         d_in_ = True
-
-        elif result_dun[1] == "월드":
-            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\world_in_title_1.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(40, 100, 160, 160, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                attack_check_and_attack(cla)
-                d_in_ = True
-            else:
-                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\world_in_title_2.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(40, 100, 160, 160, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    attack_check_and_attack(cla)
-                    d_in_ = True
+                    else:
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\world_in_title_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(40, 100, 160, 160, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            attack_check_and_attack(cla)
+                            d_in_ = True
+                        else:
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\world_in_title_2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(40, 100, 160, 160, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                attack_check_and_attack(cla)
+                                d_in_ = True
 
         return d_in_
     except Exception as e:
