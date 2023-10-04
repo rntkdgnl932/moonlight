@@ -86,7 +86,7 @@ def maul_potion_small_only(cla):
             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\maul\\chango.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(800, 970, 920, 1040, cla, img, 0.8)
+            imgs_ = imgs_set_(800, 970, 960, 1040, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 in_maul = True
             else:
@@ -129,16 +129,17 @@ def maul_potion_small_only(cla):
                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\maul\\chango.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(800, 970, 920, 1040, cla, img, 0.8)
+                    imgs_ = imgs_set_(800, 970, 960, 1040, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        # click_pos_reg(imgs_.x, imgs_.y, cla)
+
                         break
                     time.sleep(0.5)
 
         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\maul\\chango.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(800, 970, 920, 1040, cla, img, 0.8)
+        imgs_ = imgs_set_(800, 970, 960, 1040, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
 
             for i in range(20):
@@ -149,7 +150,24 @@ def maul_potion_small_only(cla):
                 if imgs_ is not None and imgs_ != False:
                     break
                 else:
-                    click_pos_2(745, 1000, cla)
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\jabhwa_click1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(700, 970, 950, 1040, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("jabhwa_click1", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\jabhwa_click2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(700, 970, 950, 1040, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("jabhwa_click2", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            print("없다...")
+                            click_pos_2(745, 1000, cla)
                 time.sleep(1)
 
             buy = False
@@ -245,7 +263,7 @@ def maul_potion_full(cla):
             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\maul\\chango.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(800, 970, 920, 1040, cla, img, 0.8)
+            imgs_ = imgs_set_(800, 970, 960, 1040, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 in_maul = True
 
@@ -285,7 +303,7 @@ def maul_potion_full(cla):
                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\maul\\chango.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(800, 970, 920, 1040, cla, img, 0.8)
+                    imgs_ = imgs_set_(800, 970, 960, 1040, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         break
@@ -294,7 +312,7 @@ def maul_potion_full(cla):
         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\maul\\chango.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(800, 970, 920, 1040, cla, img, 0.8)
+        imgs_ = imgs_set_(800, 970, 960, 1040, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
 
             for i in range(20):
