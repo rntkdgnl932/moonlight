@@ -196,7 +196,7 @@ def clean_screen(cla):
             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\boohwal_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(570, 870, 700, 950, cla, img, 0.8)
+            imgs_ = imgs_set_(400, 870, 700, 950, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 result_schedule = myQuest_play_check(v_.now_cla, "check")
                 print("confirm_all : result_schedule", result_schedule)
