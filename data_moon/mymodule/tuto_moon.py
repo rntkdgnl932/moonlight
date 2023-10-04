@@ -48,7 +48,7 @@ def tuto_click(cla):
         tuto_skip(cla)
 
         # 최초 던전 중인지 파악하기...
-        result_dun = dungeon_ing_check(cla)
+        result_dun = dungeon_ing_check(cla, "튜토육성")
 
         if result_dun == True:
             click_pos_2(925, 270, cla)
