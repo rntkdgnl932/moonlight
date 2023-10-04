@@ -184,6 +184,15 @@ def clean_screen(cla):
             confirm_all(cla)
             time.sleep(0.1)
 
+            # 타이틀 화면으로...클릭하고 재접하기
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\in_title_screen.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(370, 570, 580, 680, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                line_to_me(cla, "재접속 화면 뜸")
+
             # 던전 입장 표시 끄기
             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\cancle.PNG"
             img_array = np.fromfile(full_path, np.uint8)
