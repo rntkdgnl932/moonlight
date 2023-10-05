@@ -72,9 +72,8 @@ def maul_potion_small_only(cla):
     try:
         print("maul_potion_small_only")
 
-        # 수집분해부터 하기
-        soojib_boonhae_start(cla)
-        time.sleep(0.1)
+        # 마을  이동 후 수집분해부터 하기
+
 
         in_maul = False
         in_maul_count = 0
@@ -89,6 +88,10 @@ def maul_potion_small_only(cla):
             imgs_ = imgs_set_(800, 970, 960, 1040, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 in_maul = True
+
+                soojib_boonhae_start(cla)
+                time.sleep(0.1)
+
             else:
 
                 # 스케쥴부터 불러오기
@@ -249,9 +252,7 @@ def maul_potion_full(cla):
     try:
         print("maul_potion_full")
 
-        # 수집분해부터 하기
-        soojib_boonhae_start(cla)
-        time.sleep(0.1)
+
 
         in_maul = False
         in_maul_count = 0
@@ -266,6 +267,10 @@ def maul_potion_full(cla):
             imgs_ = imgs_set_(800, 970, 960, 1040, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 in_maul = True
+
+                # 수집분해부터 하기
+                soojib_boonhae_start(cla)
+                time.sleep(0.1)
 
             else:
                 # 스케쥴부터 불러오기
