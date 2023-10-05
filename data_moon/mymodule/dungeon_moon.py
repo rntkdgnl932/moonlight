@@ -635,6 +635,34 @@ def world_step(cla, step):
 
                 map_in = True
 
+                # 지역정보 활성화
+                for i in range(10):
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\region_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(5, 30, 110, 80, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    else:
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\region_information.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(560, 950, 620, 1000, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\region_information2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(560, 950, 620, 1000, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+                                if i > 7:
+                                    click_pos_2(620, 980, cla)
+
+                    time.sleep(0.5)
+
                 for i in range(5):
                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\world_move_1.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
