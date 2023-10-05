@@ -47,7 +47,7 @@ def potion_check(cla):
         if not_potion == True:
             v_.need_potion += 1
             print("3회 이상 물약 없을 시 물약 사러 ㄱㄱ", v_.need_potion)
-            if v_.need_potion > 3:
+            if v_.need_potion > 2:
                 maul_potion_small_only(cla)
                 v_.need_potion = 0
         return not_potion
