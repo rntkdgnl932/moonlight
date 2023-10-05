@@ -551,7 +551,7 @@ def dungeon_in(cla, sche):
                     world_step(cla, int(result_dun_detail[1]))
             else:
 
-                result_dun_in = dungeon_ing_check(cla, sche)
+                result_dun_in = dungeon_ing_check(cla, "any")
 
                 if result_dun_in == True:
                     clean_screen(cla)
