@@ -8,10 +8,21 @@ sys.path.append('C:/my_games/moonlight/data_moon/mymodule')
 import variable as v_
 
 def get_items(cla):
+    from schedule import myQuest_play_check
     try:
         print("get_items")
+
+        # 스케쥴부터 불러오기
+        result_schedule = myQuest_play_check(v_.now_cla, "check")
+        print("get_items : result_schedule")
+        character_id = result_schedule[0][1]
+        result_schedule_ = result_schedule[0][2]
+
         get_post(cla)
-        get_event(cla)
+        if int(character_id) == 1:
+            get_event(cla)
+        else:
+            get_event_sub(cla)
         get_upjuk(cla)
         get_moster_dalsung(cla)
 

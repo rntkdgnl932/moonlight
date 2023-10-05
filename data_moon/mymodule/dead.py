@@ -17,7 +17,7 @@ def dead_die(cla, sche):
 
     from action_moon import loading, clean_screen
     from get_item import get_items
-    from potion_moon import maul_potion_small_only
+    from potion_moon import maul_potion_dead_only
     from schedule import myQuest_play_add
     from repair_moon import repair_start
 
@@ -53,17 +53,13 @@ def dead_die(cla, sche):
 
         if dead == True:
             if sche == "튜토육성":
-                get_items(cla)
-                repair_start(cla)
-                maul_potion_small_only(cla)
+                maul_potion_dead_only(cla)
 
                 v_.tuto_dead += 1
                 if v_.tuto_dead > 0:
                     myQuest_play_add(cla, sche)
             else:
-                get_items(cla)
-                repair_start(cla)
-                maul_potion_small_only(cla)
+                maul_potion_dead_only(cla)
 
         if v_.not_boohwal == False:
 
