@@ -50,7 +50,7 @@ def potion_check(cla):
             if v_.need_potion > 3:
                 maul_potion_small_only(cla)
                 v_.need_potion = 0
-
+        return not_potion
     except Exception as e:
         print(e)
 

@@ -15,7 +15,7 @@ def dungeon_start(cla, sche):
 
     from action_moon import attack_check_and_attack
     from schedule import myQuest_play_add
-    from potion_moon import potion_check
+    from potion_moon import potion_check, maul_potion_small_only
 
 
     try:
@@ -40,6 +40,10 @@ def dungeon_start(cla, sche):
             attack_check_and_attack(cla)
             potion_check(cla)
         else:
+            result_potion_bool = potion_check(cla)
+            if result_potion_bool == True:
+                maul_potion_small_only(cla)
+
             complete = dungeon_in(cla, sche)
 
         if complete == True:
@@ -599,7 +603,7 @@ def random_move(cla):
     from function_moon import imgs_set_, click_pos_reg
     try:
         print("random_move")
-        for i in range(10)
+        for i in range(10):
             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\quick_random.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
