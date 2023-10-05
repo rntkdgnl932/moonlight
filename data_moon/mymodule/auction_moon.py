@@ -530,6 +530,12 @@ def price_check(cla):
 
 
             if one_price == True:
+
+                file_path = "C:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\one_price\\number.txt"
+
+                with open(file_path, "r", encoding='utf-8-sig') as file:
+                    read_num = file.read().splitlines()
+
                 full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\one_price\\1000.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -589,14 +595,22 @@ def price_check(cla):
                 result_price = ""
 
                 for n in range(6):
+
+                    if cla == "two":
+                        minus = 960
+                    elif cla == "three":
+                        minus = 960 * 2
+                    elif cla == "four":
+                        minus = 960 * 3
+
                     jari = n + 1
                     x1 = 344 + (n * 6)
                     x2 = 356 + (n * 6)
-                    if num_1000 == True and num_point == True and x2 > num_point_x:
+                    if num_1000 == True and num_point == True and x2 > num_point_x - minus:
                         break
 
 
-                    for i in range(17):
+                    for i in range(len(read_num)):
                         result_num = "none"
                         if num_1000 == False and num_point == False:
                             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\one_price\\" + str(i) + ".PNG"
@@ -612,7 +626,7 @@ def price_check(cla):
                                 #1000(o)
                                 # 351 // 357, 363 // 372
                         elif num_1000 == True:
-                            if num_1000_x < 359:
+                            if num_1000_x - minus < 359:
                                 if jari == 1:
                                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\one_price\\" + str(
                                         i) + ".PNG"
@@ -631,7 +645,7 @@ def price_check(cla):
                                     if imgs_ is not None and imgs_ != False:
                                         result_num = str(i)
                                         print(jari, "번쩨 숫자 : ", x1, x2,  result_num, imgs_)
-                            elif 359 < num_1000_x < 365:
+                            elif 359 < num_1000_x - minus < 365:
                                 if jari < 3:
                                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\one_price\\" + str(
                                         i) + ".PNG"
@@ -651,7 +665,7 @@ def price_check(cla):
                                         result_num = str(i)
                                         print(jari, "번쩨 숫자 : ", result_num, imgs_)
                         elif num_point == True and num_1000 == False:
-                            if num_point_x < 359:
+                            if num_point_x - minus < 359:
                                 if jari == 1:
                                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\one_price\\" + str(
                                         i) + ".PNG"
@@ -670,7 +684,7 @@ def price_check(cla):
                                     if imgs_ is not None and imgs_ != False:
                                         result_num = str(i)
                                         print(jari, "번쩨 숫자 : ", result_num, imgs_)
-                            elif 359 < num_point_x < 365:
+                            elif 359 < num_point_x - minus < 365:
                                 # 362, 두자리 정수
                                 if jari < 3:
                                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\one_price\\" + str(
@@ -693,7 +707,7 @@ def price_check(cla):
                                         print(jari, "번쩨 숫자 : ", result_num, imgs_)
 
 
-                            elif 364 < num_point_x < 371:
+                            elif 364 < num_point_x - minus < 371:
                                 # 367, 세자리 정수
                                 if jari < 4:
                                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\one_price\\" + str(
@@ -719,31 +733,28 @@ def price_check(cla):
 
                         if result_num != "none":
 
-                            file_path = "C:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\one_price\\number.txt"
 
-                            with open(file_path, "r", encoding='utf-8-sig') as file:
-                                read_num = file.read().splitlines()
-                                # print("read_num", read_num)
-                                for r in range(len(read_num)):
-                                    read_num_ready = read_num[r].split(":")
-                                    if read_num_ready[0] == result_num:
-                                        result_num = read_num_ready[1]
-                                        break
+                            # print("read_num", read_num)
+                            for r in range(len(read_num)):
+                                read_num_ready = read_num[r].split(":")
+                                if read_num_ready[0] == result_num:
+                                    result_num = read_num_ready[1]
+                                    break
                             print("result_num", result_num)
 
                             result_price += result_num
 
                             if num_point == True and num_1000 == False:
-                                if num_point_x < 359:
+                                if num_point_x - minus < 359:
                                     if jari == 1:
                                         print("point write 1")
                                         result_price += "."
-                                elif 359 < num_point_x < 365:
+                                elif 359 < num_point_x - minus < 365:
                                     if jari == 2:
                                         print("point write 2")
                                         result_price += "."
 
-                                elif 364 < num_point_x < 371:
+                                elif 364 < num_point_x - minus < 371:
                                     if jari == 3:
                                         print("point write 3")
                                         result_price += "."
@@ -752,6 +763,12 @@ def price_check(cla):
                             break
             else:
                 # 개당가격 x
+
+                file_path = "C:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\only_price\\number.txt"
+
+                with open(file_path, "r", encoding='utf-8-sig') as file:
+                    read_num = file.read().splitlines()
+                    # print("read_num", read_num)
 
                 full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\only_price\\gijoon.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -794,10 +811,23 @@ def price_check(cla):
 
                 for n in range(6):
                     jari = n + 1
-                    x1 = x_reg + (n * 7)
-                    x2 = x_reg + 10 + (n * 7)
 
-                    for i in range(11):
+                    minus = 0
+
+                    if cla == "two":
+                        minus = 960
+                    elif cla == "three":
+                        minus = 960 * 2
+                    elif cla == "four":
+                        minus = 960 * 3
+
+                    x1 = x_reg + (n * 7) - minus
+                    x2 = x_reg + 10 + (n * 7) - minus
+
+
+
+
+                    for i in range(len(read_num)):
                         result_num = "none"
                         if num_1000 == False:
                             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\only_price\\" + str(
@@ -810,7 +840,7 @@ def price_check(cla):
                                 print(jari, "번쩨 숫자 : ", result_num, imgs_)
 
                         else:
-                            if 644 < num_1000_x < 648:
+                            if 644 < num_1000_x - minus < 648:
                                 if jari == 1:
                                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\only_price\\" + str(
                                         i) + ".PNG"
@@ -829,7 +859,7 @@ def price_check(cla):
                                     if imgs_ is not None and imgs_ != False:
                                         result_num = str(i)
                                         print(jari, "번쩨 숫자 : ", result_num, imgs_)
-                            elif 647 < num_1000_x < 651:
+                            elif 647 < num_1000_x - minus < 651:
                                 if jari < 3:
                                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\only_price\\" + str(
                                         i) + ".PNG"
@@ -851,16 +881,12 @@ def price_check(cla):
 
                         if result_num != "none":
 
-                            file_path = "C:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\only_price\\number.txt"
 
-                            with open(file_path, "r", encoding='utf-8-sig') as file:
-                                read_num = file.read().splitlines()
-                                # print("read_num", read_num)
-                                for r in range(len(read_num)):
-                                    read_num_ready = read_num[r].split(":")
-                                    if read_num_ready[0] == result_num:
-                                        result_num = read_num_ready[1]
-                                        break
+                            for r in range(len(read_num)):
+                                read_num_ready = read_num[r].split(":")
+                                if read_num_ready[0] == result_num:
+                                    result_num = read_num_ready[1]
+                                    break
                             print("result_num", result_num)
 
                             result_price += result_num
