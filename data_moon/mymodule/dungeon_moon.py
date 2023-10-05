@@ -120,6 +120,30 @@ def dungeon_ing_check(cla, sche):
                         attack_check_and_attack(cla)
                         d_in_ = True
 
+                if d_in_ == True:
+
+                    in_maul = False
+
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\jabhwa_click1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(700, 970, 950, 1040, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("jabhwa_click1", imgs_)
+                        in_maul = True
+                    else:
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\jabhwa_click2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(700, 970, 950, 1040, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("jabhwa_click2", imgs_)
+                            in_maul = True
+
+                    if in_maul == True:
+                        print("본 사냥터로 이동하자")
+                        world_step(cla, int(result_dun_detail[1]))
+
         else:
             # 스케쥴이 던전이 아닐 경우...
             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\stair_ing1.PNG"
