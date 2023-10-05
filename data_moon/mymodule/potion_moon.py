@@ -672,7 +672,7 @@ def maul_potion_full(cla):
                 imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     buy = True
-                    for i in range(10):
+                    for i in range(5):
                         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
