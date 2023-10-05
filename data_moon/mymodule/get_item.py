@@ -222,6 +222,23 @@ def get_event(cla):
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             break
 
+                        # 교환하기일 경우 멈추기
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\ex\\gyohwan1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(220, 670, 890, 750, cla, img, 0.95)
+                        if imgs_ is not None and imgs_ != False:
+                            print("gyohwan1", imgs_)
+                            break
+                        else:
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\ex\\gyohwan2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(220, 670, 890, 750, cla, img, 0.95)
+                            if imgs_ is not None and imgs_ != False:
+                                print("gyohwan2", imgs_)
+                                break
+
 
                         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\bosang_get_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
