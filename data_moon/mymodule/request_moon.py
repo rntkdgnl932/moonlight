@@ -298,6 +298,7 @@ def get_my_request(cla, sche):
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(100, 990, 200, 1030, cla, img, 0.9)
                                 if imgs_ is not None and imgs_ != False:
+                                    print("무료 갱신 가능한 상태")
                                     # 수락 가능한 상태일 경우 갱신하기
                                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_confirm.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
@@ -338,6 +339,7 @@ def get_my_request(cla, sche):
                                             get_request = True
                                             break
                                 else:
+                                    print("무료 갱신 불불불 가능한 상태")
                                     click_pos_2(160, y_point + 60, cla)
                                     time.sleep(0.1)
                                     click_pos_2(160, y_point + 60, cla)
