@@ -103,6 +103,7 @@ def get_my_request(cla, sche):
             clean_screen(cla)
 
         complete = False
+        recieve = False
 
         # 스케쥴에서 던전 정보 뽑기
         result_dun = sche.split("_")
@@ -222,11 +223,19 @@ def get_my_request(cla, sche):
                                 get_request = True
                                 myQuest_play_add(cla, sche)
                                 time.sleep(0.1)
+
+                                recieve = True
+
                                 break
                             else:
                                 # S, A 존재함에도 불구하고 수락이 비활성화 => 받기 완료 되었다는 뜻
                                 get_request = True
+
+                                recieve = True
+
                                 break
+                        if recieve == True:
+                            break
                         time.sleep(0.5)
                     else:
                         break_count += 1
@@ -299,7 +308,7 @@ def get_my_request(cla, sche):
                                         else:
                                             # 이건 더이상 수락할 수 없는 상태임
                                             get_request = True
-                                            
+
 
                                             for i in range(20):
                                                 full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_y_point.PNG"
