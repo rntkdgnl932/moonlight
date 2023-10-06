@@ -77,11 +77,36 @@ def jadong_start(cla, sche):
 
 
 def jadong_spot_in(cla, sche):
+    import numpy as np
+    import cv2
 
+    from function_moon import imgs_set_, click_pos_reg, click_pos_2
+
+    from action_moon import loading, clean_screen
+    from dungeon_moon import dungeon_ing_check
+    from schedule import myQuest_play_check
     try:
         print("jadong_spot_in")
 
+        # 던전일 경우 빠져나오기
 
+        result_dun = dungeon_ing_check(cla, sche)
+
+        if result_dun == True:
+            clean_screen(cla)
+            click_pos_2(925, 270, cla)
+            for i in range(10):
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\dun_out_confirm.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(510, 560, 580, 620, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    break
+                time.sleep(0.5)
+
+            loading(cla)
+            clean_screen(cla)
 
         # 지도 펼치기
         map_open_check(cla)
@@ -537,3 +562,43 @@ def map_spot_in_region(cla, sche):
         print(e)
 
 
+def boss_check(cla):
+    import cv2
+    import numpy as np
+    from function_moon import imgs_set_, click_pos_reg
+
+    try:
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\boss_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(215, 115, 255, 150, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("boss_1")
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\boss_2.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(215, 115, 255, 150, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("boss_2")
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\boss_3.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(215, 115, 255, 150, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("boss_3")
+
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\boss_move.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(10, 950, 960, 1040, cla, img, 0.98)
+        if imgs_ is not None and imgs_ != False:
+            print("boss_move", imgs_)
+
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\boss_move_not.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(10, 950, 960, 1040, cla, img, 0.98)
+        if imgs_ is not None and imgs_ != False:
+            print("boss_move_not", imgs_)
+    except Exception as e:
+        print(e)

@@ -52,6 +52,7 @@ from get_item import get_items, get_items_sub, get_event, get_event_sub
 from potion_moon import maul_potion_small_only, maul_potion_full
 from character_select_and_game_start import game_start_screen, character_change
 from auction_moon import auction_start
+from request_moon import request_start
 
 
 from stop_event18 import _stop_please
@@ -900,9 +901,9 @@ class FirstTab(QWidget):
         # self.one_cla_id_now = QLabel("       현재 내 아이디 : " + thismyid_one + "\n\n")
 
         # 마을 의뢰
-        self.com_group6 = QGroupBox('육성, 퀘스트, 각종템받기, 거래소등록하기')
+        self.com_group6 = QGroupBox('육성, 각종템받기, 거래소등록하기, 의뢰')
         cb6 = QComboBox()
-        list6 = ['스케쥴 선택', '캐릭터바꾸기', '각종템받기', '버프와물약사기', '거래소등록', '튜토육성']
+        list6 = ['스케쥴 선택', '캐릭터바꾸기', '각종템받기', '버프와물약사기', '거래소등록', '튜토육성', '의뢰_세라보그', '의뢰_바란', '의뢰_국경지대', '의뢰_유로키나산맥']
         cb6.addItems(list6)
         vbox6 = QHBoxLayout()
         vbox6.addWidget(cb6)
@@ -3240,6 +3241,9 @@ class game_Playing(QThread):
                                         get_items_sub(v_.now_cla)
                                         maul_potion_small_only(v_.now_cla)
                                         myQuest_play_add(v_.now_cla, result_schedule_)
+
+                                elif "의뢰" in result_schedule_:
+                                    request_start(v_.now_cla, result_schedule_)
 
                                 elif "사냥" in result_schedule_:
                                     jadong_start(v_.now_cla, result_schedule_)

@@ -241,8 +241,6 @@ def maul_potion_small_only(cla):
 def maul_potion_dead_only(cla):
     import numpy as np
     import cv2
-    import pyautogui
-    import random
 
     from function_moon import imgs_set_, click_pos_reg, click_pos_2
 

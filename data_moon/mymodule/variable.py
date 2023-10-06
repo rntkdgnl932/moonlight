@@ -17,6 +17,9 @@ not_boohwal = False
 # 튜토리얼 moving error
 moving_error = 0
 
+# 의뢰 클릭 카운터
+re_click_count = 0
+
 
 # 버젼
 

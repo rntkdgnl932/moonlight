@@ -33,8 +33,7 @@ def tuto_start(cla):
         print(e)
         return 0
 
-
-def tuto_click(cla):
+def quest_check(cla):
     import numpy as np
     import cv2
 
@@ -43,7 +42,141 @@ def tuto_click(cla):
 
     from function_moon import click_pos_reg, click_pos_2, imgs_set_, mouse_move_cpp, drag_pos_reg, drag_pos
     try:
+        print("quest_check", cla)
+
+        tuto_look = False
+
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_check1_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(900, 90, 950, 150, cla, img, 0.9)
+        if imgs_ is not None and imgs_ != False:
+            print("quest_check : tuto_check1_1", imgs_)
+            tuto_look = True
+
+        if tuto_look == False:
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_check2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(800, 100, 900, 140, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("quest_check : tuto_check2", imgs_)
+                click_pos_2(925, 120, cla)
+                time.sleep(0.5)
+            else:
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_check3.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(800, 100, 900, 140, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("quest_check : tuto_check3", imgs_)
+                    click_pos_2(925, 120, cla)
+                    time.sleep(0.5)
+                else:
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_check1_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(900, 90, 950, 150, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        print("quest_check : tuto_check1_2", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.5)
+
+    except Exception as e:
+        print(e)
+        return 0
+
+def quest_click(cla):
+    import numpy as np
+    import cv2
+    from function_moon import click_pos_reg, imgs_set_
+    from repair_moon import my_stat_up
+    try:
+        print("quest_click", cla)
+
+        q_click = False
+
+        # 완료 또는 진행하기
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\q_clear_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(840, 80, 910, 350, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("q_clear_1", imgs_)
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+            my_stat_up(cla)
+        else:
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\clear_re.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(840, 80, 910, 350, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("clear_re", imgs_)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                my_stat_up(cla)
+
+            else:
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(850, 100, 900, 150, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("q_click1", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    q_click = True
+                else:
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(850, 100, 900, 150, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("q_click2", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        q_click = True
+                    else:
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click3.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(850, 100, 900, 150, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("q_click3", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            q_click = True
+                        else:
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click4.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(850, 100, 900, 150, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("q_click4", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                q_click = True
+        time.sleep(0.1)
+        return q_click
+    except Exception as e:
+        print(e)
+        return 0
+
+
+def tuto_click(cla):
+    import numpy as np
+    import cv2
+
+
+    from dungeon_moon import dungeon_ing_check
+
+    from function_moon import click_pos_reg, click_pos_2, imgs_set_, mouse_move_cpp, drag_pos_reg, drag_pos
+
+    from action_moon import out_check, clean_screen
+    try:
         print("tuto_click", cla)
+
+
+        result_out = out_check(cla)
+        if result_out == False:
+            clean_screen(cla)
+            time.sleep(0.1)
+
 
         tuto_skip(cla)
 
@@ -66,139 +199,36 @@ def tuto_click(cla):
         click_pos_2(480, 555, cla)
         time.sleep(0.1)
 
-        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_check1.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(888, 110, 905, 130, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("good tuto")
-        else:
-            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_check2.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(800, 100, 900, 140, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                print("tuto_check2 tuto")
-                click_pos_2(925, 120, cla)
-                time.sleep(0.5)
-            else:
-                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_check3.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(800, 100, 900, 140, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    print("tuto_check3 tuto")
-                    click_pos_2(925, 120, cla)
-                    time.sleep(0.5)
-                else:
-                    print("tuto click...ready")
-                    click_pos_2(925, 120, cla)
-                    time.sleep(0.5)
-
-        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click1.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(850, 100, 900, 450, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("tuto_click1", imgs_)
-
-            drag_pos_reg(imgs_.x, imgs_.y, imgs_.x, imgs_.y + 350, cla)
-        else:
-            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click2.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(850, 100, 900, 450, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                print("tuto_click2", imgs_)
-                drag_pos_reg(imgs_.x, imgs_.y, imgs_.x, imgs_.y + 350, cla)
-            else:
-                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click3.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(850, 100, 900, 450, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    print("tuto_click3", imgs_)
-                    drag_pos_reg(imgs_.x, imgs_.y, imgs_.x, imgs_.y + 350, cla)
-                else:
-                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click4.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(850, 100, 900, 450, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        print("tuto_click4", imgs_)
-                        drag_pos_reg(imgs_.x, imgs_.y, imgs_.x, imgs_.y + 350, cla)
-                    else:
-                        drag_pos(800, 120, 800, 120 + 350, cla)
-
-        time.sleep(0.5)
 
 
-        q_click = False
-
-        # 완료 또는 진행하기
-        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\q_clear_1.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(840, 80, 910, 350, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("q_clear_1", imgs_)
-            click_pos_reg(imgs_.x, imgs_.y, cla)
-            my_stat_up(cla)
-        else:
-            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click1.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(850, 100, 900, 150, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                print("tuto_click1", imgs_)
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                q_click = True
-            else:
-                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click2.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(850, 100, 900, 150, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    print("tuto_click2", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    q_click = True
-                else:
-                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click3.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(850, 100, 900, 150, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        print("tuto_click3", imgs_)
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        q_click = True
-                    else:
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_click4.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(850, 100, 900, 150, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            print("tuto_click4", imgs_)
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                            q_click = True
+        # 화면에 퀘스트 활성화 되어있는지 확인
+        quest_check(cla)
+        # 화면에 활성화 되어 있는 퀘스트를 클릭하기
+        result_click = quest_click(cla)
+        time.sleep(0.1)
+        if result_click == False:
+            # 안 보여서 드래그하기
+            drag_pos(800, 120, 800, 120 + 350, cla)
+            time.sleep(0.5)
 
         mouse_move_cpp(500, 500, cla)
-        if q_click == True:
-            for i in range(10):
-                # 이동하기
-                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\confirm\\move.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(450, 500, 700, 700, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    print("move", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    time.sleep(0.1)
-                    break
+        time.sleep(0.1)
+        for i in range(10):
+            # 이동하기
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\confirm\\move.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(450, 500, 700, 700, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("move", imgs_)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
                 time.sleep(0.1)
+                break
+            time.sleep(0.2)
 
 
 
-        return q_click
+        return result_click
     except Exception as e:
         print(e)
         return 0
