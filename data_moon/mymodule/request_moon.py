@@ -195,7 +195,6 @@ def get_my_request(cla, sche):
                         time.sleep(0.5)
 
                     break_count = 0
-                    fresh_count = 0
 
                     for r in range(15):
                         # 진행중인 의뢰 밑으로 클릭하도록 하기
@@ -293,7 +292,12 @@ def get_my_request(cla, sche):
                             if break_count > 1:
 
                                 print("클릭한 위치에 S급, A급 퀘스트 존재하지 않음", break_count)
-                                if fresh_count < 3:
+
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\reftresh_free.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(100, 990, 200, 1030, cla, img, 0.9)
+                                if imgs_ is not None and imgs_ != False:
                                     # 수락 가능한 상태일 경우 갱신하기
                                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_confirm.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
@@ -308,7 +312,6 @@ def get_my_request(cla, sche):
                                             if imgs_ is not None and imgs_ != False:
                                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                                 # click_pos_2(410, 590, cla)
-                                                fresh_count += 1
                                                 break_count = 0
                                                 break
                                             else:
@@ -320,7 +323,6 @@ def get_my_request(cla, sche):
                                                     click_pos_reg(imgs_.x, imgs_.y, cla)
                                                     time.sleep(0.2)
                                                 else:
-                                                    fresh_count += 1
                                                     break
                                             time.sleep(0.5)
                                     else:
