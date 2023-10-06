@@ -117,14 +117,7 @@ def get_my_request(cla, sche):
         # result_dun[0] => 외뢰
         # result_dun[1] => 세라보그, 바란, 국경지대, 유로키나산맥
 
-        if result_dun[1] == "세라보그":
-            x_reg = 105
-        elif result_dun[1] == "바란":
-            x_reg = 245
-        elif result_dun[1] == "국경지대":
-            x_reg = 385
-        elif result_dun[1] == "유로키나산맥맥":
-            x_reg = 525
+
 
 
         print("request_start")
@@ -145,11 +138,57 @@ def get_my_request(cla, sche):
 
                 if recieve == False:
 
-                    # 의뢰 지역 클릭
-                    click_pos_2(x_reg, 100, cla)
-                    time.sleep(0.1)
-                    click_pos_2(x_reg, 100, cla)
-                    time.sleep(0.5)
+                    for c in range(20):
+                        if result_dun[1] == "세라보그":
+                            x_reg = 105
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\region_clicked.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(50, 90, 150, 150, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                print("region_clicked", imgs_)
+                            else:
+                                click_pos_2(100, 100, cla)
+                                time.sleep(0.2)
+                        elif result_dun[1] == "바란":
+                            x_reg = 245
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\region_clicked.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(200, 90, 300, 150, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                print("region_clicked", imgs_)
+                            else:
+                                click_pos_2(100, 100, cla)
+                                time.sleep(0.2)
+                        elif result_dun[1] == "국경지대":
+                            x_reg = 385
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\region_clicked.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(350, 90, 450, 150, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                print("region_clicked", imgs_)
+                            else:
+                                click_pos_2(100, 100, cla)
+                                time.sleep(0.2)
+                        elif result_dun[1] == "유로키나산맥맥":
+                            x_reg = 525
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\region_clicked.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(500, 90, 600, 150, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                print("region_clicked", imgs_)
+                            else:
+                                click_pos_2(100, 100, cla)
+                                time.sleep(0.2)
+
+                        # 의뢰 지역 클릭
+                        click_pos_2(x_reg, 100, cla)
+                        time.sleep(0.1)
+                        click_pos_2(x_reg, 100, cla)
+                        time.sleep(0.5)
 
                     break_count = 0
                     fresh_count = 0
