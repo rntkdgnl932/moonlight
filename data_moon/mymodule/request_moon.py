@@ -45,7 +45,16 @@ def request_start(cla, sche):
             if imgs_ is not None and imgs_ != False:
                 print("execute_re2", imgs_)
                 request_ing = True
-            else:
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\execute_re3.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(680, 90, 730, 280, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("execute_re3", imgs_)
+                request_ing = True
+
+
+            if request_ing != True:
                 drag_pos(800, 260, 800, 130, cla)
                 time.sleep(0.5)
                 full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\execute_re2.PNG"
@@ -55,7 +64,15 @@ def request_start(cla, sche):
                 if imgs_ is not None and imgs_ != False:
                     print("execute_re22", imgs_)
                     request_ing = True
-                else:
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\execute_re3.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(680, 90, 730, 280, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    print("execute_re3", imgs_)
+                    request_ing = True
+
+                if request_ing != True:
                     print("not execute_re2 => get_my_request")
                     get_my_request(cla, sche)
 
@@ -506,7 +523,7 @@ def request_bosang_and_move(cla, sche):
                 full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\execute_re2.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(680, 90, 730, 280, cla, img, 0.9)
+                imgs_ = imgs_set_(680, 90, 730, 280, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
                     print("execute_re2", imgs_)
                     request_click_x = imgs_.x + 170
@@ -514,22 +531,46 @@ def request_bosang_and_move(cla, sche):
                     request_ing = True
                     break
                 else:
-                    drag_pos(800, 260, 800, 130, cla)
-                    time.sleep(0.5)
-                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\execute_re2.PNG"
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\execute_re3.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(680, 90, 730, 280, cla, img, 0.9)
+                    imgs_ = imgs_set_(680, 90, 730, 280, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
-                        print("execute_re22", imgs_)
+                        print("execute_re3", imgs_)
                         request_click_x = imgs_.x + 170
                         request_click_y = imgs_.y
                         request_ing = True
                         break
+
                     else:
-                        print("not execute_re2", i)
-                        if i > 1:
-                            get_my_request(cla, sche)
+                        drag_pos(800, 260, 800, 130, cla)
+                        time.sleep(0.5)
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\execute_re2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(680, 90, 730, 280, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            print("execute_re22", imgs_)
+                            request_click_x = imgs_.x + 170
+                            request_click_y = imgs_.y
+                            request_ing = True
+                            break
+                        else:
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\execute_re3.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(680, 90, 730, 280, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("execute_re3", imgs_)
+                                request_click_x = imgs_.x + 170
+                                request_click_y = imgs_.y
+                                request_ing = True
+                                break
+
+                            else:
+                                print("not execute_re2", i)
+                                if i > 1:
+                                    get_my_request(cla, sche)
                 time.sleep(0.5)
 
             if request_ing == True:
