@@ -274,6 +274,7 @@ def get_my_request(cla, sche):
                                     else:
                                         # 이건 더이상 수락할 수 없는 상태임
                                         get_request = True
+                                        break
                             else:
                                 click_pos_2(160, y_point + 60, cla)
                                 time.sleep(0.1)
@@ -298,6 +299,7 @@ def get_my_request(cla, sche):
                                         else:
                                             # 이건 더이상 수락할 수 없는 상태임
                                             get_request = True
+                                            
 
                                             for i in range(20):
                                                 full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_y_point.PNG"
