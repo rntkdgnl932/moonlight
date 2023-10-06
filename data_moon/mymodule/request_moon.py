@@ -146,7 +146,8 @@ def get_my_request(cla, sche):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(50, 90, 150, 150, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
-                                print("region_clicked", imgs_)
+                                print("세라보그 region_clicked", imgs_)
+                                break
                             else:
                                 click_pos_2(100, 100, cla)
                                 time.sleep(0.2)
@@ -157,7 +158,8 @@ def get_my_request(cla, sche):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(200, 90, 300, 150, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
-                                print("region_clicked", imgs_)
+                                print("바란 region_clicked", imgs_)
+                                break
                             else:
                                 click_pos_2(100, 100, cla)
                                 time.sleep(0.2)
@@ -168,18 +170,20 @@ def get_my_request(cla, sche):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(350, 90, 450, 150, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
-                                print("region_clicked", imgs_)
+                                print("국경지대 region_clicked", imgs_)
+                                break
                             else:
                                 click_pos_2(100, 100, cla)
                                 time.sleep(0.2)
-                        elif result_dun[1] == "유로키나산맥맥":
+                        elif result_dun[1] == "유로키나산맥":
                             x_reg = 525
                             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\region_clicked.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(500, 90, 600, 150, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
-                                print("region_clicked", imgs_)
+                                print("유로키나산맥 region_clicked", imgs_)
+                                break
                             else:
                                 click_pos_2(100, 100, cla)
                                 time.sleep(0.2)
