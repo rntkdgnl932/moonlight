@@ -150,6 +150,8 @@ def clean_screen(cla):
     from schedule import myQuest_play_check
     from dead import dead_die
     from massenger import line_to_me
+    
+    import random
 
     try:
         print("clean_screen")
@@ -183,6 +185,33 @@ def clean_screen(cla):
             # 각종 대답 오케이
             confirm_all(cla)
             time.sleep(0.1)
+
+            # 의뢰퀘 완료 있을 경우 보상 받기
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\bosang_re2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(430, 400, 510, 450, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                for i in range(10):
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\bosang_re.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(290, 620, 673, 710, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        result_ran = random.randint(1, 5)
+
+                        ran_x = 270 + (result_ran * 70)
+
+                        click_pos_2(ran_x, 665, cla)
+                    else:
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\bosang_re2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(430, 400, 510, 450, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y + 100, cla)
+                            break
+                    time.sleep(0.5)
 
             # 타이틀 화면으로...클릭하고 재접하기
             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\in_title_screen.PNG"
