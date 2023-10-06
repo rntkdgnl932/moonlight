@@ -292,7 +292,7 @@ def get_my_request(cla, sche):
                             break_count += 1
                             if break_count > 1:
 
-                                print("클릭한 위치에 S급, A급 퀘스트 존재하지 않음")
+                                print("클릭한 위치에 S급, A급 퀘스트 존재하지 않음", break_count)
                                 if fresh_count < 3:
                                     # 수락 가능한 상태일 경우 갱신하기
                                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_confirm.PNG"
