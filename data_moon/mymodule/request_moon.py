@@ -348,6 +348,7 @@ def get_my_request(cla, sche):
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
                                     else:
                                         break_count += 1
+                                        print("break_count", break_count)
                                         if break_count > 2:
                                             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_disclaim.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
@@ -355,9 +356,11 @@ def get_my_request(cla, sche):
                                             imgs_ = imgs_set_(810, 970, 910, 1020, cla, img, 0.9)
                                             if imgs_ is not None and imgs_ != False:
                                                 # 이건 클릭 잘못한 것임
+                                                print("이건 클릭 잘못한 것임")
                                                 break
                                             else:
                                                 # 이건 더이상 수락할 수 없는 상태임
+                                                print("이건 더이상 수락할 수 없는 상태임")
                                                 get_request = True
 
                                                 for i in range(20):
