@@ -150,7 +150,7 @@ def clean_screen(cla):
     from schedule import myQuest_play_check
     from dead import dead_die
     from massenger import line_to_me
-    
+
     import random
 
     try:

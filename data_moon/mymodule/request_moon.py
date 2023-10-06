@@ -143,168 +143,145 @@ def get_my_request(cla, sche):
             if imgs_ is not None and imgs_ != False:
                 print("request_title...", imgs_)
 
-                # 의뢰 지역 클릭
-                click_pos_2(x_reg, 100, cla)
-                time.sleep(0.1)
-                click_pos_2(x_reg, 100, cla)
-                time.sleep(0.5)
+                if recieve == False:
 
-                break_count = 0
-                fresh_count = 0
-
-                for r in range(15):
-                    # 진행중인 의뢰 밑으로 클릭하도록 하기
-                    y_point = 0
-
-                    if cla == "one":
-                        plus = 0
-                    if cla == "two":
-                        plus = 960
-                    if cla == "three":
-                        plus = 960 * 2
-                    if cla == "four":
-                        plus = 960 * 3
-
-                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_y_point.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    for i in pyautogui.locateAllOnScreen(img, region=(230 + plus, 130, 300 - 230, 800 - 130),
-                                                         confidence=0.8):
-                        #last_x = i.left
-                        last_y = i.top
-                        #print("last_x", last_x)
-                        print("last_y", last_y)
-                        y_point = last_y
-
-
-                    # 먼저 아래쪽 클릭하기
-
-                    if y_point != 0:
-                        click_pos_2(160, y_point + 60, cla)
-                        time.sleep(0.1)
-                        click_pos_2(160, y_point + 60, cla)
-                        time.sleep(0.1)
-                    else:
-                        click_pos_2(160, 160, cla)
-                        time.sleep(0.1)
+                    # 의뢰 지역 클릭
+                    click_pos_2(x_reg, 100, cla)
+                    time.sleep(0.1)
+                    click_pos_2(x_reg, 100, cla)
                     time.sleep(0.5)
 
-                    exist_request = False
+                    break_count = 0
+                    fresh_count = 0
 
+                    for r in range(15):
+                        # 진행중인 의뢰 밑으로 클릭하도록 하기
+                        y_point = 0
 
-                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\get_re_s.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(310, 130, 370, 180, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        exist_request = True
-                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\get_re_a.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(310, 130, 370, 180, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        exist_request = True
-                    if exist_request == True:
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_confirm.PNG"
+                        if cla == "one":
+                            plus = 0
+                        if cla == "two":
+                            plus = 960
+                        if cla == "three":
+                            plus = 960 * 2
+                        if cla == "four":
+                            plus = 960 * 3
+
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_y_point.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(800, 950, 950, 1040, cla, img, 0.9)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                        for i in pyautogui.locateAllOnScreen(img, region=(230 + plus, 130, 300 - 230, 800 - 130),
+                                                             confidence=0.8):
+                            #last_x = i.left
+                            last_y = i.top
+                            #print("last_x", last_x)
+                            print("last_y", last_y)
+                            y_point = last_y
+
+
+                        # 먼저 아래쪽 클릭하기
+
+                        if y_point != 0:
+                            click_pos_2(160, y_point + 60, cla)
+                            time.sleep(0.1)
+                            click_pos_2(160, y_point + 60, cla)
+                            time.sleep(0.1)
                         else:
-
-                            for i in range(20):
-                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_y_point.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(230, 130, 300, 800, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    v_.re_click_count = 0
-                                    complete = False
-                                    break
-                                else:
-                                    complete = True
-                                time.sleep(0.1)
-                            if complete == True:
-                                # S, A 존재함에도 불구하고 수락이 비활성화 and 받은 의뢰가 없음 => 받기 완료 되었다는 뜻
-                                get_request = True
-                                myQuest_play_add(cla, sche)
-                                time.sleep(0.1)
-
-                                recieve = True
-
-                                break
-                            else:
-                                # S, A 존재함에도 불구하고 수락이 비활성화 => 받기 완료 되었다는 뜻
-                                get_request = True
-
-                                recieve = True
-
-                                break
-                        if recieve == True:
-                            break
+                            click_pos_2(160, 160, cla)
+                            time.sleep(0.1)
                         time.sleep(0.5)
-                    else:
-                        break_count += 1
-                        if break_count > 1:
 
-                            print("클릭한 위치에 S급, A급 퀘스트 존재하지 않음")
-                            if fresh_count < 3:
-                                # 수락 가능한 상태일 경우 갱신하기
-                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_confirm.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(800, 950, 950, 1040, cla, img, 0.9)
-                                if imgs_ is not None and imgs_ != False:
-                                    for f in range(10):
-                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\refresh_confirm.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(500, 550, 600, 620, cla, img, 0.9)
-                                        if imgs_ is not None and imgs_ != False:
-                                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                                            # click_pos_2(410, 590, cla)
-                                            fresh_count += 1
-                                            break_count = 0
-                                            break
-                                        else:
-                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\reftresh_free.PNG"
-                                            img_array = np.fromfile(full_path, np.uint8)
-                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(100, 990, 200, 1030, cla, img, 0.9)
-                                            if imgs_ is not None and imgs_ != False:
-                                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                                                time.sleep(0.2)
-                                            else:
-                                                fresh_count += 1
-                                                break
-                                        time.sleep(0.5)
-                                else:
-                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_disclaim.PNG"
+                        exist_request = False
+
+
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\get_re_s.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(310, 130, 370, 180, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            exist_request = True
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\get_re_a.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(310, 130, 370, 180, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            exist_request = True
+                        if exist_request == True:
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_confirm.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(800, 950, 950, 1040, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+
+                                for i in range(20):
+                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_y_point.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(810, 970, 910, 1020, cla, img, 0.9)
+                                    imgs_ = imgs_set_(230, 130, 300, 800, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
-                                        # 이건 클릭 잘못한 것임
+                                        v_.re_click_count = 0
+                                        complete = False
                                         break
                                     else:
-                                        # 이건 더이상 수락할 수 없는 상태임
-                                        get_request = True
-                                        break
-                            else:
-                                click_pos_2(160, y_point + 60, cla)
-                                time.sleep(0.1)
-                                click_pos_2(160, y_point + 60, cla)
-                                time.sleep(0.5)
-                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_confirm.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(800, 950, 950, 1040, cla, img, 0.9)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        complete = True
+                                    time.sleep(0.1)
+                                if complete == True:
+                                    # S, A 존재함에도 불구하고 수락이 비활성화 and 받은 의뢰가 없음 => 받기 완료 되었다는 뜻
+                                    get_request = True
+                                    myQuest_play_add(cla, sche)
+                                    time.sleep(0.1)
+
+                                    recieve = True
+
+                                    break
                                 else:
-                                    break_count += 1
-                                    if break_count > 2:
+                                    # S, A 존재함에도 불구하고 수락이 비활성화 => 받기 완료 되었다는 뜻
+                                    get_request = True
+
+                                    recieve = True
+
+                                    break
+                            if recieve == True:
+                                break
+                            time.sleep(0.5)
+                        else:
+                            break_count += 1
+                            if break_count > 1:
+
+                                print("클릭한 위치에 S급, A급 퀘스트 존재하지 않음")
+                                if fresh_count < 3:
+                                    # 수락 가능한 상태일 경우 갱신하기
+                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_confirm.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(800, 950, 950, 1040, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
+                                        for f in range(10):
+                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\refresh_confirm.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(500, 550, 600, 620, cla, img, 0.9)
+                                            if imgs_ is not None and imgs_ != False:
+                                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                # click_pos_2(410, 590, cla)
+                                                fresh_count += 1
+                                                break_count = 0
+                                                break
+                                            else:
+                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\reftresh_free.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(100, 990, 200, 1030, cla, img, 0.9)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                    time.sleep(0.2)
+                                                else:
+                                                    fresh_count += 1
+                                                    break
+                                            time.sleep(0.5)
+                                    else:
                                         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_disclaim.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -315,26 +292,53 @@ def get_my_request(cla, sche):
                                         else:
                                             # 이건 더이상 수락할 수 없는 상태임
                                             get_request = True
-
-
-                                            for i in range(20):
-                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_y_point.PNG"
-                                                img_array = np.fromfile(full_path, np.uint8)
-                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                imgs_ = imgs_set_(230, 130, 300, 800, cla, img, 0.8)
-                                                if imgs_ is not None and imgs_ != False:
-                                                    v_.re_click_count = 0
-                                                    complete = False
-                                                    break
-                                                else:
-                                                    complete = True
-                                                time.sleep(0.1)
-                                            if complete == True:
+                                            break
+                                else:
+                                    click_pos_2(160, y_point + 60, cla)
+                                    time.sleep(0.1)
+                                    click_pos_2(160, y_point + 60, cla)
+                                    time.sleep(0.5)
+                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_confirm.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(800, 950, 950, 1040, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    else:
+                                        break_count += 1
+                                        if break_count > 2:
+                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_disclaim.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(810, 970, 910, 1020, cla, img, 0.9)
+                                            if imgs_ is not None and imgs_ != False:
+                                                # 이건 클릭 잘못한 것임
+                                                break
+                                            else:
+                                                # 이건 더이상 수락할 수 없는 상태임
                                                 get_request = True
-                                                myQuest_play_add(cla, sche)
-                                                time.sleep(0.1)
 
-                        time.sleep(0.5)
+
+                                                for i in range(20):
+                                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_y_point.PNG"
+                                                    img_array = np.fromfile(full_path, np.uint8)
+                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                    imgs_ = imgs_set_(230, 130, 300, 800, cla, img, 0.8)
+                                                    if imgs_ is not None and imgs_ != False:
+                                                        v_.re_click_count = 0
+                                                        complete = False
+                                                        break
+                                                    else:
+                                                        complete = True
+                                                    time.sleep(0.1)
+                                                if complete == True:
+                                                    get_request = True
+                                                    myQuest_play_add(cla, sche)
+                                                    time.sleep(0.1)
+
+                            time.sleep(0.5)
+                else:
+                    get_request = True
 
                 # 받기 완료 후 나가기
                 for o in range(5):
