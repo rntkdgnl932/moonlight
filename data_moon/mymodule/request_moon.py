@@ -360,7 +360,6 @@ def get_my_request(cla, sche):
                                                 # 이건 더이상 수락할 수 없는 상태임
                                                 get_request = True
 
-
                                                 for i in range(20):
                                                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_y_point.PNG"
                                                     img_array = np.fromfile(full_path, np.uint8)
@@ -374,9 +373,9 @@ def get_my_request(cla, sche):
                                                         complete = True
                                                     time.sleep(0.1)
                                                 if complete == True:
-                                                    get_request = True
                                                     myQuest_play_add(cla, sche)
                                                     time.sleep(0.1)
+                                                break
 
                             time.sleep(0.5)
                         if recieve == True:
