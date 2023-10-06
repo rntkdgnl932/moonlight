@@ -249,10 +249,10 @@ def get_my_request(cla, sche):
                         if imgs_ is not None and imgs_ != False:
                             exist_request = True
                         if exist_request == True:
-                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_confirm.PNG"
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_confirm2.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(800, 950, 950, 1040, cla, img, 0.9)
+                            imgs_ = imgs_set_(800, 950, 960, 1040, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                             else:
@@ -300,10 +300,10 @@ def get_my_request(cla, sche):
                                 if imgs_ is not None and imgs_ != False:
                                     print("무료 갱신 가능한 상태")
                                     # 수락 가능한 상태일 경우 갱신하기
-                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_confirm.PNG"
+                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_confirm2.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(800, 950, 950, 1040, cla, img, 0.9)
+                                    imgs_ = imgs_set_(800, 950, 960, 1040, cla, img, 0.9)
                                     if imgs_ is not None and imgs_ != False:
                                         for f in range(10):
                                             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\refresh_confirm.PNG"
@@ -344,10 +344,10 @@ def get_my_request(cla, sche):
                                     time.sleep(0.1)
                                     click_pos_2(160, y_point + 60, cla)
                                     time.sleep(0.5)
-                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_confirm.PNG"
+                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_confirm2.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(800, 950, 950, 1040, cla, img, 0.9)
+                                    imgs_ = imgs_set_(800, 950, 960, 1040, cla, img, 0.9)
                                     if imgs_ is not None and imgs_ != False:
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
                                     else:

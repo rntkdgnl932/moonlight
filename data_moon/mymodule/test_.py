@@ -40,14 +40,14 @@ def go_test():
 
     # get_my_request(cla, "의뢰_바란")
 
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_confirm.PNG"
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_confirm2.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(800, 950, 950, 1040, cla, img, 0.9)
+    imgs_ = imgs_set_(800, 950, 960, 1040, cla, img, 0.9)
     if imgs_ is not None and imgs_ != False:
-        print("re_confirm", imgs_)
+        print("re_confirm2", imgs_)
     else:
-        print("re_confirm 없..............")
+        print("re_confirm2 없..............")
     # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_check1_2.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
     # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
