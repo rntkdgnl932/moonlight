@@ -710,7 +710,7 @@ def get_event(cla):
                                                 print("last_y", last_y)
 
                                             if last_x == 0:
-                                                click_pos_2(270, 710, cla)
+                                                click_pos_2(270, 600, cla)
                                             elif last_y > 640 and last_x > 600 + plus:
                                                     print("다 받음")
 
