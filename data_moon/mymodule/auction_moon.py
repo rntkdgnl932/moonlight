@@ -16,9 +16,13 @@ def auction_start(cla):
 
     from action_moon import out_check, menu_open
 
+    from chango_moon import chango_action
 
     try:
         print("auction start")
+
+        # 창고에서 물건 빼내기
+        chango_action(cla, "jaelyo_out")
 
         not_registery = False
 
@@ -461,7 +465,8 @@ def auction_start(cla):
                         break
             time.sleep(0.1)
 
-
+        # 창고에 물건 넣기
+        chango_action(cla, "jaelyo_in")
 
 
 

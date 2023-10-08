@@ -2,4 +2,5 @@ joomoonsu_bangugoo
 joomoonsu_jangsingoo
 joomoonsu_moogi
 joomoonsu_youmool
+key_miro
 segongsuk

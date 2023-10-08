@@ -197,6 +197,27 @@ def chango_jaelyo_in_start(cla):
             with open(file_path, "r", encoding='utf-8-sig') as file:
                 read_list = file.read().splitlines()
 
+            # 우선 한번 넣기
+            for i in range(len(read_list)):
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in\\" + read_list[i] + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(625, 115, 960, 900, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.1)
+
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\bogwanhagi_right.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(820, 920, 910, 970, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.1)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.4)
+
+
             for i in range(len(read_list)):
                 # 물품 찾아서 창고에 넣기
 
@@ -492,6 +513,27 @@ def chango_jaelyo_out_start(cla):
             file_path = "C:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_out_list.txt"
             with open(file_path, "r", encoding='utf-8-sig') as file:
                 read_list = file.read().splitlines()
+
+            # 우선 한번 빼기
+            for i in range(len(read_list)):
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_out\\" + read_list[i] + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(0, 115, 330, 900, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.1)
+
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\get_in_click.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(110, 970, 220, 1020, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.1)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.4)
+                let_chango_out = True
 
             for i in range(len(read_list)):
                 # 물품 창고에서 빼오기
