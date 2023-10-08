@@ -81,6 +81,7 @@ def character_change(cla, character_id):
     from get_item import get_event, get_event_sub
     from repair_moon import repair_start
     from chango_moon import chango_action
+    from potion_moon import maul_potion_small_only
 
     from massenger import line_to_me
     try:
@@ -236,6 +237,9 @@ def character_change(cla, character_id):
                             same = True
                             cha_select = True
                 if same == False:
+
+                    # 포션만 채우기(수집 분해도 함)
+                    maul_potion_small_only(cla)
 
                     # 장비 빼기
                     chango_action(cla, "jangbi_in")
