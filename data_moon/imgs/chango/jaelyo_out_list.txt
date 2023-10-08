@@ -8,6 +8,7 @@ money_gold
 money_silver
 sand_timer_1
 sand_timer_2
+sand_timer_3
 segongsuk
 soomgyul
 stone_crystal
