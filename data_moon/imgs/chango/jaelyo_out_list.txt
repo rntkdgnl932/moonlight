@@ -6,6 +6,8 @@ jungsoo_magicpower
 key_miro
 money_gold
 money_silver
+sand_timer_1
+sand_timer_2
 segongsuk
 soomgyul
 stone_crystal

@@ -3,4 +3,6 @@ joomoonsu_jangsingoo
 joomoonsu_moogi
 joomoonsu_youmool
 key_miro
+sand_timer_1
+sand_timer_2
 segongsuk
