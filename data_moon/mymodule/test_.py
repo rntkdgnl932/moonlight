@@ -25,6 +25,7 @@ def go_test():
     from soojib_boonhae_moon import soojib_boonhae_start, soojib_setting, soojib_start
     from auction_moon import price_check, auction_start, how_many
     from request_moon import get_my_request
+    from chango_moon import dajoong_click, chango_jangbi_in_start, chango_action
 
     print("tst")
     cla = "two"
@@ -40,20 +41,49 @@ def go_test():
 
     # get_my_request(cla, "의뢰_바란")
 
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_confirm2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(800, 950, 960, 1040, cla, img, 0.9)
-    if imgs_ is not None and imgs_ != False:
-        print("re_confirm2", imgs_)
-    else:
-        print("re_confirm2 없..............")
-    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tuto_check1_2.PNG"
+    # chango_action(cla, "jangbi_out")
+
+    file_path = "C:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in_list.txt"
+    with open(file_path, "r", encoding='utf-8-sig') as file:
+        read_list = file.read().splitlines()
+
+    for i in range(len(read_list)):
+
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in\\" + read_list[i] + ".PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        for c in pyautogui.locateAllOnScreen(img, region=(625 + plus, 115, 960 - 625, 900 - 115), confidence=0.95):
+            last_x = c.left
+            last_y = c.top
+            click_pos_reg(last_x, last_y, cla)
+            time.sleep(0.1)
+            print("last_x", last_x)
+            print("last_y", last_y)
+
+    # last_x = 0
+    # last_y = 0
+    #
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\in\\segongsuk.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
     # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    # imgs_ = imgs_set_(900, 90, 950, 150, cla, img, 0.9)
+    # for i in pyautogui.locateAllOnScreen(img, region=(625 + plus, 115, 960 - 625, 900 - 115), confidence=0.8):
+    #     last_x = i.left
+    #     last_y = i.top
+    #     click_pos_reg(last_x, last_y, cla)
+    #     time.sleep(0.1)
+    #     print("last_x", last_x)
+    #     print("last_y", last_y)
+    # if last_x != 0:
+    #     print("얏호")
+    #
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\in\\segongsuk.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(625, 115, 960, 900, cla, img, 0.8)
     # if imgs_ is not None and imgs_ != False:
-    #     print("tuto_check1_2 tuto", imgs_)
+    #     print("segongsuk", imgs_)
+    # else:
+    #     print("segongsuk 없??????")
 
     # file_path = "C:\\my_games\\moonlight\\data_moon\\imgs\\auction\\price\\one_price\\number.txt"
     #

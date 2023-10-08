@@ -1,0 +1,11 @@
+gyuljung_mana
+joomoonsu_bangugoo
+joomoonsu_jangsingoo
+joomoonsu_moogi
+jungsoo_magicpower
+money_gold
+money_silver
+segongsuk
+stone_crystal
+stone_magicpower
+stone_soul

@@ -80,6 +80,7 @@ def character_change(cla, character_id):
     from action_moon import loading, clean_screen, out_check, menu_open
     from get_item import get_event, get_event_sub
     from repair_moon import repair_start
+    from chango_moon import chango_action
 
     from massenger import line_to_me
     try:
@@ -208,6 +209,8 @@ def character_change(cla, character_id):
                                 else:
                                     get_event_sub(cla)
 
+                            chango_action(cla, "jangbi_out")
+
                         else:
                             # 로딩중 확인
                             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\loding_1.PNG"
@@ -233,6 +236,10 @@ def character_change(cla, character_id):
                             same = True
                             cha_select = True
                 if same == False:
+
+                    # 장비 빼기
+                    chango_action(cla, "jangbi_in")
+
                     # 메뉴 열기
                     menu_open(cla)
                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\menu_character_select.PNG"

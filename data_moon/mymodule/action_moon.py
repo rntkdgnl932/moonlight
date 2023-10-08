@@ -143,6 +143,84 @@ def moving(cla):
         print(e)
         return 0
 
+def let_is_maul_in(cla):
+    import numpy as np
+    import cv2
+    from function_moon import imgs_set_, click_pos_reg, click_pos_2
+    from dungeon_moon import dungeon_ing_check
+
+    try:
+        print("let_is_maul_in")
+
+        in_maul = False
+        in_maul_count = 0
+        while in_maul is False:
+            in_maul_count += 1
+            if in_maul_count > 7:
+                in_maul = True
+
+            result_dun = dungeon_ing_check(cla, "go")
+
+            if result_dun == True:
+                clean_screen(cla)
+                click_pos_2(925, 270, cla)
+                for i in range(10):
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\dun_out_confirm.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(510, 560, 580, 620, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        break
+                    time.sleep(0.5)
+
+                loading(cla)
+
+                for i in range(10):
+                    result_out = out_check(cla)
+                    if result_out == True:
+                        break
+                    time.sleep(1)
+
+            else:
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\maul\\chango.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(800, 970, 960, 1040, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    in_maul = True
+                    time.sleep(0.1)
+
+                else:
+                    clean_screen(cla)
+                    click_pos_2(25, 180, cla)
+                    for i in range(10):
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\maul\\maul_move_confirm.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(500, 560, 600, 620, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            break
+                        time.sleep(0.2)
+                    for i in range(10):
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\maul\\chango.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(800, 970, 960, 1040, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            # click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                            break
+                        time.sleep(0.5)
+
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
+
 def clean_screen(cla):
     import numpy as np
     import cv2
@@ -416,6 +494,46 @@ def menu_open(cla):
     except Exception as e:
         print(e)
         return 0
+
+def bag_open(cla):
+    import numpy as np
+    import cv2
+    from function_moon import imgs_set_, click_pos_reg, click_pos_2
+    from schedule import myQuest_play_add
+
+    try:
+
+        print("bag_open")
+
+        bag_opened = False
+        bag_opened_count = 0
+        while bag_opened is False:
+            bag_opened_count += 1
+            if bag_opened_count > 4:
+                bag_opened = True
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\repair\\boonhae_click.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(750, 920, 840, 970, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("bag")
+                bag_opened = True
+            else:
+                menu_open(cla)
+                time.sleep(0.1)
+                click_pos_2(865, 65, cla)
+                for i in range(10):
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\repair\\boonhae_click.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(750, 920, 840, 970, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    time.sleep(0.2)
+
+    except Exception as e:
+        print(e)
+
 
 def attack_check_and_attack(cla):
     import numpy as np
