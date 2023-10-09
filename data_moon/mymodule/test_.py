@@ -25,25 +25,101 @@ def go_test():
     from soojib_boonhae_moon import soojib_boonhae_start, soojib_setting, soojib_start
     from auction_moon import price_check, auction_start, how_many
     from request_moon import get_my_request
-    from chango_moon import dajoong_click, chango_jangbi_in_start, chango_action
+    from chango_moon import dajoong_click, chango_jangbi_in_start, chango_action, take_off
 
     print("tst")
-    cla = "two"
+    cla = "one"
 
     plus = 0
 
-    if cla == "two":
+
+    if cla == "one":
+        plus = 0
+    elif cla == "two":
         plus = 960
-    if cla == "three":
+    elif cla == "three":
         plus = 960 * 2
-    if cla == "four":
+    elif cla == "four":
         plus = 960 * 3
 
     # get_my_request(cla, "의뢰_바란")
 
     # chango_action(cla, "jangbi_out")
 
-    chango_action(cla, "jaelyo_in")
+    # chango_action(cla, "jaelyo_in")
+
+    # take_off(cla)
+    # #
+
+    character_change(cla, 1)
+
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\item_lock_on.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(x_reg - 75, y_reg - 30, x_reg, y_reg + 30, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("item_lock_on", imgs_)
+    #     lock_exist = True
+    #     time.sleep(0.1)
+    # else:
+    #     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\item_lock_on2.PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_(x_reg - 75, y_reg - 30, x_reg, y_reg + 30, cla, img, 0.8)
+    #     if imgs_ is not None and imgs_ != False:
+    #         print("item_lock_on2", imgs_)
+    #         lock_exist = True
+    #         time.sleep(0.1)
+    #     else:
+    #         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\item_lock_on3.PNG"
+    #         img_array = np.fromfile(full_path, np.uint8)
+    #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #         imgs_ = imgs_set_(x_reg - 75, y_reg - 30, x_reg, y_reg + 30, cla, img, 0.8)
+    #         if imgs_ is not None and imgs_ != False:
+    #             print("item_lock_on3", imgs_)
+    #             lock_exist = True
+    #             time.sleep(0.1)
+    #
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\e2.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(625, 115, 960, 900, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("e2", imgs_)
+    #     x_reg = imgs_.x - plus
+    #     y_reg = imgs_.y
+    #     e_exist = True
+    #     time.sleep(0.1)
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\e.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(625, 115, 960, 900, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("e", imgs_)
+    #     x_reg = imgs_.x - plus
+    #     y_reg = imgs_.y
+    #     e_exist = True
+    #     time.sleep(0.1)
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\e3.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(625, 115, 960, 900, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("e3", imgs_)
+    #     x_reg = imgs_.x - plus
+    #     y_reg = imgs_.y
+    #     e_exist = True
+    #     time.sleep(0.1)
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\e4.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(625, 115, 960, 900, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("e4", imgs_)
+    #     x_reg = imgs_.x - plus
+    #     y_reg = imgs_.y
+    #     e_exist = True
+    #     time.sleep(0.1)
 
     # last_x = 0
     # last_y = 0
