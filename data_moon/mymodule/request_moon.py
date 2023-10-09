@@ -456,6 +456,7 @@ def request_bosang_and_move(cla, sche):
     import random
 
     from function_moon import imgs_set_, click_pos_reg, drag_pos, mouse_move_cpp, click_pos_2
+    from action_moon import out_check
     from repair_moon import my_stat_up
 
     try:
@@ -593,6 +594,10 @@ def request_bosang_and_move(cla, sche):
                             break
                         time.sleep(0.2)
                 else:
+                    if v_.re_click_count < 3 or v_.re_click_count % 20 == 0:
+                        result_out = out_check(cla)
+                        if result_out == True:
+                            drag_pos(800, 260, 800, 130, cla)
                     time.sleep(0.2)
 
 
