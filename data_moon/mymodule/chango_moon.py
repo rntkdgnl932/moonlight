@@ -338,7 +338,7 @@ def chango_jangbi_in_start(cla):
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     for i in pyautogui.locateAllOnScreen(img, region=(625 + plus, 115, 960 - 625, 500 - 115),
-                                                         confidence=0.85):
+                                                         confidence=0.8):
                         last_x = i.left
                         last_y = i.top
                         exist = True
@@ -774,8 +774,8 @@ def chango_jangbi_out_start(cla):
                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\item_lock_on" + str(k) + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    for i in pyautogui.locateAllOnScreen(img, region=(0 + plus, 115, 330, 600 - 115),
-                                                         confidence=0.85):
+                    for i in pyautogui.locateAllOnScreen(img, region=(0 + plus, 115, 330, 900 - 115),
+                                                         confidence=0.8):
                         last_x = i.left
                         last_y = i.top
                         exist = True
@@ -792,6 +792,7 @@ def chango_jangbi_out_start(cla):
                             time.sleep(0.1)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             time.sleep(0.4)
+                time.sleep(0.3)
             let_chango_out = True
         # # 나가기
         # for i in range(5):
