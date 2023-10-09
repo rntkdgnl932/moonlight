@@ -76,6 +76,22 @@ def request_start(cla, sche):
                     print("not execute_re2 => get_my_request")
                     get_my_request(cla, sche)
 
+        # 지혼자 던전 누름
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\scenraio_dun_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(200, 200, 800, 800, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\scenraio_dun_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(200, 200, 800, 800, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.5)
+                drag_pos(800, 260, 800, 130, cla)
+                time.sleep(0.5)
+
         if request_ing == True:
             request_bosang_and_move(cla, sche)
             potion_check(cla)
