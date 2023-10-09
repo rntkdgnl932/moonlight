@@ -341,7 +341,7 @@ def dungeon_in(cla, sche):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(40, 100, 130, 160, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-                                time.sleep(0.3)
+                                time.sleep(3)
                                 random_move(cla)
                                 attack_check_and_attack(cla)
                                 d_in_ = True
@@ -352,7 +352,7 @@ def dungeon_in(cla, sche):
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(40, 100, 130, 160, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
-                                    time.sleep(0.3)
+                                    time.sleep(3)
                                     random_move(cla)
                                     attack_check_and_attack(cla)
                                     d_in_ = True
@@ -363,7 +363,7 @@ def dungeon_in(cla, sche):
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     imgs_ = imgs_set_(40, 100, 130, 160, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
-                                        time.sleep(0.3)
+                                        time.sleep(3)
                                         random_move(cla)
                                         attack_check_and_attack(cla)
                                         d_in_ = True

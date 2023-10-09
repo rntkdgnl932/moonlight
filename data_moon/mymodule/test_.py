@@ -28,7 +28,7 @@ def go_test():
     from chango_moon import dajoong_click, chango_jangbi_in_start, chango_action, take_off
 
     print("tst")
-    cla = "one"
+    cla = "two"
 
     plus = 0
 
