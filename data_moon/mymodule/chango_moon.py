@@ -422,6 +422,28 @@ def take_off(cla):
                     y_reg = imgs_.y
                     e_exist = True
                     time.sleep(0.1)
+                else:
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\e2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(625, 115, 960, 900, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("e2", imgs_)
+                        x_reg = imgs_.x - plus
+                        y_reg = imgs_.y
+                        e_exist = True
+                        time.sleep(0.1)
+                    else:
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\e3.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(625, 115, 960, 900, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("e3", imgs_)
+                            x_reg = imgs_.x - plus
+                            y_reg = imgs_.y
+                            e_exist = True
+                            time.sleep(0.1)
 
                 if e_exist == True:
                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\item_lock_on0.PNG"
@@ -450,6 +472,15 @@ def take_off(cla):
                                 print("item_lock_on2", imgs_)
                                 lock_exist = True
                                 time.sleep(0.1)
+                            else:
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\item_lock_on3.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(x_reg - 75, y_reg - 30, x_reg, y_reg + 30, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("item_lock_on3", imgs_)
+                                    lock_exist = True
+                                    time.sleep(0.1)
 
 
                     if lock_exist == True:
