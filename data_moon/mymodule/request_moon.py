@@ -610,7 +610,7 @@ def request_bosang_and_move(cla, sche):
                             break
                         time.sleep(0.2)
                 else:
-                    if v_.re_click_count < 3 or v_.re_click_count % 20 == 0:
+                    if v_.re_click_count % 10 == 0:
                         result_out = out_check(cla)
                         if result_out == True:
                             drag_pos(800, 260, 800, 130, cla)
