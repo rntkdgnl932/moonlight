@@ -1,4 +1,7 @@
+chowon_hwal
+chowon_earing
 chowon_neck
+pyungwon_ring
 yumyung_belt
 yumyung_brochi
 yumyung_paljji

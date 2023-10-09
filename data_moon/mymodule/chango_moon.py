@@ -644,7 +644,7 @@ def chango_jangbi_out_start(cla):
                 full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jangbi_out\\" + read_list[i] + ".PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(0, 115, 330, 900, cla, img, 0.8)
+                imgs_ = imgs_set_(0, 115, 330, 900, cla, img, 0.75)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(0.2)
