@@ -591,7 +591,7 @@ def request_bosang_and_move(cla, sche):
                 time.sleep(0.5)
 
             if request_ing == True:
-                if v_.re_click_count < 3 or v_.re_click_count % 20 == 0:
+                if v_.re_click_count < 4 or v_.re_click_count % 20 == 0:
 
                     click_pos_reg(request_click_x, request_click_y, cla)
                     time.sleep(0.1)
@@ -609,6 +609,10 @@ def request_bosang_and_move(cla, sche):
                             time.sleep(0.1)
                             break
                         time.sleep(0.2)
+
+                    result_out = out_check(cla)
+                    if result_out == True:
+                        drag_pos(800, 260, 800, 130, cla)
                 else:
                     if v_.re_click_count % 10 == 0:
                         result_out = out_check(cla)
