@@ -411,99 +411,52 @@ def take_off(cla):
                 # e0 부터
                 for i in range(14):
                     e_exist = False
-                    lock_exist = False
 
-                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\e" + str(k) + ".PNG"
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\take_off_lock_1.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(625, 115, 960, 900, cla, img, 0.8)
+                    imgs_ = imgs_set_(420, 110, 620, 480, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        print("e", k,  imgs_)
+                        print("take_off_lock_1", imgs_)
                         x_reg = imgs_.x - plus
                         y_reg = imgs_.y
                         e_exist = True
                         time.sleep(0.1)
-
-                    if e_exist == True:
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\item_lock_on0.PNG"
+                    else:
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\take_off_lock_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(x_reg - 75, y_reg - 30, x_reg, y_reg + 30, cla, img, 0.8)
+                        imgs_ = imgs_set_(420, 110, 620, 480, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-                            print("item_lock_on0", imgs_)
-                            lock_exist = True
+                            print("take_off_lock_2", imgs_)
+                            x_reg = imgs_.x - plus
+                            y_reg = imgs_.y
+                            e_exist = True
                             time.sleep(0.1)
                         else:
-                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\item_lock_on1.PNG"
+                            print("take_off_lock_....없다.....")
+
+
+
+                    if e_exist == True:
+                        click_pos_2(x_reg + 15, y_reg + 15, cla)
+                        # 창 열리면 스탑
+                        for t in range(10):
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jangbi_x.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(x_reg - 75, y_reg - 30, x_reg, y_reg + 30, cla, img, 0.8)
+                            imgs_ = imgs_set_(570, 270, 630, 330, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-                                print("item_lock_on1", imgs_)
-                                lock_exist = True
-                                time.sleep(0.1)
-                            else:
-                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\item_lock_on2.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(x_reg - 75, y_reg - 30, x_reg, y_reg + 30, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    print("item_lock_on2", imgs_)
-                                    lock_exist = True
-                                    time.sleep(0.1)
-                                else:
-                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\item_lock_on3.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(x_reg - 75, y_reg - 30, x_reg, y_reg + 30, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        print("item_lock_on3", imgs_)
-                                        lock_exist = True
-                                        time.sleep(0.1)
-
-
-                        if lock_exist == True:
-                            click_pos_2(x_reg - 15, y_reg + 15, cla)
-                            # 창 열리면 스탑
-                            for t in range(10):
-                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jangbi_x.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(570, 270, 630, 330, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    break
-                                time.sleep(0.3)
-
-                            # 벗기 클릭
-                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\take_off_click.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(540, 740, 600, 800, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                            else:
-                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jangbi_x.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(570, 270, 630, 330, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                break
                             time.sleep(0.3)
 
-                            for t in range(5):
-                                e_ready = False
-                                for y in range(3):
-                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\e" + str(y) + ".PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(625, 115, 960, 900, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        e_ready = True
-                                        break
-                                if e_ready == True:
-                                    break
-                                time.sleep(0.2)
-
+                        # 벗기 클릭
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\take_off_click.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(540, 740, 600, 800, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
                         else:
                             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jangbi_x.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
@@ -511,8 +464,30 @@ def take_off(cla):
                             imgs_ = imgs_set_(570, 270, 630, 330, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.3)
+
+                        for t in range(5):
+                            e_ready = False
+                            for y in range(3):
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\e" + str(y) + ".PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(625, 115, 960, 900, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    e_ready = True
+                                    break
+                            if e_ready == True:
+                                break
+                            time.sleep(0.2)
+
                     else:
-                        print("not eeeeeeeee")
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jangbi_x.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(570, 270, 630, 330, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                        print("not lock..")
                         break
 
 

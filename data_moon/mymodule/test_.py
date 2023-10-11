@@ -28,7 +28,7 @@ def go_test():
     from chango_moon import dajoong_click, chango_jangbi_in_start, chango_action, take_off
 
     print("tst")
-    cla = "two"
+    cla = "one"
 
     plus = 0
 
@@ -48,10 +48,7 @@ def go_test():
 
     # chango_action(cla, "jaelyo_in")
 
-    # take_off(cla)
-    # #
-
-    character_change(cla, 1)
+    take_off(cla)
 
     # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\item_lock_on.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
