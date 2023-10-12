@@ -152,10 +152,20 @@ def character_change(cla, character_id):
                         time.sleep(0.1)
                         click_pos_2(730, 360, cla)
                         time.sleep(0.1)
-                    if int(character_id) == 2:
-                        click_pos_2(730, 435, cla)
+                    elif int(character_id) == 2:
+                        click_pos_2(730, 440, cla)
                         time.sleep(0.1)
-                        click_pos_2(730, 435, cla)
+                        click_pos_2(730, 440, cla)
+                        time.sleep(0.1)
+                    elif int(character_id) == 3:
+                        click_pos_2(730, 510, cla)
+                        time.sleep(0.1)
+                        click_pos_2(730, 510, cla)
+                        time.sleep(0.1)
+                    elif int(character_id) == 4:
+                        click_pos_2(730, 580, cla)
+                        time.sleep(0.1)
+                        click_pos_2(730, 580, cla)
                         time.sleep(0.1)
                     time.sleep(0.5)
                     click_pos_reg(x_reg, y_reg, cla)
