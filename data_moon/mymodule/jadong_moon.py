@@ -266,6 +266,7 @@ def map_spot_in_region(cla, sche):
 
     from function_moon import imgs_set_, click_pos_reg, click_pos_2, mouse_move_cpp
     from action_moon import out_check, attack_check_and_attack, loading, moving, clean_screen
+    from massenger import line_to_me
 
 
     try:
@@ -334,228 +335,234 @@ def map_spot_in_region(cla, sche):
 
         # print(result_random_num)
 
-        result = random.randint(1, result_random_num)
+        if result_random_num == 0:
+            why = "자동이동 포탈이 안 보여, 스케쥴 : " + str(sche)
+            line_to_me(cla, why)
+            time.sleep(600)
+        else:
 
-        print("result", result)
+            result = random.randint(1, result_random_num)
 
-        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\teleport_click.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        for i in pyautogui.locateAllOnScreen(img, region=(10 + plus, 100 + y_plus, 530, 400),
-                                             confidence=0.8):
-            contect_random_num += 1
-            last_x = i.left
-            last_y = i.top
-            if result == contect_random_num:
-                break
+            print("result", result)
 
-        print("last_x : ", last_x, ", last_y :", last_y)
-
-
-
-        for m in range(10):
-            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\move_confirm.PNG"
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\teleport_click.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(450, 560, 630, 630, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                break
-            else:
-                click_pos_reg(last_x, last_y, cla)
-            time.sleep(0.3)
+            for i in pyautogui.locateAllOnScreen(img, region=(10 + plus, 100 + y_plus, 530, 400),
+                                                 confidence=0.8):
+                contect_random_num += 1
+                last_x = i.left
+                last_y = i.top
+                if result == contect_random_num:
+                    break
 
-        # 다시 세분화해서 정보 얻기
-        result_datas = result_data.split("_")
+            print("last_x : ", last_x, ", last_y :", last_y)
 
-        if result_datas[4] == "end":
 
-            out_ = False
-            out_count = 0
-            while out_ is False:
-                out_count += 1
-                if out_count > 7:
-                    out_ = True
-                result_out = out_check(cla)
-                if result_out == True:
-                    #공격 버튼 클릭
-                    out_ = True
-                    attack_check_and_attack(cla)
-                    time.sleep(0.1)
-                    mouse_move_cpp(500, 500, cla)
-                    time.sleep(0.1)
 
+            for m in range(10):
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\move_confirm.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(450, 560, 630, 630, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    break
                 else:
-                    print("자동 사냥터 이동중...", result_spot[2])
-                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\loding_1.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(250, 920, 650, 1040, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        loading(cla)
-                time.sleep(1)
-        else:
-            print("한번 더 이동하자")
+                    click_pos_reg(last_x, last_y, cla)
+                time.sleep(0.3)
 
-            out_ = False
-            out_count = 0
-            while out_ is False:
-                out_count += 1
-                if out_count > 7:
-                    out_ = True
-                result_out = out_check(cla)
-                if result_out == True:
+            # 다시 세분화해서 정보 얻기
+            result_datas = result_data.split("_")
 
-                    out_ = True
+            if result_datas[4] == "end":
 
-                    # 지도 클릭
-                    click_pos_2(125, 205, cla)
-                    for i in range(10):
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\now_reg.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(860, 950, 950, 1000, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            break
-                        time.sleep(0.3)
+                out_ = False
+                out_count = 0
+                while out_ is False:
+                    out_count += 1
+                    if out_count > 7:
+                        out_ = True
+                    result_out = out_check(cla)
+                    if result_out == True:
+                        #공격 버튼 클릭
+                        out_ = True
+                        attack_check_and_attack(cla)
+                        time.sleep(0.1)
+                        mouse_move_cpp(500, 500, cla)
+                        time.sleep(0.1)
 
-
-
-                    if result_datas[0] == "벌레굴":
-                        print("최종도착지", result_datas[0])
-                        arrived_x = 937
-                        arrived_y = 667
-                        click_pos_2(937, 667, cla)
-                    elif result_datas[0] == "폭군의신전":
-                        print("최종도착지", result_datas[0])
-                    elif result_datas[0] == "아슬란둥지":
-                        print("최종도착지", result_datas[0])
-                    elif result_datas[0] == "해방된공중사원":
-                        print("최종도착지", result_datas[0])
-
-                    for i in range(10):
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map_region_title\\" + \
-                                    result_datas[
-                                        3] + ".PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(690, 40, 850, 100, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            break
-                        else:
-                            click_pos_2(arrived_x, arrived_y, cla)
-                        time.sleep(0.5)
-
-                    # 랜덤 목적지 찍기
-                    x_reg = random.randint(590, 930)
-                    y_reg = random.randint(350, 680)
-                    click_pos_2(x_reg, y_reg, cla)
-                    time.sleep(0.1)
-                    clean_screen(cla)
-
-                    arrived = False
-                    arrived_count = 0
-                    arrived_count_msg = 0
-                    while arrived is False:
-                        arrived_count += 1
-                        arrived_count_msg += 1
-                        if arrived_count > 7:
-                            arrived = True
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\and\\" + result_datas[3] + ".PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(410, 900, 540, 955, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            arrived_count = 0
-                            if arrived_count_msg < 4:
-                                print("열심히 가는 중...")
-
+                    else:
+                        print("자동 사냥터 이동중...", result_spot[2])
                         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\loding_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(250, 920, 650, 1040, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             loading(cla)
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\move_1.PNG"
+                    time.sleep(1)
+            else:
+                print("한번 더 이동하자")
+
+                out_ = False
+                out_count = 0
+                while out_ is False:
+                    out_count += 1
+                    if out_count > 7:
+                        out_ = True
+                    result_out = out_check(cla)
+                    if result_out == True:
+
+                        out_ = True
+
+                        # 지도 클릭
+                        click_pos_2(125, 205, cla)
+                        for i in range(10):
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\now_reg.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(860, 950, 950, 1000, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            time.sleep(0.3)
+
+
+
+                        if result_datas[0] == "벌레굴":
+                            print("최종도착지", result_datas[0])
+                            arrived_x = 937
+                            arrived_y = 667
+                            click_pos_2(937, 667, cla)
+                        elif result_datas[0] == "폭군의신전":
+                            print("최종도착지", result_datas[0])
+                        elif result_datas[0] == "아슬란둥지":
+                            print("최종도착지", result_datas[0])
+                        elif result_datas[0] == "해방된공중사원":
+                            print("최종도착지", result_datas[0])
+
+                        for i in range(10):
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map_region_title\\" + \
+                                        result_datas[
+                                            3] + ".PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(690, 40, 850, 100, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            else:
+                                click_pos_2(arrived_x, arrived_y, cla)
+                            time.sleep(0.5)
+
+                        # 랜덤 목적지 찍기
+                        x_reg = random.randint(590, 930)
+                        y_reg = random.randint(350, 680)
+                        click_pos_2(x_reg, y_reg, cla)
+                        time.sleep(0.1)
+                        clean_screen(cla)
+
+                        arrived = False
+                        arrived_count = 0
+                        arrived_count_msg = 0
+                        while arrived is False:
+                            arrived_count += 1
+                            arrived_count_msg += 1
+                            if arrived_count > 7:
+                                arrived = True
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\and\\" + result_datas[3] + ".PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(410, 900, 540, 955, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                arrived_count = 0
+                                if arrived_count_msg < 4:
+                                    print("열심히 가는 중...")
+
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\loding_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(250, 920, 650, 1040, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                loading(cla)
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\move_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(250, 820, 650, 1040, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                arrived = True
+                                moving(cla)
+                            time.sleep(0.5)
+
+                        # 공격 버튼 클릭
+                        attack_check_and_attack(cla)
+                        time.sleep(0.1)
+                        mouse_move_cpp(500, 500, cla)
+                        time.sleep(0.1)
+
+
+
+                    else:
+                        print("자동 사냥터 이동중...", result_spot[2])
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\loding_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(250, 820, 650, 1040, cla, img, 0.8)
+                        imgs_ = imgs_set_(250, 920, 650, 1040, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-                            arrived = True
-                            moving(cla)
-                        time.sleep(0.5)
+                            loading(cla)
+                    time.sleep(1)
+            #########
+            # 아래부터는 자동 사냥 특수한 경우
+            #########
 
-                    # 공격 버튼 클릭
-                    attack_check_and_attack(cla)
-                    time.sleep(0.1)
-                    mouse_move_cpp(500, 500, cla)
-                    time.sleep(0.1)
+            # 모레평원은 무기부터 획득하도록 해보자
+            if result_datas[0] == "모래평원":
 
+                # 지도 펼치기
+                map_in = False
+                map_in_count = 0
+                while map_in is False:
+                    map_in_count += 1
+                    if map_in_count > 7:
+                        map_in = True
 
-
-                else:
-                    print("자동 사냥터 이동중...", result_spot[2])
-                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\loding_1.PNG"
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\now_reg.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(250, 920, 650, 1040, cla, img, 0.8)
+                    imgs_ = imgs_set_(860, 950, 950, 1000, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        loading(cla)
-                time.sleep(1)
-        #########
-        # 아래부터는 자동 사냥 특수한 경우
-        #########
 
-        # 모레평원은 무기부터 획득하도록 해보자
-        if result_datas[0] == "모래평원":
+                        map_in = True
 
-            # 지도 펼치기
-            map_in = False
-            map_in_count = 0
-            while map_in is False:
-                map_in_count += 1
-                if map_in_count > 7:
-                    map_in = True
+                        # 모래평원 특수 위치
+                        click_pos_2(890, 525, cla)
 
-                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\now_reg.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(860, 950, 950, 1000, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
+                        # 지도 비활성화 하기
+                        for i in range(3):
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\now_reg.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(860, 950, 950, 1000, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_2(935, 55, cla)
+                            else:
+                                break
+                            time.sleep(0.5)
 
-                    map_in = True
-
-                    # 모래평원 특수 위치
-                    click_pos_2(890, 525, cla)
-
-                    # 지도 비활성화 하기
-                    for i in range(3):
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\now_reg.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(860, 950, 950, 1000, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_2(935, 55, cla)
-                        else:
-                            break
-                        time.sleep(0.5)
-
-                    # 이동중
-                    moving(cla)
+                        # 이동중
+                        moving(cla)
 
 
 
 
-                else:
-                    click_pos_2(130, 210, cla)
-                    for i in range(10):
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\now_reg.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(860, 950, 950, 1000, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            break
-                        time.sleep(0.3)
+                    else:
+                        click_pos_2(130, 210, cla)
+                        for i in range(10):
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\jadong\\map\\now_reg.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(860, 950, 950, 1000, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            time.sleep(0.3)
 
 
     except Exception as e:
