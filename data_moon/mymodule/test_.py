@@ -28,7 +28,7 @@ def go_test():
     from chango_moon import dajoong_click, chango_jangbi_in_start, chango_action, take_off
 
     print("tst")
-    cla = "one"
+    cla = "two"
 
     plus = 0
 
@@ -48,8 +48,12 @@ def go_test():
 
     # chango_action(cla, "jaelyo_in")
 
-    result_out = out_check(cla)
-    print(result_out)
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\jabhwa_title.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(50, 30, 110, 80, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("광폭의비약")
 
     # ran_item = []
     #
