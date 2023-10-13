@@ -240,6 +240,8 @@ def tuto_tutorial(cla):
     import cv2
     import pyautogui
 
+    from potion_moon import maul_potion_full
+
     from function_moon import click_pos_reg, click_pos_2, imgs_set_
     try:
         print("tuto_tutorial", cla)
@@ -444,6 +446,61 @@ def tuto_tutorial(cla):
         if imgs_ is not None and imgs_ != False:
             print("talking_1", imgs_)
             click_pos_2(470, 530, cla)
+
+        # 잡화 상점
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\jabhwa_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(50, 30, 110, 80, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("광폭의비약")
+            # 광폭의 비약
+            buy = False
+            buy_count = 0
+            while buy is False:
+                buy_count += 1
+                if buy_count > 7:
+                    buy = True
+
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    buy = True
+
+                    click_pos_2(575, 635, cla)
+                    time.sleep(0.1)
+
+                    for i in range(3):
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(545, 735, cla)
+                        else:
+                            break
+                        time.sleep(0.5)
+
+                else:
+
+                    for i in range(10):
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        else:
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\gwangpok.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(50, 250, 200, 800, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.2)
+
 
     except Exception as e:
         print(e)
