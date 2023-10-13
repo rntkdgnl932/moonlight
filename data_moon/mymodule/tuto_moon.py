@@ -476,7 +476,7 @@ def tuto_gwangpok(cla):
     import numpy as np
     import cv2
 
-    from action_moon import confirm_all
+    from action_moon import confirm_all, clean_screen
 
     from function_moon import click_pos_reg, click_pos_2, imgs_set_
     try:
@@ -514,10 +514,14 @@ def tuto_gwangpok(cla):
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-                            click_pos_2(545, 735, cla)
+                            for k in range(3):
+                                click_pos_2(545, 735, cla)
+                                time.sleep(0.3)
                         else:
                             break
                         time.sleep(0.5)
+
+                    clean_screen(cla)
 
                 else:
 
