@@ -33,6 +33,7 @@ def tuto_start(cla):
                 if imgs_ is not None and imgs_ != False:
                     scd = (i + 1) * 0.1
                     print("잡화상점 보인다", scd)
+                    tuto_gwangpok(cla)
                     break
                 time.sleep(0.1)
             tuto_tutorial(cla)
@@ -464,6 +465,23 @@ def tuto_tutorial(cla):
             print("talking_1", imgs_)
             click_pos_2(470, 530, cla)
 
+
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
+def tuto_gwangpok(cla):
+    import numpy as np
+    import cv2
+
+    from action_moon import confirm_all
+
+    from function_moon import click_pos_reg, click_pos_2, imgs_set_
+    try:
+        print("tuto_gwngpok", cla)
+
         # 잡화 상점
         print("잡화상점")
         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\jabhwa_title.PNG"
@@ -519,12 +537,9 @@ def tuto_tutorial(cla):
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.2)
 
-
     except Exception as e:
         print(e)
         return 0
-
-
 
 def tuto_skip(cla):
     import numpy as np
