@@ -27,9 +27,12 @@ def tuto_start(cla):
             result_out = out_check(cla)
             if result_out == True:
                 tuto_click(cla)
+                print("11111111111q")
             else:
                 tuto_tutorial(cla)
                 tuto_click(cla)
+                print("22222222222222")
+            time.sleep(1)
 
 
 
