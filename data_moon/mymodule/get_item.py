@@ -352,14 +352,6 @@ def get_event(cla):
 
                         drag = False
 
-                        # 시즌 이벤트에 한가위 이벤트
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\hangawe_drag.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(210, 350, 550, 420, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            drag = True
-
                         # 시즌 이벤트에 대륙 정화 미션 이벤트
                         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\junghwa_mission.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -368,11 +360,11 @@ def get_event(cla):
                         if imgs_ is not None and imgs_ != False:
                             drag = True
 
-                        # 시즌패스에 패스미션
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\pass_mission_title.PNG"
+                        # 시즌 이벤트에 듀발의 군수 물자 이벤트
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\dyubal_event.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(400, 350, 580, 420, cla, img, 0.8)
+                        imgs_ = imgs_set_(210, 350, 550, 420, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             drag = True
 
@@ -381,7 +373,7 @@ def get_event(cla):
                             drag_count = 0
                             while drag is True:
                                 drag_count += 1
-                                if drag_count > 18:
+                                if drag_count > 12:
                                     drag = False
                                 full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\bosang_get_3.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
@@ -399,13 +391,13 @@ def get_event(cla):
                                         print("get_point_3", imgs_)
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
 
-                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\pass_mission_title.PNG"
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\dyubal_event.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                         imgs_ = imgs_set_(400, 350, 580, 420, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
 
-                                            if drag_count < 11:
+                                            if drag_count < 7:
                                                 mouse_move_cpp(600, 660, cla)
                                                 pyautogui.dragTo(600 + plus, 500, 0.5)
                                                 time.sleep(0.2)
@@ -420,7 +412,7 @@ def get_event(cla):
                                             imgs_ = imgs_set_(210, 350, 550, 420, cla, img, 0.8)
                                             if imgs_ is not None and imgs_ != False:
 
-                                                if drag_count < 11:
+                                                if drag_count < 7:
                                                     mouse_move_cpp(600, 660, cla)
                                                     pyautogui.dragTo(600 + plus, 500, 0.5)
                                                     time.sleep(0.2)
@@ -429,22 +421,7 @@ def get_event(cla):
                                                     pyautogui.dragTo(600 + plus, 660, 0.5)
                                                     time.sleep(0.2)
                                             else:
-                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\hangawe_drag.PNG"
-                                                img_array = np.fromfile(full_path, np.uint8)
-                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                imgs_ = imgs_set_(210, 350, 550, 420, cla, img, 0.8)
-                                                if imgs_ is not None and imgs_ != False:
-
-                                                    if drag_count < 11:
-                                                        mouse_move_cpp(600, 660, cla)
-                                                        pyautogui.dragTo(600 + plus, 500, 0.5)
-                                                        time.sleep(0.2)
-                                                    else:
-                                                        mouse_move_cpp(600, 500, cla)
-                                                        pyautogui.dragTo(600 + plus, 660, 0.5)
-                                                        time.sleep(0.2)
-                                                else:
-                                                    drag = False
+                                                drag = False
                                     else:
                                         drag = False
                                 time.sleep(0.5)
@@ -617,14 +594,7 @@ def get_event(cla):
                                     if imgs_ is not None and imgs_ != False:
                                         print("eve_special_chulsuk", imgs_)
                                         seven = True
-                                    # 접속보상에 한가위 특별 출석
-                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\seven\\hangawe_special_chulsuk.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(210, 350, 660, 420, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        print("hangawe_special_chulsuk", imgs_)
-                                        seven = True
+
 
                                     if seven == True:
                                         last_x = 0
@@ -665,8 +635,8 @@ def get_event(cla):
 
                                         ten = False
 
-                                        # 접속보상에 뉴월드 특별 출석
-                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\ten\\newworld_special_chulsuk.PNG"
+                                        # 접속보상에 풍요의 계절 출석
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\ten\\poongyo_season.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                         imgs_ = imgs_set_(210, 350, 620, 420, cla, img, 0.8)
