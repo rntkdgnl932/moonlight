@@ -24,15 +24,18 @@ def tuto_start(cla):
         if imgs_ is not None and imgs_ != False:
             moving(cla)
         else:
-            result_out = out_check(cla)
-            if result_out == True:
-                tuto_click(cla)
-                print("11111111111q")
-            else:
-                tuto_tutorial(cla)
-                tuto_click(cla)
-                print("22222222222222")
-            time.sleep(1)
+            tuto_click(cla)
+            for i in range(10):
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\jabhwa_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(50, 30, 110, 80, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    scd = (i + 1) * 0.1
+                    print("잡화상점 보인다", scd)
+                    break
+                time.sleep(0.1)
+            tuto_tutorial(cla)
 
 
 
