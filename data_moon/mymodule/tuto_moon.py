@@ -452,6 +452,7 @@ def tuto_tutorial(cla):
             click_pos_2(470, 530, cla)
 
         # 잡화 상점
+        print("잡화상점")
         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\jabhwa_title.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
