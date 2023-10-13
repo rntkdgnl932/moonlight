@@ -322,6 +322,15 @@ def tuto_tutorial(cla):
                 time.sleep(0.2)
 
         # 버디알 선택
+
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tutorial\\tuto_budy_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(30, 800, 400, 1040, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("tuto budy", imgs_)
+            click_pos_2(215, 1010, cla)
+
         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tutorial\\budyegg_select1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
