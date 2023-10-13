@@ -221,6 +221,7 @@ def character_change(cla, character_id):
                                     get_event_sub(cla)
 
                             chango_action(cla, "jangbi_out")
+                            repair_start(cla)
 
                         else:
                             # 로딩중 확인

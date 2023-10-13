@@ -48,21 +48,7 @@ def go_test():
 
     # chango_action(cla, "jaelyo_in")
 
-    file_path = "C:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in_list.txt"
-    with open(file_path, "r", encoding='utf-8-sig') as file:
-        read_list = file.read().splitlines()
-
-    for i in range(len(read_list)):
-        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in\\" + read_list[i] + ".PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        for c in pyautogui.locateAllOnScreen(img, region=(625 + plus, 115, 960 - 625, 900 - 115), confidence=0.95):
-            last_x = c.left
-            last_y = c.top
-            click_pos_reg(last_x, last_y, cla)
-            time.sleep(0.1)
-            print("last_x", last_x)
-            print("last_y", last_y)
+    get_event(cla)
 
     # ran_item = []
     #
