@@ -48,7 +48,65 @@ def go_test():
 
     # chango_action(cla, "jaelyo_in")
 
-    take_off(cla)
+    file_path = "C:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in_list.txt"
+    with open(file_path, "r", encoding='utf-8-sig') as file:
+        read_list = file.read().splitlines()
+
+    for i in range(len(read_list)):
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in\\" + read_list[i] + ".PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        for c in pyautogui.locateAllOnScreen(img, region=(625 + plus, 115, 960 - 625, 900 - 115), confidence=0.95):
+            last_x = c.left
+            last_y = c.top
+            click_pos_reg(last_x, last_y, cla)
+            time.sleep(0.1)
+            print("last_x", last_x)
+            print("last_y", last_y)
+
+    # ran_item = []
+    #
+    # file_path = "C:\\my_games\\moonlight\\data_moon\\imgs\\auction\\list\\list.txt"
+    #
+    # with open(file_path, "r", encoding='utf-8-sig') as file:
+    #     read_list = file.read().splitlines()
+    #     print("read_list len", len(read_list))
+    #
+    #     for i in range(len(read_list)):
+    #         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\list\\" + read_list[i] + ".PNG"
+    #         img_array = np.fromfile(full_path, np.uint8)
+    #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #         imgs_ = imgs_set_(610, 160, 960, 1000, cla, img, 0.8)
+    #         if imgs_ is not None and imgs_ != False:
+    #             print(i, read_list[i], imgs_)
+    #             ran_item.append(i)
+    #
+    # print("result", ran_item)
+    # print("len ran_item", len(ran_item))
+    #
+    # if len(ran_item) < 5:
+    #     sell_many = len(ran_item)
+    # else:
+    #     sell_many = 5
+    #
+    # sell_list = random.sample(ran_item, sell_many)
+    #
+    # print("sell_list", sell_list)
+    #
+    # print("sell_list[0]", sell_list[0])
+    #
+    # for ran_list in range(sell_many):
+    #
+    #     for i in range(len(read_list)):
+    #         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\list\\" + read_list[i] + ".PNG"
+    #         img_array = np.fromfile(full_path, np.uint8)
+    #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #         imgs_ = imgs_set_(610, 160, 960, 1000, cla, img, 0.8)
+    #         if imgs_ is not None and imgs_ != False:
+    #             if sell_list[ran_list] == i:
+    #                 print(i, read_list[i], imgs_)
+
+
 
     # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\item_lock_on.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

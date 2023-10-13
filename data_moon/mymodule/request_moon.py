@@ -27,42 +27,31 @@ def request_start(cla, sche):
 
         print("request_start")
 
-        quest_check(cla)
-
         request_ing = False
 
-        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\bosang_re2.PNG"
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\request_title.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(430, 400, 510, 450, cla, img, 0.8)
+        imgs_ = imgs_set_(10, 10, 160, 100, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            request_bosang_and_move(cla, sche)
+            get_my_request(cla, sche)
         else:
-            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\execute_re2.PNG"
+
+            quest_check(cla)
+
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\bosang_re2.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(680, 90, 730, 280, cla, img, 0.85)
+            imgs_ = imgs_set_(430, 400, 510, 450, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
-                print("execute_re2", imgs_)
-                request_ing = True
-            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\execute_re3.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(680, 90, 730, 280, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
-                print("execute_re3", imgs_)
-                request_ing = True
-
-
-            if request_ing != True:
-                drag_pos(800, 260, 800, 130, cla)
-                time.sleep(0.5)
+                request_bosang_and_move(cla, sche)
+            else:
                 full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\execute_re2.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(680, 90, 730, 280, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
-                    print("execute_re22", imgs_)
+                    print("execute_re2", imgs_)
                     request_ing = True
                 full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\execute_re3.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -72,9 +61,28 @@ def request_start(cla, sche):
                     print("execute_re3", imgs_)
                     request_ing = True
 
+
                 if request_ing != True:
-                    print("not execute_re2 => get_my_request")
-                    get_my_request(cla, sche)
+                    drag_pos(800, 260, 800, 130, cla)
+                    time.sleep(0.5)
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\execute_re2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(680, 90, 730, 280, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        print("execute_re22", imgs_)
+                        request_ing = True
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\execute_re3.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(680, 90, 730, 280, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        print("execute_re3", imgs_)
+                        request_ing = True
+
+                    if request_ing != True:
+                        print("not execute_re2 => get_my_request")
+                        get_my_request(cla, sche)
 
         # 지혼자 던전 누름
         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\scenraio_dun_title.PNG"
@@ -242,24 +250,39 @@ def get_my_request(cla, sche):
                         if cla == "four":
                             plus = 960 * 3
 
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_y_point.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        for i in pyautogui.locateAllOnScreen(img, region=(230 + plus, 130, 300 - 230, 800 - 130),
-                                                             confidence=0.8):
-                            #last_x = i.left
-                            last_y = i.top
-                            #print("last_x", last_x)
-                            print("last_y", last_y)
-                            y_point = last_y
+                        for i in range(8):
+                            y_reg_1 = 130 + (60 * i)
+                            y_reg_2 = y_reg_1 + 60
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_y_point.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(230, y_reg_1, 300, y_reg_2, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print(i + 1, imgs_)
+                            else:
+                                y_point = y_reg_1 + 30
+                                print(y_point)
+                                break
+
+
+                        # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_y_point.PNG"
+                        # img_array = np.fromfile(full_path, np.uint8)
+                        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        # for i in pyautogui.locateAllOnScreen(img, region=(230 + plus, 130, 300 - 230, 800 - 130),
+                        #                                      confidence=0.8):
+                        #     #last_x = i.left
+                        #     last_y = i.top
+                        #     #print("last_x", last_x)
+                        #     print("last_y", last_y)
+                        #     y_point = last_y
 
 
                         # 먼저 아래쪽 클릭하기
 
                         if y_point != 0:
-                            click_pos_2(160, y_point + 60, cla)
+                            click_pos_2(160, y_point, cla)
                             time.sleep(0.1)
-                            click_pos_2(160, y_point + 60, cla)
+                            click_pos_2(160, y_point, cla)
                             time.sleep(0.1)
                         else:
                             click_pos_2(160, 160, cla)
@@ -373,9 +396,9 @@ def get_my_request(cla, sche):
                                             break
                                 else:
                                     print("무료 갱신 불불불 가능한 상태")
-                                    click_pos_2(160, y_point + 60, cla)
+                                    click_pos_2(160, y_point, cla)
                                     time.sleep(0.1)
-                                    click_pos_2(160, y_point + 60, cla)
+                                    click_pos_2(160, y_point, cla)
                                     time.sleep(0.5)
                                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_confirm2.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
