@@ -26,7 +26,7 @@ def tuto_start(cla):
         else:
             result_out = out_check(cla)
             if result_out == True:
-                tuto_click()
+                tuto_click(cla)
             else:
                 tuto_tutorial(cla)
                 tuto_click(cla)
