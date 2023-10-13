@@ -11,7 +11,7 @@ def tuto_start(cla):
     import numpy as np
     import cv2
 
-    from action_moon import moving
+    from action_moon import moving, out_check
     from function_moon import imgs_set_
 
     try:
@@ -24,8 +24,12 @@ def tuto_start(cla):
         if imgs_ is not None and imgs_ != False:
             moving(cla)
         else:
-            tuto_tutorial(cla)
-            tuto_click(cla)
+            result_out = out_check(cla)
+            if result_out == True:
+                tuto_click()
+            else:
+                tuto_tutorial(cla)
+                tuto_click(cla)
 
 
 
