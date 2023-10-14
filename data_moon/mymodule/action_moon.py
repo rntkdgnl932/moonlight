@@ -696,14 +696,18 @@ def hunting_check(cla):
                         time.sleep(0.5)
 
         for i in range(10):
-            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\monster_card_title.PNG"
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\budy_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(5, 30, 150, 80, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 click_pos_2(935, 55, cla)
             else:
-                break
+                result_out = out_check(cla)
+                if result_out == True:
+                    break
+                else:
+                    clean_screen(cla)
             time.sleep(0.5)
 
         return hunted
