@@ -865,3 +865,87 @@ def confirm_all(cla):
     except Exception as e:
         print(e)
         return 0
+
+
+def channel_move(cla):
+    import numpy as np
+    import cv2
+    from function_moon import imgs_set_, click_pos_reg, click_pos_2, drag_pos
+    from schedule import myQuest_play_add
+
+    try:
+        print("channel_move")
+
+        channel_in = False
+        channel_in_count = 0
+        while channel_in is False:
+            channel_in_count += 1
+            if channel_in_count > 5:
+                channel_in = True
+
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\channel_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(420, 350, 520, 400, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("channel in")
+
+                exist = False
+
+                # 원활
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\channel_wonhwal.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(380, 420, 430, 660, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("원활", imgs_)
+                    click_pos_reg(imgs_.x + 200, imgs_.y, cla)
+                    exist = True
+                else:
+                    # 보통
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\channel_botong.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(380, 420, 430, 660, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("보통", imgs_)
+                        click_pos_reg(imgs_.x + 200, imgs_.y, cla)
+                        exist = True
+                time.sleep(0.1)
+
+                if exist == True:
+                    channel_in = True
+                    for i in range(10):
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\channel_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(420, 350, 520, 400, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(630, 375, cla)
+                        else:
+                            break
+                        time.sleep(0.5)
+                else:
+                    drag_pos(450, 650, 450, 450, cla)
+                    time.sleep(0.5)
+
+
+            else:
+                result_out = out_check(cla)
+                if result_out == False:
+                    clean_screen(cla)
+                    time.sleep(0.5)
+                click_pos_2(25, 140, cla)
+                for i in range(10):
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\channel_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(420, 350, 520, 400, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    time.sleep(0.3)
+
+
+    except Exception as e:
+        print(e)
+        return 0

@@ -631,7 +631,7 @@ def world_step(cla, step):
     import cv2
     import numpy as np
     from function_moon import imgs_set_, click_pos_reg, click_pos_2
-    from action_moon import moving
+    from action_moon import moving, channel_move
     try:
         print("world_step", step)
 
@@ -714,6 +714,8 @@ def world_step(cla, step):
                         break
                     time.sleep(0.5)
 
+                # 한적한 채널로 변경하기
+                channel_move(cla)
 
 
 

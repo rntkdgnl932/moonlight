@@ -49,8 +49,20 @@ def go_test():
 
     # chango_action(cla, "jaelyo_in")
 
-    result_hunt = hunting_check(cla)
-    print("result_hunt", result_hunt)
+    # 원활
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\channel_wonhwal.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(380, 420, 430, 660, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("원활", imgs_)
+    # 보통
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\channel_botong.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(380, 420, 430, 660, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("보통", imgs_)
 
     # ran_item = []
     #
