@@ -200,7 +200,7 @@ def dungeon_in(cla, sche):
 
     from function_moon import imgs_set_, click_pos_reg, click_pos_2
 
-    from action_moon import loading, menu_open, attack_check_and_attack, clean_screen, hunting_check
+    from action_moon import loading, menu_open, attack_check_and_attack, clean_screen, hunting_check, channel_move
 
     try:
         print("dungeon_in")
@@ -337,9 +337,9 @@ def dungeon_in(cla, sche):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(40, 100, 130, 160, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-                                time.sleep(3)
-                                random_move(cla)
-                                attack_check_and_attack(cla)
+                                time.sleep(1)
+                                # random_move(cla)
+                                # attack_check_and_attack(cla)
 
                                 hunt = True
                                 d_in_ = True
@@ -350,9 +350,9 @@ def dungeon_in(cla, sche):
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(40, 100, 130, 160, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
-                                    time.sleep(3)
-                                    random_move(cla)
-                                    attack_check_and_attack(cla)
+                                    time.sleep(1)
+                                    # random_move(cla)
+                                    # attack_check_and_attack(cla)
 
                                     hunt = True
                                     d_in_ = True
@@ -363,9 +363,9 @@ def dungeon_in(cla, sche):
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     imgs_ = imgs_set_(40, 100, 130, 160, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
-                                        time.sleep(3)
-                                        random_move(cla)
-                                        attack_check_and_attack(cla)
+                                        time.sleep(1)
+                                        # random_move(cla)
+                                        # attack_check_and_attack(cla)
 
                                         hunt = True
                                         d_in_ = True
@@ -421,6 +421,11 @@ def dungeon_in(cla, sche):
 
                             time.sleep(0.3)
                         if hunt == True:
+
+                            channel_move(cla)
+
+                            attack_check_and_attack(cla)
+
                             result_hunted = hunting_check(cla)
                             if result_hunted == False:
                                 random_move(cla)
