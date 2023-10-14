@@ -387,6 +387,14 @@ def tuto_tutorial(cla):
         if imgs_ is not None and imgs_ != False:
             print("budy_sohwan", imgs_)
             click_pos_reg(imgs_.x, imgs_.y, cla)
+        else:
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\tutorial\\budy_sohwan2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(100, 980, 200, 1040, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("budy_sohwan2", imgs_)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\x_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
