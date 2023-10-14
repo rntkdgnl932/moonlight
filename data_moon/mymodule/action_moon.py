@@ -360,6 +360,14 @@ def clean_screen(cla):
 
                 result_out = out_check(cla)
                 if result_out == True:
+                    #메뉴까지 닫기
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\menu_character_select.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(670, 470, 960, 670, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(935, 55, cla)
+                        time.sleep(0.1)
                     cleaned = True
                 else:
                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\x_1.PNG"
@@ -609,6 +617,134 @@ def attack_check_and_attack(cla):
                                 attack = True
 
 
+
+    except Exception as e:
+        print(e)
+        return 0
+
+def hunting_check(cla):
+    import numpy as np
+    import cv2
+    from function_moon import imgs_set_, click_pos_reg, click_pos_2, text_check_get, in_number_check, int_put_
+    from schedule import myQuest_play_add
+
+    try:
+        print("hunting_check")
+
+        hunted = False
+
+        # 우선 몬스터카드로 가자
+
+        monster_in = False
+        monster_in_count = 0
+        while monster_in is False:
+            monster_in_count += 1
+            if monster_in_count > 7:
+                monster_in = True
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\monster_card_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(5, 30, 150, 80, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                monster_in = True
+
+
+
+                result_mine = mine_check(cla)
+
+                print("result_mine", result_mine[0], result_mine[1])
+
+                before_gold = result_mine[0]
+
+                for i in range(20):
+
+                    result_mine = mine_check(cla)
+
+                    if before_gold != result_mine[0]:
+                        print("before_gold vs now_gold", before_gold, result_mine[0])
+                        hunted = True
+                        break
+
+                    time.sleep(1)
+
+
+            else:
+                menu_open(cla)
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\hunting\\menu_monster.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(670, 100, 960, 250, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("menu_monster", imgs_)
+
+                    for i in range(10):
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\monster_card_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(5, 30, 150, 80, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        else:
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\hunting\\menu_monster.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(670, 100, 960, 250, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                if i > 7:
+                                    monster_in = True
+                        time.sleep(0.5)
+
+        for i in range(10):
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\monster_card_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(5, 30, 150, 80, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_2(935, 55, cla)
+            else:
+                break
+            time.sleep(0.5)
+
+        return hunted
+
+    except Exception as e:
+        print(e)
+        return 0
+
+def mine_check(cla):
+    import numpy as np
+    import cv2
+    from function_moon import imgs_set_, click_pos_reg, click_pos_2, text_check_get, in_number_check, int_put_
+    from schedule import myQuest_play_add
+
+    try:
+        print("mine_check")
+
+        gold_ = 0
+        dia_ = 0
+
+        read_gold = text_check_get(635, 45, 700, 65, cla)
+        # print("read_gold", read_gold)
+
+        digit_ready = in_number_check(read_gold)
+        # print("digit_ready", digit_ready)
+        if digit_ready == True:
+            read_data_int = int(int_put_(read_gold))
+            # print("read_data_int", read_data_int)
+            gold_ = read_data_int
+
+        read_dia = text_check_get(783, 45, 835, 65, cla)
+        # print("read_dia", read_dia)
+
+        digit_ready = in_number_check(read_dia)
+        # print("digit_ready", digit_ready)
+        if digit_ready == True:
+            read_data_int = int(int_put_(read_dia))
+            # print("read_data_int", read_data_int)
+            dia_ = read_data_int
+
+        return gold_, dia_
 
     except Exception as e:
         print(e)

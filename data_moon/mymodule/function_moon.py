@@ -156,7 +156,7 @@ def int_put_(data):
     except ValueError:
         return False
 
-def in_number_check(cla, data):
+def in_number_check(data):
     import cv2
     import numpy as np
     try:
@@ -876,7 +876,7 @@ def text_check_potion(posX1, posY1, posX2, posY2, cla):
         potion_count_ = pytesseract.image_to_string(white_img, lang=None)
         # print("text_check_potion", potion_count_)
 
-        result_num_in = in_number_check(cla, potion_count_)
+        result_num_in = in_number_check(potion_count_)
         if result_num_in == True:
             potion = change_number(potion_count_)
             potion_bloon = potion.isdigit()

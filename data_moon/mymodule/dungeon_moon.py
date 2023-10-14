@@ -197,17 +197,10 @@ def dungeon_ing_check(cla, sche):
 def dungeon_in(cla, sche):
     import numpy as np
     import cv2
-    import pyautogui
-    import random
 
     from function_moon import imgs_set_, click_pos_reg, click_pos_2
 
-    from action_moon import loading, menu_open, attack_check_and_attack, clean_screen
-    from get_item import get_items
-    from potion_moon import maul_potion_small_only
-    from schedule import myQuest_play_add
-    from repair_moon import repair_start
-
+    from action_moon import loading, menu_open, attack_check_and_attack, clean_screen, hunting_check
 
     try:
         print("dungeon_in")
@@ -335,6 +328,9 @@ def dungeon_in(cla, sche):
                                 time.sleep(0.3)
                     if complete != True:
                         # 공통 진입 부분
+
+                        hunt = False
+
                         for i in range(15):
                             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\stair_ing1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
@@ -344,6 +340,8 @@ def dungeon_in(cla, sche):
                                 time.sleep(3)
                                 random_move(cla)
                                 attack_check_and_attack(cla)
+
+                                hunt = True
                                 d_in_ = True
                                 break
                             else:
@@ -355,6 +353,8 @@ def dungeon_in(cla, sche):
                                     time.sleep(3)
                                     random_move(cla)
                                     attack_check_and_attack(cla)
+
+                                    hunt = True
                                     d_in_ = True
                                     break
                                 else:
@@ -366,6 +366,8 @@ def dungeon_in(cla, sche):
                                         time.sleep(3)
                                         random_move(cla)
                                         attack_check_and_attack(cla)
+
+                                        hunt = True
                                         d_in_ = True
                                         break
                                     else:
@@ -418,6 +420,12 @@ def dungeon_in(cla, sche):
                                                                 break
 
                             time.sleep(0.3)
+                        if hunt == True:
+                            result_hunted = hunting_check(cla)
+                            if result_hunted == False:
+                                random_move(cla)
+                            else:
+                                print("사냥 시작했음")
 
 
                 elif result_dun[1] == "심연":

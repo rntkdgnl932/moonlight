@@ -15,7 +15,7 @@ def go_test():
 
     from function_moon import imgs_set_, click_pos_reg, click_pos_2, drag_pos_reg, drag_pos, drag_pos_Press, mouse_move_cpp, mouse_move_adu_drag
 
-    from action_moon import menu_open, clean_screen, out_check, attack_check_and_attack
+    from action_moon import menu_open, clean_screen, out_check, attack_check_and_attack, hunting_check
 
     from get_item import get_event, get_event_sub
     from repair_moon import budy_sohwan, hyungsang_sohwan, my_stat_up
@@ -27,8 +27,9 @@ def go_test():
     from request_moon import get_my_request
     from chango_moon import dajoong_click, chango_jangbi_in_start, chango_action, take_off
 
+
     print("tst")
-    cla = "two"
+    cla = "one"
 
     plus = 0
 
@@ -48,12 +49,8 @@ def go_test():
 
     # chango_action(cla, "jaelyo_in")
 
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\jabhwa_title.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(50, 30, 110, 80, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("광폭의비약")
+    result_hunt = hunting_check(cla)
+    print("result_hunt", result_hunt)
 
     # ran_item = []
     #
