@@ -689,9 +689,17 @@ def world_step(cla, step):
                         break
                     else:
                         if step == 1:
+                            click_pos_2(230, 365, cla)
+                        elif step == 2:
                             click_pos_2(475, 320, cla)
-                        else:
-                            click_pos_2(475, 320, cla)
+                        elif step == 3:
+                            click_pos_2(230, 270, cla)
+                        elif step == 4:
+                            click_pos_2(475, 270, cla)
+                        elif step == 5:
+                            click_pos_2(230, 320, cla)
+                        elif step == 6:
+                            click_pos_2(475, 220, cla)
                     time.sleep(0.5)
 
                 # 지도 비활성화 하기

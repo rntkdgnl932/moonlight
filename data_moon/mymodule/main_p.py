@@ -976,7 +976,7 @@ class FirstTab(QWidget):
         dun_g3_name.addItems(dun_g3_list)
 
         dun_g3_stair = QComboBox()
-        dun_g3_stair_list = ['층', '1', '2', '3', '4']
+        dun_g3_stair_list = ['층', '1', '2', '3', '4', '5', '6']
         dun_g3_stair.addItems(dun_g3_stair_list)
 
         dun_box_3 = QHBoxLayout()
