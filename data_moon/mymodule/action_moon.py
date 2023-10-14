@@ -641,7 +641,7 @@ def hunting_check(cla):
             monster_in_count += 1
             if monster_in_count > 7:
                 monster_in = True
-            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\monster_card_title.PNG"
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\budy_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(5, 30, 150, 80, cla, img, 0.8)
@@ -670,25 +670,25 @@ def hunting_check(cla):
 
             else:
                 menu_open(cla)
-                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\hunting\\menu_monster.PNG"
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\repair\\menu_budy.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(670, 100, 960, 250, cla, img, 0.8)
+                imgs_ = imgs_set_(670, 100, 960, 270, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     print("menu_monster", imgs_)
 
                     for i in range(10):
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\monster_card_title.PNG"
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\budy_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(5, 30, 150, 80, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             break
                         else:
-                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\hunting\\menu_monster.PNG"
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\repair\\menu_budy.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(670, 100, 960, 250, cla, img, 0.8)
+                            imgs_ = imgs_set_(670, 100, 960, 270, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                 if i > 7:
