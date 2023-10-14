@@ -255,7 +255,7 @@ def clean_screen(cla):
                 v_.black_screen_count += 1
                 if v_.black_screen_count == 5 or v_.black_screen_count == 50 or v_.black_screen_count > 150:
                     print("블랙스크린 200회 될 경우 알림감", v_.black_screen_count)
-                if v_.black_screen_count > 200:
+                if v_.black_screen_count > 500:
                     data = "달조 블랙스크린이다!!!"
                     v_.black_screen_count = 0
                     line_to_me(cla, data)
