@@ -109,10 +109,8 @@ def my_property_upload(cla):
             if os.path.isdir(dir_path) == True:
                 isstart1 = True
                 with open(file_path, "w", encoding='utf-8-sig') as file:
-                    # data = 게임이름_게임서버_다이아_골드
-                    print("result_mine[0]...", result_mine[0])
-                    print("result_mine[1]...", result_mine[1])
-                    data = str(game_name) + '_' + str(game_server) + '_' + str(result_mine[1]) + '_' + str(
+                    # data = 사용자:게임이름:게임서버:다이아:골드
+                    data = str(line_[0]) + ':' + str(game_name) + ':' + str(game_server) + ':' + str(result_mine[1]) + ':' + str(
                         result_mine[0])
                     file.write(str(data))
 
