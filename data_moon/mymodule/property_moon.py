@@ -47,10 +47,21 @@ def my_property_upload(cla):
 
         file_path3 = dir_path + "\\moonlight\\mysettings\\game_server\\game_server.txt"
 
-        with open(file_path3, "r", encoding='utf-8-sig') as file:
-            game_server = file.read()
-            print('달조 game server', game_server)
-            # line3 => 게임서버
+        isstart1 = False
+        while isstart1 is False:
+            if os.path.isfile(file_path) == True:
+                with open(file_path3, "r", encoding='utf-8-sig') as file:
+                    isstart1 = True
+                    game_server = file.read()
+                    print('달조 game server', game_server)
+                    # line3 => 게임서버
+            else:
+                with open(file_path3, "w", encoding='utf-8-sig') as file:
+                    data = 'none'
+                    file.write(str(data))
+
+
+
 
         # 4. 다이야, 골드 파악
 
