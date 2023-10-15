@@ -728,25 +728,71 @@ def mine_check(cla):
         gold_ = 0
         dia_ = 0
 
-        read_gold = text_check_get(635, 45, 700, 65, cla)
-        # print("read_gold", read_gold)
+        monster_in = False
+        monster_in_count = 0
+        while monster_in is False:
+            monster_in_count += 1
+            if monster_in_count > 7:
+                monster_in = True
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\budy_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(5, 30, 150, 80, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                monster_in = True
 
-        digit_ready = in_number_check(read_gold)
-        # print("digit_ready", digit_ready)
-        if digit_ready == True:
-            read_data_int = int(int_put_(read_gold))
-            # print("read_data_int", read_data_int)
-            gold_ = read_data_int
+                read_gold = text_check_get(635, 45, 700, 65, cla)
+                print("read_gold", read_gold)
 
-        read_dia = text_check_get(783, 45, 835, 65, cla)
-        # print("read_dia", read_dia)
+                digit_ready = in_number_check(read_gold)
+                print("digit_ready", digit_ready)
+                if digit_ready == True:
+                    read_data_int = int(int_put_(read_gold))
+                    print("read_data_int", read_data_int)
+                    gold_ = read_data_int
 
-        digit_ready = in_number_check(read_dia)
-        # print("digit_ready", digit_ready)
-        if digit_ready == True:
-            read_data_int = int(int_put_(read_dia))
-            # print("read_data_int", read_data_int)
-            dia_ = read_data_int
+                read_dia = text_check_get(784, 45, 835, 65, cla)
+                print("read_dia", read_dia)
+
+                digit_ready = in_number_check(read_dia)
+                print("digit_ready", digit_ready)
+                if digit_ready == True:
+                    read_data_int = int(int_put_(read_dia))
+                    print("read_data_int", read_data_int)
+                    dia_ = read_data_int
+
+
+            else:
+                menu_open(cla)
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\repair\\menu_budy.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(670, 100, 960, 270, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("menu_monster", imgs_)
+
+                    for i in range(10):
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\budy_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(5, 30, 150, 80, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        else:
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\repair\\menu_budy.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(670, 100, 960, 270, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                if i > 7:
+                                    monster_in = True
+                        time.sleep(0.5)
+
+
+
+
+
 
         return gold_, dia_
 
