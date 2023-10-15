@@ -125,6 +125,10 @@ def my_property_upload(cla):
 
                 # # 원격 디렉토리 생성
                 # ftp.mkd(remote_directory)
+                if remote_directory not in ftp.nlst():
+                    ftp.mkd(remote_directory)
+                if remote_file_path in ftp.nlst():
+                    ftp.delete(remote_file_path)
 
                 with open(local_file_path, 'rb') as file:
                     # 파일 업로드시 UTF-8 인코딩 사용
