@@ -195,20 +195,27 @@ class ThirdTab(QWidget):
                 with open(file_path2, "w", encoding='utf-8-sig') as file:
                     file.write("on")
 
-        file_path3 = dir_path + "\\moonlight\\mysettings\\game_server\\game_server.txt"
+        dir_path2 = dir_path + "\\moonlight\\mysettings\\game_server"
+        file_path3 = dir_path2 + "\\game_server.txt"
 
         isFile = False
         while isFile is False:
-            if os.path.isfile(file_path3) == True:
-                isFile = True
-                # 파일 읽기
-                with open(file_path3, "r", encoding='utf-8-sig') as file:
-                    line3 = file.read()
-                    print('달조 game server', line3)
+            if os.path.isdir(dir_path2) == True:
+                if os.path.isfile(file_path3) == True:
+                    isFile = True
+                    # 파일 읽기
+                    with open(file_path3, "r", encoding='utf-8-sig') as file:
+                        line3 = file.read()
+                        print('달조 game server', line3)
+                else:
+                    print('game server 파일(line3) 없당')
+                    with open(file_path3, "w", encoding='utf-8-sig') as file:
+                        file.write("k0")
             else:
-                print('game server 파일(line3) 없당')
-                with open(file_path3, "w", encoding='utf-8-sig') as file:
-                    file.write("k0")
+                os.makedirs(dir_path2)
+
+
+
 
         self.monitor = QGroupBox('My Cla Monitor & Arduino')
 
