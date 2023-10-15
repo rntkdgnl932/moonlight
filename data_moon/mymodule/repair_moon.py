@@ -216,6 +216,7 @@ def budy_sohwan(cla):
 
     from action_moon import clean_screen, menu_open
     from function_moon import imgs_set_, click_pos_2, click_pos_reg
+    from property_moon import my_property_upload
 
     try:
         print("budy_sohwan", cla)
@@ -382,6 +383,9 @@ def budy_sohwan(cla):
                 time.sleep(0.1)
                 click_pos_2(160, 1010, cla)
                 time.sleep(0.1)
+
+                my_property_upload(cla)
+
                 clean_screen(cla)
                 get = True
 

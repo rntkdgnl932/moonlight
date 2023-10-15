@@ -67,10 +67,6 @@ def my_property_upload(cla):
 
         result_mine = mine_check(cla)
         print("result_mine", result_mine)
-        print("result_mine[0]", result_mine[0])
-        print("result_mine[1]", result_mine[1])
-        print("result_mine[0]", str(result_mine[0]))
-        print("result_mine[1]", str(result_mine[1]))
         # result_mine[0] => 골드
         # result_mine[1] => 다이아
 
