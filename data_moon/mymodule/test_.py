@@ -49,7 +49,15 @@ def go_test():
 
     # chango_action(cla, "jaelyo_in")
 
-    mine_check(cla)
+    read_dia = text_check_get(783, 47, 835, 60, cla)
+    print("read_dia 783", read_dia)
+
+    read_dia = text_check_get(784, 47, 835, 60, cla)
+    print("read_dia 784", read_dia)
+
+    read_dia = text_check_get(785, 47, 835, 60, cla)
+    print("read_dia 785", read_dia)
+
 
     # ran_item = []
     #
