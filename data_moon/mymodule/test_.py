@@ -13,7 +13,7 @@ def go_test():
     import pyautogui
     import random
 
-    from function_moon import imgs_set_, click_pos_reg, click_pos_2, drag_pos_reg, drag_pos, drag_pos_Press, mouse_move_cpp, mouse_move_adu_drag
+    from function_moon import imgs_set_, click_pos_reg, click_pos_2, drag_pos_reg, drag_pos, drag_pos_Press, mouse_move_cpp, mouse_move_adu_drag, text_check_get
 
     from action_moon import menu_open, clean_screen, out_check, attack_check_and_attack, hunting_check, mine_check
 
