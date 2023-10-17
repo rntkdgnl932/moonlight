@@ -572,9 +572,9 @@ def get_event(cla):
                                         if last_y < 515:
                                             click_pos_2(355, 550, cla)
                                         elif last_y < 580:
-                                            click_pos_2(355, 550, cla)
+                                            click_pos_2(355, 615, cla)
                                         elif last_y < 650:
-                                            click_pos_2(355, 550, cla)
+                                            click_pos_2(355, 680, cla)
                                         else:
                                             print("다 받았다.")
                                     else:
