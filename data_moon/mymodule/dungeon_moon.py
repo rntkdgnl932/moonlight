@@ -428,22 +428,24 @@ def dungeon_in(cla, sche):
 
                             result_hunted = hunting_check(cla)
                             if result_hunted == False:
-                                menu_open(cla)
-                                time.sleep(0.1)
-                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\menu_character_select.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(670, 470, 960, 670, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    for i in range(15):
-                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\game_start\\character_select_title.PNG"
+                                
+                                for i in range(15):
+                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\game_start\\character_select_title.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(20, 30, 150, 100, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        break
+                                    else:
+                                        menu_open(cla)
+                                        time.sleep(0.1)
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\action\\menu_character_select.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(20, 30, 150, 100, cla, img, 0.8)
+                                        imgs_ = imgs_set_(670, 470, 960, 670, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
-                                            break
-                                        time.sleep(1)
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(1)
 
 
                             else:
