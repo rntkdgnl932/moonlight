@@ -49,13 +49,13 @@ def go_test():
 
     # chango_action(cla, "jaelyo_in")
 
-    read_dia = text_check_get(783, 47, 835, 60, cla)
+    read_dia = text_check_get(783, 48, 835, 63, cla)
     print("read_dia 783", read_dia)
 
-    read_dia = text_check_get(784, 47, 835, 60, cla)
+    read_dia = text_check_get(784, 48, 835, 63, cla)
     print("read_dia 784", read_dia)
 
-    read_dia = text_check_get(785, 47, 835, 60, cla)
+    read_dia = text_check_get(785, 48, 835, 63, cla)
     print("read_dia 785", read_dia)
 
 
