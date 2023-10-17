@@ -751,7 +751,7 @@ def mine_check(cla):
                     print("read_data_int", read_data_int)
                     gold_ = read_data_int
 
-                read_dia = text_check_get(784, 45, 835, 65, cla)
+                read_dia = text_check_get(785, 45, 835, 65, cla)
                 print("read_dia", read_dia)
 
                 digit_ready = in_number_check(read_dia)
