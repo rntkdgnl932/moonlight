@@ -15,7 +15,7 @@ def go_test():
 
     from function_moon import imgs_set_, click_pos_reg, click_pos_2, drag_pos_reg, drag_pos, drag_pos_Press, mouse_move_cpp, mouse_move_adu_drag
 
-    from action_moon import menu_open, clean_screen, out_check, attack_check_and_attack, hunting_check
+    from action_moon import menu_open, clean_screen, out_check, attack_check_and_attack, hunting_check, mine_check
 
     from get_item import get_event, get_event_sub
     from repair_moon import budy_sohwan, hyungsang_sohwan, my_stat_up
@@ -49,7 +49,7 @@ def go_test():
 
     # chango_action(cla, "jaelyo_in")
 
-    my_property_upload(cla)
+    mine_check(cla)
 
     # ran_item = []
     #
