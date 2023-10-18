@@ -749,16 +749,15 @@ def mine_check(cla):
             if imgs_ is not None and imgs_ != False:
                 monster_in = True
 
-                for i in range(7):
-                    read_gold = text_check_get(635 + i, 48, 700, 63, cla)
-                    if read_gold == "":
-                        print(" 못 읽음 ")
-                    else:
-                        print(633 + i, "read_gold", read_gold)
-                        break
+                read_gold = text_check_get(635, 48, 700, 63, cla)
 
-                read_gold = text_check_get(636, 48, 700, 63, cla)
-                print("read_gold", read_gold)
+                # for i in range(7):
+                #     read_gold = text_check_get(635 + i, 48, 700, 63, cla)
+                #     if read_gold == "":
+                #         print(635 + i, " 못 읽음 ")
+                #     else:
+                #         print(635 + i, "read_gold", read_gold)
+                #         break
 
                 digit_ready = in_number_check(read_gold)
                 print("digit_ready", digit_ready)
@@ -767,8 +766,13 @@ def mine_check(cla):
                     print("read_data_int", read_data_int)
                     gold_ = read_data_int
 
-                read_dia = text_check_get(784, 48, 835, 63, cla)
-                print("read_dia", read_dia)
+                for i in range(7):
+                    read_dia = text_check_get(784 + i, 48, 835, 63, cla)
+                    if read_dia == "":
+                        print(784 + i, " 못 읽음 ")
+                    else:
+                        print(784 + i, "read_dia", read_gold)
+                        break
 
                 digit_ready = in_number_check(read_dia)
                 print("digit_ready", digit_ready)
