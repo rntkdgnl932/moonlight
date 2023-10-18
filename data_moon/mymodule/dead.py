@@ -125,7 +125,7 @@ def dead_die(cla, sche):
                                     break
                             time.sleep(1)
                     # 스케쥴부터 불러오기
-                    result_schedule = myQuest_play_check(v_.now_cla, "check")
+                    result_schedule = myQuest_play_check(cla, "check")
                     character_id = result_schedule[0][1]
 
                     # 게임 시작 화면인지 분석부터 하기

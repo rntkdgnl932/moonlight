@@ -100,7 +100,7 @@ def moving(cla):
                 elif moved_count_msg > 201:
 
                     # 스케쥴부터 불러오기
-                    result_schedule = myQuest_play_check(v_.now_cla, "check")
+                    result_schedule = myQuest_play_check(cla, "check")
                     print("result_schedule", result_schedule)
                     character_id = result_schedule[0][1]
                     result_schedule_ = result_schedule[0][2]
@@ -235,7 +235,7 @@ def clean_screen(cla):
     try:
         print("clean_screen")
 
-        result_schedule = myQuest_play_check(v_.now_cla, "check")
+        result_schedule = myQuest_play_check(cla, "check")
         character_id = result_schedule[0][1]
         sche = result_schedule[0][2]
 
@@ -754,7 +754,7 @@ def mine_check(cla):
                 for i in range(4):
                     read_gold = text_check_get(635 + i, 48, 700, 63, cla)
                     if read_gold == "":
-                        print(635 + i, " 못 읽음 ")
+                        print(635 + i, "골드 못 읽음 ")
                     else:
                         print(635 + i, "read_gold", read_gold)
                         break
@@ -770,7 +770,7 @@ def mine_check(cla):
                 for i in range(4):
                     read_dia = text_check_get(784 + i, 48, 835, 63, cla)
                     if read_dia == "":
-                        print(784 + i, " 못 읽음 ")
+                        print(784 + i, "다이아 못 읽음 ")
                     else:
                         print(784 + i, "read_dia", read_dia)
                         break
@@ -903,7 +903,7 @@ def confirm_all(cla):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
 
-                    result_schedule = myQuest_play_check(v_.now_cla, "check")
+                    result_schedule = myQuest_play_check(cla, "check")
                     print("confirm_all : result_schedule", result_schedule)
                     character_id = result_schedule[0][1]
                     sche = result_schedule[0][2]

@@ -107,7 +107,7 @@ def maul_potion_small_only(cla):
             else:
 
                 # 스케쥴부터 불러오기
-                result_schedule = myQuest_play_check(v_.now_cla, "check")
+                result_schedule = myQuest_play_check(cla, "check")
                 print("maul_potion_small_only : result_schedule", result_schedule)
                 character_id = result_schedule[0][1]
                 result_schedule_ = result_schedule[0][2]
@@ -185,6 +185,8 @@ def maul_potion_small_only(cla):
                             click_pos_2(745, 1000, cla)
                 time.sleep(1)
 
+
+            # 물약사기
             buy = False
             buy_count = 0
             while buy is False:
@@ -295,7 +297,7 @@ def maul_potion_dead_only(cla):
             else:
 
                 # 스케쥴부터 불러오기
-                result_schedule = myQuest_play_check(v_.now_cla, "check")
+                result_schedule = myQuest_play_check(cla, "check")
                 print("maul_potion_small_only : result_schedule", result_schedule)
                 character_id = result_schedule[0][1]
                 result_schedule_ = result_schedule[0][2]
@@ -351,6 +353,10 @@ def maul_potion_dead_only(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(50, 30, 110, 80, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
+                    click_pos_2(765, 100, cla)
+                    time.sleep(0.1)
+                    click_pos_2(765, 100, cla)
+                    time.sleep(0.1)
                     break
                 else:
                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\jabhwa_click1.PNG"
@@ -373,6 +379,330 @@ def maul_potion_dead_only(cla):
                             click_pos_2(745, 1000, cla)
                 time.sleep(1)
 
+
+
+            print("광폭의비약")
+            result = exist_buf(cla, "gwangpok")
+            if result == True:
+                # 광폭의 비약
+                buy = False
+                buy_count = 0
+                while buy is False:
+                    buy_count += 1
+                    if buy_count > 7:
+                        buy = True
+
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        buy = True
+
+                        for i in range(40):
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print(i)
+                                if i > 29:
+                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\many\\" + str(i) + ".PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(430, 560, 520, 620, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        break
+                                    else:
+                                        click_pos_2(575, 635, cla)
+                                        time.sleep(0.1)
+                                else:
+                                    click_pos_2(575, 635, cla)
+                                    time.sleep(0.1)
+
+                        for i in range(3):
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_2(545, 735, cla)
+                            else:
+                                break
+                            time.sleep(0.5)
+
+                    else:
+
+                        for i in range(10):
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            else:
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\gwangpok.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(50, 250, 200, 800, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.2)
+
+            print("구운 고기")
+            result = exist_buf(cla, "goowoon_gogi")
+            if result == True:
+                buy_ready = True
+
+                for i in range(3):
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\sangjum_my_bag\\goowoon_gogi.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(620, 110, 960, 910, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        buy_ready = False
+                        break
+                    else:
+                        click_pos_2(765, 100, cla)
+                    time.sleep(0.5)
+
+                if buy_ready == True:
+
+                    # 구운 고기
+                    buy = False
+                    buy_count = 0
+                    while buy is False:
+                        buy_count += 1
+                        if buy_count > 7:
+                            buy = True
+
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            buy = True
+
+                            for i in range(40):
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print(i)
+                                    if i > 29:
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\many\\" + str(
+                                            i) + ".PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(430, 560, 520, 620, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            break
+                                        else:
+                                            click_pos_2(575, 635, cla)
+                                            time.sleep(0.1)
+                                    else:
+                                        click_pos_2(575, 635, cla)
+                                        time.sleep(0.1)
+                            for i in range(3):
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_2(545, 735, cla)
+                                else:
+                                    break
+                                time.sleep(0.5)
+
+                        else:
+
+                            for i in range(10):
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    break
+                                else:
+                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\goowoon_gogi.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(50, 250, 200, 800, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.2)
+
+            print("교관의 도시락")
+            result = exist_buf(cla, "dosirak")
+            if result == True:
+
+                buy_ready = True
+
+                for i in range(3):
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\sangjum_my_bag\\dosirak.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(620, 110, 960, 910, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        buy_ready = False
+                        break
+                    else:
+                        click_pos_2(765, 100, cla)
+                    time.sleep(0.5)
+
+                if buy_ready == True:
+
+                    # 교관의 도시락
+                    buy = False
+                    buy_count = 0
+                    while buy is False:
+                        buy_count += 1
+                        if buy_count > 7:
+                            buy = True
+
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            buy = True
+                            for i in range(40):
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print(i)
+                                    if i > 29:
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\many\\" + str(
+                                            i) + ".PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(430, 560, 520, 620, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            break
+                                        else:
+                                            click_pos_2(575, 635, cla)
+                                            time.sleep(0.1)
+                                    else:
+                                        click_pos_2(575, 635, cla)
+                                        time.sleep(0.1)
+                            for i in range(3):
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_2(545, 735, cla)
+                                else:
+                                    break
+                                time.sleep(0.5)
+
+                        else:
+
+                            for i in range(10):
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    break
+                                else:
+                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\dosirak.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(50, 250, 200, 800, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.2)
+
+            print("과일 꼬치")
+            result = exist_buf(cla, "ggochi")
+            if result == True:
+
+                buy_ready = True
+
+                for i in range(3):
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\sangjum_my_bag\\ggochi.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(620, 110, 960, 910, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        buy_ready = False
+                        break
+                    else:
+                        click_pos_2(765, 100, cla)
+                    time.sleep(0.5)
+
+                if buy_ready == True:
+
+                    # 과일 꼬치
+                    buy = False
+                    buy_count = 0
+                    while buy is False:
+                        buy_count += 1
+                        if buy_count > 7:
+                            buy = True
+
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            buy = True
+                            for i in range(40):
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print(i)
+                                    if i > 29:
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\many\\" + str(
+                                            i) + ".PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(430, 560, 520, 620, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            break
+                                        else:
+                                            click_pos_2(575, 635, cla)
+                                            time.sleep(0.1)
+                                    else:
+                                        click_pos_2(575, 635, cla)
+                                        time.sleep(0.1)
+                            for i in range(3):
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_2(545, 735, cla)
+                                else:
+                                    break
+                                time.sleep(0.5)
+
+                        else:
+
+                            for i in range(10):
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buy_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    break
+                                else:
+                                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\ggochi.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(50, 250, 200, 800, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.2)
+
+
+            # 물약 사기
             buy = False
             buy_count = 0
             while buy is False:
@@ -475,7 +805,7 @@ def maul_potion_full(cla):
 
             else:
                 # 스케쥴부터 불러오기
-                result_schedule = myQuest_play_check(v_.now_cla, "check")
+                result_schedule = myQuest_play_check(cla, "check")
                 print("maul_potion_small_only : result_schedule", result_schedule)
                 character_id = result_schedule[0][1]
                 result_schedule_ = result_schedule[0][2]
@@ -1301,5 +1631,23 @@ def quick_slot_check(cla):
                     if imgs_ is not None and imgs_ != False:
                         break
                     time.sleep(0.2)
+    except Exception as e:
+        print(e)
+
+def exist_buf(cla, data):
+    import numpy as np
+    import cv2
+
+    from function_moon import imgs_set_
+    try:
+        buying = True
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\potion\\buf\\" + str(data) + ".PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(630, 120, 960, 900, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            buying = False
+
+        return buying
     except Exception as e:
         print(e)
