@@ -45,7 +45,12 @@ def go_test():
 
     for i in range(7):
         read_gold = text_check_get(633 + i, 48, 700, 63, cla)
-        print(633 + i, "read_gold", read_gold)
+        if read_gold == None:
+            print(" 못 읽음 ")
+        else:
+            print(633 + i, "read_gold", read_gold)
+
+    read_gold = text_check_get(636, 48, 700, 63, cla)
 
     # mine_check(cla)
     # get_my_request(cla, "의뢰_바란")

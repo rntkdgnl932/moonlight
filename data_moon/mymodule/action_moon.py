@@ -749,7 +749,7 @@ def mine_check(cla):
             if imgs_ is not None and imgs_ != False:
                 monster_in = True
 
-                read_gold = text_check_get(635, 48, 700, 63, cla)
+                read_gold = text_check_get(636, 48, 700, 63, cla)
                 print("read_gold", read_gold)
 
                 digit_ready = in_number_check(read_gold)
