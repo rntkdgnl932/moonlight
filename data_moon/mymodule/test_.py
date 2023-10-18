@@ -44,13 +44,14 @@ def go_test():
         plus = 960 * 3
 
     for i in range(7):
-        read_gold = text_check_get(633 + i, 48, 700, 63, cla)
+        read_gold = text_check_get(635 + i, 48, 700, 63, cla)
         if read_gold == "":
-            print(" 못 읽음 ")
+            print(635 + i, " 못 읽음 ")
         else:
-            print(633 + i, "read_gold", read_gold)
+            print(635 + i, "read_gold", read_gold)
+            break
 
-    read_gold = text_check_get(636, 48, 700, 63, cla)
+    print("read_gold...............", read_gold)
 
     # mine_check(cla)
     # get_my_request(cla, "의뢰_바란")

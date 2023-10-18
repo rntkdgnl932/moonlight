@@ -749,6 +749,14 @@ def mine_check(cla):
             if imgs_ is not None and imgs_ != False:
                 monster_in = True
 
+                for i in range(7):
+                    read_gold = text_check_get(635 + i, 48, 700, 63, cla)
+                    if read_gold == "":
+                        print(" 못 읽음 ")
+                    else:
+                        print(633 + i, "read_gold", read_gold)
+                        break
+
                 read_gold = text_check_get(636, 48, 700, 63, cla)
                 print("read_gold", read_gold)
 
