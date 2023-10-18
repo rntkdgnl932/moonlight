@@ -228,11 +228,16 @@ def clean_screen(cla):
     from schedule import myQuest_play_check
     from dead import dead_die
     from massenger import line_to_me
+    from character_select_and_game_start import character_change
 
     import random
 
     try:
         print("clean_screen")
+
+        result_schedule = myQuest_play_check(v_.now_cla, "check")
+        character_id = result_schedule[0][1]
+        sche = result_schedule[0][2]
 
         cleaned = False
         cleaned_count = 0
@@ -314,12 +319,15 @@ def clean_screen(cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(400, 870, 700, 950, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
-                result_schedule = myQuest_play_check(v_.now_cla, "check")
-                print("confirm_all : result_schedule", result_schedule)
-                character_id = result_schedule[0][1]
-                sche = result_schedule[0][2]
-
                 dead_die(cla, sche)
+
+            # 캐릭 화면일때
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\game_start\\character_select_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(20, 30, 150, 100, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                character_change(cla, character_id)
 
             # 각종 창 닫기
             have_x = False
