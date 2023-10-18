@@ -560,7 +560,7 @@ def get_event(cla):
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     for i in pyautogui.locateAllOnScreen(img, region=(310 + plus, 440, 480, 280),
-                                                                         confidence=0.8):
+                                                                         confidence=0.75):
                                         last_x = i.left
                                         last_y = i.top
                                         print("last_x", last_x)
@@ -616,7 +616,7 @@ def get_event(cla):
                                                                              region=(
                                                                                      245 + plus, 690, 780 - 245,
                                                                                      735 - 690),
-                                                                             confidence=0.8):
+                                                                             confidence=0.75):
                                             last_x = i.left
                                             last_y = i.top
                                             print("last_x", last_x)
@@ -673,7 +673,7 @@ def get_event(cla):
                                             for i in pyautogui.locateAllOnScreen(img,
                                                                                  region=(235 + plus, 570, 680 - 235,
                                                                                          740 - 570),
-                                                                                 confidence=0.8):
+                                                                                 confidence=0.75):
                                                 last_x = i.left
                                                 last_y = i.top
                                                 print("last_x", last_x)
