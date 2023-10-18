@@ -47,7 +47,7 @@ def go_test():
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
     for i in pyautogui.locateAllOnScreen(img, region=(310 + plus, 440, 480, 280),
-                                         confidence=0.8):
+                                         confidence=0.75):
         last_x = i.left
         last_y = i.top
         print("last_x", last_x)
