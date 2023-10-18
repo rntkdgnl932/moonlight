@@ -43,7 +43,7 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    get_event(cla)
+    mine_check(cla)
     # get_my_request(cla, "의뢰_바란")
 
     # chango_action(cla, "jangbi_out")
