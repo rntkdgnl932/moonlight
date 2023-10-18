@@ -330,7 +330,7 @@ def chango_jangbi_in_start(cla):
             # 나머지 찾아서 창고에 넣기
 
             # 물품 찾아서 창고에 넣기 1
-            for t in range(3):
+            for t in range(4):
                 for k in range(4):
                     exist = False
 
@@ -355,7 +355,7 @@ def chango_jangbi_in_start(cla):
                             time.sleep(0.1)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.5)
-
+                time.sleep(0.5)
 
             let_chango_in = True
         # # 나가기
@@ -489,7 +489,8 @@ def take_off(cla):
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                         print("not lock..")
                         break
-
+                time.sleep(0.2)
+            time.sleep(0.5)
 
         for i in range(10):
             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\repair\\boonhae_click.PNG"
@@ -685,7 +686,7 @@ def chango_jangbi_out_start(cla):
 
             # 찾아서 창고ㅔ서 빼기
 
-            for t in range(3):
+            for t in range(4):
                 for k in range(4):
                     exist = False
 
