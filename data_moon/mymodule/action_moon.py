@@ -932,6 +932,83 @@ def confirm_all(cla):
         if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
+        # 거래소 닫기 관련
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_confirm_4.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(500, 630, 590, 680, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+            time.sleep(0.1)
+
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_confirm_3.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(490, 580, 590, 630, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\exit_cancle.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(360, 580, 460, 620, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.1)
+                for k in range(7):
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\sell_complete_click.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(440, 160, 620, 970, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.4)
+            else:
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_confirm_3.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(490, 580, 590, 630, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.1)
+
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_confirm_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(445, 705, 525, 750, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+            time.sleep(0.1)
+        else:
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_cancle.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(370, 710, 440, 750, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.1)
+            else:
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\auction_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(5, 30, 150, 80, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(935, 55, cla)
+                    for k in range(10):
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_confirm_3.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(490, 580, 590, 630, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        else:
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\auction_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(5, 30, 150, 80, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("아직 못 나감...")
+                        time.sleep(0.1)
+        time.sleep(0.1)
+
 
     except Exception as e:
         print(e)
