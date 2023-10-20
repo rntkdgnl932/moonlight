@@ -25,6 +25,9 @@ def auction_start(cla):
         # 창고에서 물건 빼내기
         chango_action(cla, "jaelyo_out")
 
+        # 창고에서 재료를 제외하고 아이템도 빼내기
+        chango_action(cla, "auction_out")
+
         not_registery = False
 
         auction_ready = False
@@ -116,6 +119,7 @@ def auction_start(cla):
                             print(i, read_list[i], imgs_)
                             ran_item.append(i)
 
+                if len(ran_item) != 0:
                     print("result", ran_item)
                     print("len ran_item", len(ran_item))
 

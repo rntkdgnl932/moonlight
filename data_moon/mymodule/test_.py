@@ -25,11 +25,11 @@ def go_test():
     from soojib_boonhae_moon import soojib_boonhae_start, soojib_setting, soojib_start
     from auction_moon import price_check, auction_start, how_many
     from request_moon import get_my_request
-    from chango_moon import dajoong_click, chango_jangbi_in_start, chango_action, take_off
+    from chango_moon import dajoong_click, chango_jangbi_in_start, chango_auction_out_start, take_off, chango_jaelyo_in_start, chango_restart, chango_auction_in_start, chango_jangbi_out_start
     from property_moon import my_property_upload
 
     print("tst")
-    cla = "two"
+    cla = "one"
 
     plus = 0
 
@@ -43,15 +43,59 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\chulsuk_checked.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    for i in pyautogui.locateAllOnScreen(img, region=(310 + plus, 440, 480, 280),
-                                         confidence=0.75):
-        last_x = i.left
-        last_y = i.top
-        print("last_x", last_x)
-        print("last_y", last_y)
+    auction_start(cla)
+
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in\\jungsoo_jogagsa_skill.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(630, 120, 960, 900, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("jungsoo_gongyong_skill", imgs_)
+
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in\\jungsoo_jogagsa_skill.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(0, 120, 330, 900, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("jungsoo_jogagsa_skill", imgs_)
+    #
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in\\jungsoo_gongyong_skill.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(0, 120, 330, 900, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("jungsoo_gongyong_skill", imgs_)
+    #
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in\\jungsoo_junsa_skill.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(0, 120, 330, 900, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("jungsoo_junsa_skill", imgs_)
+    #
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in\\jungsoo_mabubsa_skill.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(0, 120, 330, 900, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("jungsoo_mabubsa_skill", imgs_)
+
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in\\jungsoo_goongsoo_skill.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(0, 120, 330, 900, cla, img, 0.7)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("jungsoo_goongsoo_skill", imgs_)
+
+    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\chulsuk_checked.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # for i in pyautogui.locateAllOnScreen(img, region=(310 + plus, 440, 480, 280),
+    #                                      confidence=0.75):
+    #     last_x = i.left
+    #     last_y = i.top
+    #     print("last_x", last_x)
+    #     print("last_y", last_y)
     # mine_check(cla)
     # get_my_request(cla, "의뢰_바란")
 

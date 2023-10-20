@@ -1,9 +1,9 @@
-earing_1
+belt_bling_jihye
+brooch_heroofwar
 hasoodo_key
 jangab_pyungwon_1
 jangab_sanyanggoon_1
 malyuksuk
-neck_pyungwon1
 neck_pyungwon2
 sand_timer_1
 sand_timer_2
@@ -12,7 +12,6 @@ segongsuk
 silver
 soojungsuk
 soomgyul
-up_bangugoo_1
 up_moogi_1
 wood
 younghonsuk
