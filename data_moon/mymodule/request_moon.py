@@ -393,6 +393,23 @@ def get_my_request(cla, sche):
                                         else:
                                             # 이건 더이상 수락할 수 없는 상태임
                                             get_request = True
+
+                                            for i in range(20):
+                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\re_y_point.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(230, 130, 300, 800, cla, img, 0.8)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    v_.re_click_count = 0
+                                                    complete = False
+                                                    break
+                                                else:
+                                                    complete = True
+                                                time.sleep(0.1)
+                                            if complete == True:
+                                                myQuest_play_add(cla, sche)
+                                                time.sleep(0.1)
+
                                             break
                                 else:
                                     print("무료 갱신 불불불 가능한 상태")
