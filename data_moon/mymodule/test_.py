@@ -27,6 +27,7 @@ def go_test():
     from request_moon import get_my_request
     from chango_moon import dajoong_click, chango_jangbi_in_start, chango_auction_out_start, take_off, chango_jaelyo_in_start, chango_restart, chango_auction_in_start, chango_jangbi_out_start
     from property_moon import my_property_upload
+    from guild_moon import guild_choolsuk
 
     print("tst")
     cla = "one"
@@ -43,7 +44,7 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    auction_start(cla)
+    guild_choolsuk(cla)
 
     # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in\\jungsoo_jogagsa_skill.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

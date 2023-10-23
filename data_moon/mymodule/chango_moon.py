@@ -97,6 +97,16 @@ def chango_action(cla, data):
                     time.sleep(0.5)
                     chango_restart(cla)
 
+                    # 창고에 장비 넣기 시작
+                    for i in range(3):
+                        chango_jangbi_in_start(cla)
+                        time.sleep(0.1)
+
+                    # 일부러 한번 나가서 그림 갱신하기기
+                    click_pos_2(935, 55, cla)
+                    time.sleep(0.5)
+                    chango_restart(cla)
+
                     # 창고에서 옥션 아이템 넣기 시작
                     chango_auction_in_start(cla)
 
@@ -1011,7 +1021,7 @@ def chango_restart(cla):
 def dajoong_click(cla, data):
     import cv2
     import numpy as np
-    from function_moon import imgs_set_, click_pos_reg
+    from function_moon import imgs_set_, click_pos_reg, click_pos_2
     try:
         # 0
         for i in range(5):
@@ -1023,7 +1033,7 @@ def dajoong_click(cla, data):
                 print("grade", imgs_)
                 break
             else:
-                click_pos_reg(310, 1000, cla)
+                click_pos_2(310, 1000, cla)
             time.sleep(1)
 
         # 1
