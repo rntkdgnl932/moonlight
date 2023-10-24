@@ -100,8 +100,10 @@ def quest_check(cla):
 def quest_click(cla):
     import numpy as np
     import cv2
-    from function_moon import click_pos_reg, imgs_set_
+    from function_moon import click_pos_reg, imgs_set_, click_pos_2
     from repair_moon import my_stat_up
+    from action_moon import confirm_all
+    from schedule import myQuest_play_add
     try:
         print("quest_click", cla)
 
@@ -163,6 +165,35 @@ def quest_click(cla):
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                 q_click = True
         time.sleep(0.1)
+
+        if q_click == True:
+            for i in range(10):
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\stop_tuto\\arklasya.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(380, 370, 460, 420, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(410, 755, cla)
+                    time.sleep(0.5)
+                    click_pos_2(410, 755, cla)
+                    time.sleep(0.5)
+                    click_pos_2(25, 180, cla)
+                    time.sleep(0.1)
+                    click_pos_2(25, 180, cla)
+                    for c in range(10):
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\tuto\\stop_tuto\\confirm.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(510, 560, 580, 620, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            break
+                        time.sleep(0.2)
+                    # myQuest_play_add(cla, "튜토육성")
+                    break
+                time.sleep(0.3)
+
+
         return q_click
     except Exception as e:
         print(e)
@@ -226,7 +257,7 @@ def tuto_click(cla):
         time.sleep(0.1)
         if result_click == False:
             # 안 보여서 드래그하기
-            drag_pos(800, 120, 800, 120 + 350, cla)
+            drag_pos(800, 220, 800, 220 + 350, cla)
             time.sleep(0.5)
 
         mouse_move_cpp(500, 500, cla)

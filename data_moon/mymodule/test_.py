@@ -28,9 +28,10 @@ def go_test():
     from chango_moon import dajoong_click, chango_jangbi_in_start, chango_auction_out_start, take_off, chango_jaelyo_in_start, chango_restart, chango_auction_in_start, chango_jangbi_out_start
     from property_moon import my_property_upload
     from guild_moon import guild_choolsuk
+    from tuto_moon import quest_click
 
     print("tst")
-    cla = "one"
+    cla = "two"
 
     plus = 0
 

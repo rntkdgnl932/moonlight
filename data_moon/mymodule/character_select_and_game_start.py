@@ -83,6 +83,7 @@ def character_change(cla, character_id):
     from chango_moon import chango_action
     from potion_moon import maul_potion_small_only
     from dead import dead_die
+    from guild_moon import guild_choolsuk
 
     from massenger import line_to_me
     try:
@@ -221,6 +222,9 @@ def character_change(cla, character_id):
                                 else:
                                     get_event_sub(cla)
                             dead_die(cla, "start")
+
+                            guild_choolsuk(cla)
+
                             chango_action(cla, "jangbi_out")
                             repair_start(cla)
 
