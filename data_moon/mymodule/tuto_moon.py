@@ -189,7 +189,7 @@ def quest_click(cla):
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             break
                         time.sleep(0.2)
-                    # myQuest_play_add(cla, "튜토육성")
+                    myQuest_play_add(cla, "튜토육성")
                     break
                 time.sleep(0.3)
 
