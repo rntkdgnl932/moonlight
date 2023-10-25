@@ -31,11 +31,7 @@ def go_test():
     from tuto_moon import quest_click
 
     print("tst")
-    cla = "two"
-
-    plus = 0
-
-
+    cla = "one"
     if cla == "one":
         plus = 0
     elif cla == "two":
@@ -46,13 +42,17 @@ def go_test():
         plus = 960 * 3
 
     time.sleep(0.8)
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\dajoong_select_left.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(0, 970, 120, 1030, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        click_pos_reg(imgs_.x, imgs_.y, cla)
-        time.sleep(0.1)
+    for i in range(5):
+        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\grade.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(230, 970, 290, 1020, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            print("grade", imgs_)
+            break
+        else:
+            click_pos_2(310, 990, cla)
+        time.sleep(1)
 
     # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in\\jungsoo_jogagsa_skill.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

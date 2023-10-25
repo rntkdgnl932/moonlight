@@ -1033,7 +1033,7 @@ def dajoong_click(cla, data):
                 print("grade", imgs_)
                 break
             else:
-                click_pos_2(310, 1000, cla)
+                click_pos_2(310, 990, cla)
             time.sleep(1)
 
         # 1
