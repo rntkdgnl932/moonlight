@@ -409,6 +409,8 @@ def dungeon_in(cla, sche):
                                     break
                                 time.sleep(0.2)
 
+
+
                     if complete != True:
                         # 공통 진입 부분
 
@@ -495,6 +497,15 @@ def dungeon_in(cla, sche):
                                                                 d_in_ = True
                                                                 click_pos_2(935, 55, cla)
                                                                 break
+                                                            else:
+                                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\no_have_time.PNG"
+                                                                img_array = np.fromfile(full_path, np.uint8)
+                                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                                imgs_ = imgs_set_(470, 120, 600, 190, cla, img, 0.8)
+                                                                if imgs_ is not None and imgs_ != False:
+                                                                    d_in_ = True
+                                                                    complete = True
+                                                                    break
 
                             time.sleep(0.3)
                         if hunt == True:
