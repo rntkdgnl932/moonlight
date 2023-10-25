@@ -481,7 +481,7 @@ def chango_jangbi_in_start(cla):
             # 물품 찾아서 창고에 넣기 1
             print("넣기1")
             for t in range(4):
-                for k in range(4):
+                for k in range(5):
                     exist = False
 
                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\item_lock_on" + str(k) + ".PNG"
@@ -510,7 +510,7 @@ def chango_jangbi_in_start(cla):
             print("넣기2")
             # 물품 찾아서 창고에 넣기 1
             for t in range(5):
-                for k in range(4):
+                for k in range(5):
                     exist = False
 
                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\item_lock_on" + str(k) + ".PNG"
@@ -677,6 +677,7 @@ def chango_jaelyo_out_start(cla):
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.1)
+                        grade_setting(cla)
                         mouse_move_cpp(500, 500, cla)
                         time.sleep(0.1)
                 time.sleep(0.5)
@@ -799,6 +800,7 @@ def chango_jangbi_out_start(cla):
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.1)
+                        grade_setting(cla)
                         mouse_move_cpp(500, 500, cla)
                         time.sleep(0.1)
                 time.sleep(0.5)
@@ -808,7 +810,7 @@ def chango_jangbi_out_start(cla):
             # 찾아서 창고ㅔ서 빼기
 
             for t in range(4):
-                for k in range(4):
+                for k in range(5):
                     exist = False
 
                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\item_lock_on" + str(k) + ".PNG"
@@ -939,6 +941,7 @@ def chango_auction_out_start(cla):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(0.1)
+                    grade_setting(cla)
                     mouse_move_cpp(500, 500, cla)
                     time.sleep(0.1)
             time.sleep(0.5)
@@ -1018,12 +1021,14 @@ def chango_restart(cla):
     except Exception as e:
         print(e)
 
-def dajoong_click(cla, data):
+def grade_setting(cla):
     import cv2
     import numpy as np
     from function_moon import imgs_set_, click_pos_reg, click_pos_2
     try:
-        # 0
+
+        print("grade settig")
+
         for i in range(5):
             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\grade.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -1035,6 +1040,17 @@ def dajoong_click(cla, data):
             else:
                 click_pos_2(310, 990, cla)
             time.sleep(1)
+
+    except Exception as e:
+        print(e)
+
+
+def dajoong_click(cla, data):
+    import cv2
+    import numpy as np
+    from function_moon import imgs_set_, click_pos_reg, click_pos_2
+    try:
+        grade_setting(cla)
 
         # 1
         if data == "jaelyo":
