@@ -266,6 +266,10 @@ def chango_jaelyo_in_start(cla):
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         exist = True
                         time.sleep(0.1)
+
+                        # if "timer" in read_list[i]:
+
+
                 if exist == True:
                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\bogwanhagi_right.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
@@ -354,15 +358,17 @@ def chango_jaelyo_in_start(cla):
                     time.sleep(0.5)
 
             # 2
+
+            click_pos_2(820, 100, cla)
+            time.sleep(0.1)
+            click_pos_2(820, 100, cla)
+            time.sleep(0.1)
+            click_pos_2(765, 100, cla)
+            time.sleep(0.1)
+            click_pos_2(765, 100, cla)
+            time.sleep(0.5)
+
             for c in range(6):
-                click_pos_2(820, 100, cla)
-                time.sleep(0.1)
-                click_pos_2(820, 100, cla)
-                time.sleep(0.1)
-                click_pos_2(765, 100, cla)
-                time.sleep(0.1)
-                click_pos_2(765, 100, cla)
-                time.sleep(0.5)
 
                 exist = False
                 for i in range(len(jungsoo_list)):
