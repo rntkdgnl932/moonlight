@@ -45,14 +45,14 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    click_pos_2(895, 1005, cla)
     time.sleep(0.8)
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\no_have_time2.PNG"
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\dajoong_select_left.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(470, 120, 600, 190, cla, img, 0.8)
+    imgs_ = imgs_set_(0, 970, 120, 1030, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("no_have_time2", imgs_)
+        click_pos_reg(imgs_.x, imgs_.y, cla)
+        time.sleep(0.1)
 
     # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in\\jungsoo_jogagsa_skill.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
