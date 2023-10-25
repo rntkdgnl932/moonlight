@@ -498,7 +498,7 @@ def dungeon_in(cla, sche):
                                                                 click_pos_2(935, 55, cla)
                                                                 break
                                                             else:
-                                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\no_have_time.PNG"
+                                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\no_have_time2.PNG"
                                                                 img_array = np.fromfile(full_path, np.uint8)
                                                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                                                 imgs_ = imgs_set_(470, 120, 600, 190, cla, img, 0.8)

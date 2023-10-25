@@ -31,7 +31,7 @@ def go_test():
     from tuto_moon import quest_click
 
     print("tst")
-    cla = "one"
+    cla = "two"
 
     plus = 0
 
@@ -45,19 +45,14 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\attack_ing_1.PNG"
+    click_pos_2(895, 1005, cla)
+    time.sleep(0.8)
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\no_have_time2.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(410, 870, 450, 910, cla, img, 0.8)
+    imgs_ = imgs_set_(470, 120, 600, 190, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("attack_ing_1", imgs_)
-
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\attack_ing_2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(480, 870, 510, 910, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("attack_ing_2", imgs_)
+        print("no_have_time2", imgs_)
 
     # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in\\jungsoo_jogagsa_skill.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
