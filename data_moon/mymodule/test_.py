@@ -17,7 +17,7 @@ def go_test():
 
     from action_moon import menu_open, clean_screen, out_check, attack_check_and_attack, hunting_check, mine_check
 
-    from get_item import get_event, get_event_sub
+    from get_item import get_event, get_event_sub, get_sangjum_sohwan
     from repair_moon import budy_sohwan, hyungsang_sohwan, my_stat_up
     from potion_moon import maul_potion_small_only, maul_potion_full, quick_slot_check,maul_potion_dead_only, exist_buf
     from jadong_moon import map_open_check, boss_check
@@ -31,7 +31,7 @@ def go_test():
     from tuto_moon import quest_click
 
     print("tst")
-    cla = "two"
+    cla = "one"
 
     plus = 0
 
@@ -45,7 +45,19 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    guild_choolsuk(cla)
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\attack_ing_1.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(410, 870, 450, 910, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("attack_ing_1", imgs_)
+
+    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\attack_ing_2.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(480, 870, 510, 910, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("attack_ing_2", imgs_)
 
     # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in\\jungsoo_jogagsa_skill.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

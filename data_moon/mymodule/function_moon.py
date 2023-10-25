@@ -914,6 +914,9 @@ def text_check_get(posX1, posY1, posX2, posY2, cla):
         pic = cv2.imread("asd.png", cv2.IMREAD_COLOR)  # 사진을 컬러로 읽어오기
         cv2.imwrite("asd.png", pic)
         pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
+
+
+
         pic_ = numpy.array(pic)
         result = pytesseract.image_to_string(pic_, lang='kor+eng')
 
@@ -922,6 +925,7 @@ def text_check_get(posX1, posY1, posX2, posY2, cla):
     except Exception as e:
         print(e)
         return 0
+
 
 def text_check_get_2(posX1, posY1, posX2, posY2, cla):
     try:

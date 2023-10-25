@@ -9,6 +9,8 @@ now_arduino = "none"
 tuto_dead = 0
 # 물약 카운터
 need_potion = 0
+# 어택 체크 카운터
+attack_check_count = 0
 # 블랙스크린 카운터
 black_screen_count = 0
 # 부활금지

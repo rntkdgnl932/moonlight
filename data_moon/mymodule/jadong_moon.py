@@ -63,8 +63,24 @@ def jadong_start(cla, sche):
                 print("마을이다. 사냥터로 이동하자")
                 jadong_spot_in(cla, sche)
             else:
-                print("자동사냥중")
-                attack_check_and_attack(cla)
+                v_.attack_check_count += 1
+                print("자동사냥중", v_.attack_check_count)
+                if v_.attack_check_count > 10:
+                    attack_check_and_attack(cla)
+                else:
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\attack_ing_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(410, 870, 450, 910, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        v_.attack_check_count = 0
+                    else:
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\attack_ing_2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(480, 870, 510, 910, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            v_.attack_check_count = 0
                 potion_check(cla)
         # 전투중(해당맵에 있는지 파악후 공격중인지 파악하기, 물약 파악하기)
         else:

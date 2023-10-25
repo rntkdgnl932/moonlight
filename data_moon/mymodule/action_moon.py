@@ -567,6 +567,35 @@ def attack_check_and_attack(cla):
             if attack_count > 7:
                 attack = True
 
+            attack = hunting_check(cla)
+
+            if attack == False:
+
+                clean_screen(cla)
+                time.sleep(0.1)
+                click_pos_2(925, 895, cla)
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
+def attack_check_and_attack_ex(cla):
+    import numpy as np
+    import cv2
+    from function_moon import imgs_set_, click_pos_reg, click_pos_2
+    from schedule import myQuest_play_add
+
+    try:
+        print("attack_check_and_attack")
+
+        attack = False
+        attack_count = 0
+        while attack is False:
+            attack_count += 1
+            if attack_count > 7:
+                attack = True
+
             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\auto_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
