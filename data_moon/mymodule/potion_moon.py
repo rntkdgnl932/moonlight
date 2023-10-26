@@ -470,9 +470,9 @@ def maul_potion_small_only(cla):
                 imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     buy = True
-                    click_pos_2(480, 670, cla)
+                    click_pos_2(530, 670, cla)
                     time.sleep(0.1)
-                    click_pos_2(480, 670, cla)
+                    click_pos_2(530, 670, cla)
                     time.sleep(0.1)
                     click_pos_2(545, 735, cla)
                     time.sleep(0.1)
@@ -986,9 +986,9 @@ def maul_potion_dead_only(cla):
                 imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     buy = True
-                    click_pos_2(480, 670, cla)
+                    click_pos_2(530, 670, cla)
                     time.sleep(0.1)
-                    click_pos_2(480, 670, cla)
+                    click_pos_2(530, 670, cla)
                     time.sleep(0.1)
                     click_pos_2(545, 735, cla)
                     time.sleep(0.1)
@@ -1529,9 +1529,9 @@ def maul_potion_full(cla):
                 imgs_ = imgs_set_(470, 300, 530, 350, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     buy = True
-                    click_pos_2(480, 670, cla)
+                    click_pos_2(530, 670, cla)
                     time.sleep(0.1)
-                    click_pos_2(480, 670, cla)
+                    click_pos_2(530, 670, cla)
                     time.sleep(0.1)
                     click_pos_2(545, 735, cla)
                     time.sleep(0.1)
