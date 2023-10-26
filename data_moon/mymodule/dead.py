@@ -21,6 +21,7 @@ def dead_die(cla, sche):
     from schedule import myQuest_play_add
     from schedule import myQuest_play_check
     from dungeon_moon import dungeon_ing_check
+    from massenger import line_to_me
 
 
     try:
@@ -51,6 +52,14 @@ def dead_die(cla, sche):
             if imgs_ is not None and imgs_ != False:
                 print("exp recovery...", imgs_)
                 boohwal = True
+        else:
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dead\\exp_recovery.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(200, 30, 350, 100, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                why = "자꾸 죽는다 스케쥴 및 장비 확인해줘라"
+                line_to_me(cla, why)
 
         if dead == True or boohwal == True:
             for i in range(10):
