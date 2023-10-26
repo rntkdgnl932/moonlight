@@ -21,6 +21,15 @@ def dungeon_start(cla, sche):
     try:
         print("dungeon_start")
 
+        # 스케쥴에서 던전 정보 뽑기
+        result_dun = sche.split("/")
+        # result_dun[0] => 던전
+        # result_dun[1] => 균열, 심연, 월드
+        # result_dun[2] => 던전종류_층수
+        result_dun_detail = result_dun[2].split("_")
+        # result_dun_detail[0] => 균열(홈염의신전, 얼음유적지, 마리아스의동굴), 심연(뒤틀린심연), 월드(스피렌의안뜰)
+        # result_dun_detail[1] => 층수
+
         # 던전 입장 표시 끄기
         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\clean_screen\\cancle.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -37,27 +46,30 @@ def dungeon_start(cla, sche):
 
         if d_in_ == True:
 
-            v_.attack_check_count += 1
-            print("던전 돌고 있는 중", v_.attack_check_count)
-            if v_.attack_check_count > 50:
-                attack_check_and_attack(cla)
+            if result_dun[1] == "심연":
+                print("전투력 부족")
             else:
-                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\attack_ing_1.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(410, 870, 450, 910, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    v_.attack_check_count = 0
-                    print("attack_ing_1", v_.attack_check_count)
+                v_.attack_check_count += 1
+                print("던전 돌고 있는 중", v_.attack_check_count)
+                if v_.attack_check_count > 50:
+                    attack_check_and_attack(cla)
                 else:
-                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\attack_ing_2.PNG"
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\attack_ing_1.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(480, 870, 510, 910, cla, img, 0.8)
+                    imgs_ = imgs_set_(410, 870, 450, 910, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         v_.attack_check_count = 0
-                        print("attack_ing_2", v_.attack_check_count)
-            potion_check(cla)
+                        print("attack_ing_1", v_.attack_check_count)
+                    else:
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\attack_ing_2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(480, 870, 510, 910, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            v_.attack_check_count = 0
+                            print("attack_ing_2", v_.attack_check_count)
+                potion_check(cla)
         else:
             result_potion_bool = potion_check(cla)
             if result_potion_bool == True:
@@ -122,6 +134,14 @@ def dungeon_ing_check(cla, sche):
                         imgs_ = imgs_set_(40, 100, 130, 160, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             d_in_ = True
+            elif result_dun[1] == "심연":
+
+                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\simyun_in_ing.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(40, 100, 130, 160, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    d_in_ = True
 
             elif result_dun[1] == "월드":
                 full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\world_in_title_1.PNG"
@@ -198,6 +218,13 @@ def dungeon_ing_check(cla, sche):
                             imgs_ = imgs_set_(40, 100, 160, 160, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 d_in_ = True
+                            else:
+                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\simyun_in_ing.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(40, 100, 130, 160, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    d_in_ = True
 
         return d_in_
     except Exception as e:
@@ -566,10 +593,10 @@ def dungeon_in(cla, sche):
                         time.sleep(0.1)
 
                         for i in range(10):
-                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\hongyum_in_check.PNG"
+                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\simyun_in_check.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(10, 300, 200, 500, cla, img, 0.8)
+                            imgs_ = imgs_set_(5, 120, 60, 260, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_2(100, y_reg, cla)
                                 time.sleep(0.2)
@@ -582,7 +609,7 @@ def dungeon_in(cla, sche):
                         # 추후 뒤틀린으로 수정하기
                         #
                         #
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\stair_ing1.PNG"
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\simyun_in_ing.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(40, 100, 130, 160, cla, img, 0.8)
@@ -614,6 +641,15 @@ def dungeon_in(cla, sche):
                                         d_in_ = True
                                         complete = True
                                         break
+                                    else:
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\no_have_time2.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(470, 120, 600, 190, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            d_in_ = True
+                                            complete = True
+                                            break
                         time.sleep(0.3)
 
 
@@ -853,3 +889,48 @@ def world_step(cla, step):
     except Exception as e:
         print(e)
 
+
+def simyun_satrt(cla):
+    import cv2
+    import numpy as np
+    from function_moon import imgs_set_, click_pos_reg, click_pos_2
+    try:
+        print("simyun_satrt")
+
+        simyun = False
+        simyun_count = 0
+        while simyun is False:
+            simyun_count += 1
+            if simyun_count > 7:
+                simyun = True
+
+            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\simyun_map_open.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(850, 950, 950, 1000, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                # 580, 360
+                click_pos_2(580, 360, cla)
+                move = True
+                while move is True:
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\simyun_move.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(450, 890, 540, 950, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("이동중")
+
+            else:
+                click_pos_2(130, 200, cla)
+                for i in range(10):
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\dungeon\\simyun_map_open.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(850, 950, 950, 1000, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    time.sleep(0.3)
+
+
+    except Exception as e:
+        print(e)
