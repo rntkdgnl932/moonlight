@@ -100,7 +100,7 @@ def quest_check(cla):
 def quest_click(cla):
     import numpy as np
     import cv2
-    from function_moon import click_pos_reg, imgs_set_, click_pos_2
+    from function_moon import click_pos_reg, imgs_set_, click_pos_2, drag_pos
     from repair_moon import my_stat_up
     from action_moon import confirm_all
     from schedule import myQuest_play_add
