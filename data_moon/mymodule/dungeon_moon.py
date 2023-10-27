@@ -57,7 +57,7 @@ def dungeon_start(cla, sche):
                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\attack_ing_1.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(410, 870, 450, 910, cla, img, 0.8)
+                    imgs_ = imgs_set_(410, 870, 450, 910, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
                         v_.attack_check_count = 0
                         print("attack_ing_1", v_.attack_check_count)
@@ -65,7 +65,7 @@ def dungeon_start(cla, sche):
                         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\check\\attack_ing_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(480, 870, 510, 910, cla, img, 0.8)
+                        imgs_ = imgs_set_(480, 870, 510, 910, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             v_.attack_check_count = 0
                             print("attack_ing_2", v_.attack_check_count)
