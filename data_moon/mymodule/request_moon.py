@@ -631,7 +631,11 @@ def request_bosang_and_move(cla, sche):
                 time.sleep(0.5)
 
             if request_ing == True:
-                if v_.re_click_count < 4 or v_.re_click_count % 20 == 0:
+
+                if v_.re_click_count % 50 == 0:
+                    get_my_request(cla, sche)
+
+                elif v_.re_click_count < 4 or v_.re_click_count % 20 == 0:
 
                     click_pos_reg(request_click_x, request_click_y, cla)
                     time.sleep(0.1)
