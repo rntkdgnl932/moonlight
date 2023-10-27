@@ -119,6 +119,12 @@ def quest_click(cla):
             click_pos_reg(imgs_.x, imgs_.y, cla)
             my_stat_up(cla)
         else:
+            # 드래그 해주기
+            drag_pos(800, 220, 800, 220 + 350, cla)
+
+            time.sleep(1)
+
+
             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\request\\clear_re.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -257,7 +263,7 @@ def tuto_click(cla):
         time.sleep(0.1)
         if result_click == False:
             # 안 보여서 드래그하기
-            drag_pos(800, 220, 800, 220 + 350, cla)
+            drag_pos(800, 260, 800, 260 + 350, cla)
             time.sleep(0.5)
 
         mouse_move_cpp(500, 500, cla)
