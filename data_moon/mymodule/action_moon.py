@@ -560,20 +560,15 @@ def attack_check_and_attack(cla):
     try:
         print("attack_check_and_attack")
 
-        attack = False
-        attack_count = 0
-        while attack is False:
-            attack_count += 1
-            if attack_count > 7:
-                attack = True
+        attack = hunting_check(cla)
 
-            attack = hunting_check(cla)
+        v_.attack_check_count = 0
 
-            if attack == False:
+        if attack == False:
 
-                clean_screen(cla)
-                time.sleep(0.1)
-                click_pos_2(925, 895, cla)
+            clean_screen(cla)
+            time.sleep(0.1)
+            click_pos_2(925, 895, cla)
 
 
     except Exception as e:
