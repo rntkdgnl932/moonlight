@@ -297,7 +297,7 @@ def get_event(cla):
 
                         time.sleep(0.1)
                     ############
-                    # 50일 기념 수집 이벤트 관련 패스하기
+                    # 50일 기념 수집 이벤트, 사랑의 가을 축제 수집 이벤트 관련 패스하기
                     ##########
                     gyohwan = False
 
@@ -363,29 +363,14 @@ def get_event(cla):
 
                         drag = False
 
-                        # 시즌 이벤트에 50일 기념 이벤트
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\50_ginyum.PNG"
+                        # 시즌 이벤트에 사랑의 가을 축제 미션 이벤트
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\season_autumn_of_love.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(210, 350, 550, 420, cla, img, 0.8)
+                        imgs_ = imgs_set_(210, 350, 550, 470, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             drag = True
 
-                        # 시즌 이벤트에 전장의 용사 이벤트
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\junjang_yongsa.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(210, 350, 550, 420, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            drag = True
-
-                        # 시즌 이벤트에 듀발의 군수 물자 이벤트
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\dyubal_event.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(210, 350, 550, 420, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            drag = True
 
                         # 시즌 패스에 골드 시즌 패스 미션 이벤트
                         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\gold_season_pass_mission.PNG"
@@ -639,13 +624,13 @@ def get_event(cla):
 
                                         ten = False
 
-                                        # 접속보상에 풍요의 계절 특별 출석
-                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\ten\\poongyo_season.PNG"
+                                        # 접속보상에 사랑의 가을 축제 특별 출석
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\ten\\season_autumn_of_love_ten.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(210, 350, 620, 420, cla, img, 0.8)
+                                        imgs_ = imgs_set_(210, 350, 620, 480, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
-                                            print("newworld_special_chulsuk...1", imgs_)
+                                            print("season_autumn_of_love_ten...1", imgs_)
                                             ten = True
 
                                         # 접속보상에 50일 기념 틀별 출석
@@ -655,15 +640,6 @@ def get_event(cla):
                                         imgs_ = imgs_set_(210, 350, 620, 420, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
                                             print("50_ginyum...2", imgs_)
-                                            ten = True
-
-                                        # 접속보상에 발할라 오픈 기념 출석
-                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\ten\\balhala_open.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(210, 350, 620, 420, cla, img, 0.8)
-                                        if imgs_ is not None and imgs_ != False:
-                                            print("balhala_open", imgs_)
                                             ten = True
 
                                         if ten == True:

@@ -31,7 +31,7 @@ def go_test():
     from tuto_moon import quest_click
 
     print("tst")
-    cla = "two"
+    cla = "one"
     if cla == "one":
         plus = 0
     elif cla == "two":
@@ -42,19 +42,7 @@ def go_test():
         plus = 960 * 3
 
     time.sleep(0.8)
-    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\ex\\gyohwan1.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(220, 670, 890, 750, cla, img, 0.95)
-    if imgs_ is not None and imgs_ != False:
-        print("gyohwan1", imgs_)
-    else:
-        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\ex\\gyohwan2.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(220, 670, 890, 750, cla, img, 0.95)
-        if imgs_ is not None and imgs_ != False:
-            print("gyohwan2", imgs_)
+    get_event(cla)
 
     # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in\\jungsoo_jogagsa_skill.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
