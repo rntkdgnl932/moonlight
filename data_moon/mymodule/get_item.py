@@ -297,7 +297,7 @@ def get_event(cla):
 
                         time.sleep(0.1)
                     ############
-                    # 50일 기념 수집 이벤트, 사랑의 가을 축제 수집 이벤트 관련 패스하기
+                    # 사랑의 가을 축제 수집 이벤트, 블랙 프라이데이 기념 수집 이벤트 관련 패스하기
                     ##########
                     gyohwan = False
 
@@ -363,8 +363,8 @@ def get_event(cla):
 
                         drag = False
 
-                        # 시즌 이벤트에 사랑의 가을 축제 미션 이벤트
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\season_autumn_of_love.PNG"
+                        # 시즌 이벤트에 블랙 프라이데이 기념 미션 이벤트
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\black_friday.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(210, 350, 550, 470, cla, img, 0.8)
@@ -372,8 +372,8 @@ def get_event(cla):
                             drag = True
 
 
-                        # 시즌 패스에 골드 시즌 패스 미션 이벤트
-                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\gold_season_pass_mission.PNG"
+                        # 시즌 패스에 숨결 시즌 패스 미션 이벤트
+                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\drag\\soomgyul_season_pass_mission.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(210, 350, 550, 420, cla, img, 0.8)
@@ -419,7 +419,7 @@ def get_event(cla):
 
                             seven_four = False
 
-                            # 시즌이벤트에 데일리 7일 미션
+                            # 시즌이벤트에 오픈 기념 데일리 7일 미션
                             full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\seven_four\\daily_seven_mission.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -624,22 +624,13 @@ def get_event(cla):
 
                                         ten = False
 
-                                        # 접속보상에 사랑의 가을 축제 특별 출석
-                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\ten\\season_autumn_of_love_ten.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(210, 350, 620, 480, cla, img, 0.8)
-                                        if imgs_ is not None and imgs_ != False:
-                                            print("season_autumn_of_love_ten...1", imgs_)
-                                            ten = True
-
                                         # 접속보상에 50일 기념 틀별 출석
-                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\ten\\50_ginyum.PNG"
+                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\get_items\\ten\\friday_chulsuk.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                         imgs_ = imgs_set_(210, 350, 620, 420, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
-                                            print("50_ginyum...2", imgs_)
+                                            print("friday_chulsuk...", imgs_)
                                             ten = True
 
                                         if ten == True:

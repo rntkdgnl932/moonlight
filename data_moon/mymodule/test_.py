@@ -42,7 +42,6 @@ def go_test():
         plus = 960 * 3
 
     time.sleep(0.8)
-    get_event(cla)
 
     # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\chango\\jaelyo_in\\jungsoo_jogagsa_skill.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
