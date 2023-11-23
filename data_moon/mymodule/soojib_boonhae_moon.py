@@ -402,14 +402,14 @@ def boonhae_start(cla):
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.1)
 
-                    # # 고급
-                    # full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\soojib_boonhae\\boonhae_checked_off_gogb.PNG"
-                    # img_array = np.fromfile(full_path, np.uint8)
-                    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    # imgs_ = imgs_set_(700, 970, 760, 1040, cla, img, 0.95)
-                    # if imgs_ is not None and imgs_ != False:
-                    #     click_pos_reg(imgs_.x, imgs_.y, cla)
-                    #     time.sleep(0.1)
+                    # 고급
+                    full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\soojib_boonhae\\boonhae_checked_off_gogb.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(700, 970, 760, 1040, cla, img, 0.95)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.1)
 
                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\soojib_boonhae\\boonhae_click.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
