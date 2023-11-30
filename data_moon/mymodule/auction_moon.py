@@ -18,6 +18,7 @@ def auction_start(cla):
     from action_moon import out_check, menu_open
 
     from chango_moon import chango_action
+    from massenger import line_to_me
 
     try:
         print("auction start")
@@ -331,6 +332,23 @@ def auction_start(cla):
                                                             if imgs_ is not None and imgs_ != False:
                                                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                                         time.sleep(0.5)
+                                                    # for j in range(10):
+                                                    #     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\self_certification.PNG"
+                                                    #     img_array = np.fromfile(full_path, np.uint8)
+                                                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                    #     imgs_ = imgs_set_(450, 500, 590, 560, cla, img, 0.8)
+                                                    #     if imgs_ is not None and imgs_ != False:
+                                                    #         click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                    #         time.sleep(0.1)
+                                                    #         break
+                                                    #     else:
+                                                    #         full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_confirm_2.PNG"
+                                                    #         img_array = np.fromfile(full_path, np.uint8)
+                                                    #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                    #         imgs_ = imgs_set_(525, 710, 620, 750, cla, img, 0.8)
+                                                    #         if imgs_ is not None and imgs_ != False:
+                                                    #             click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                    #     time.sleep(0.5)
 
 
 
@@ -343,28 +361,67 @@ def auction_start(cla):
                                                         click_pos_reg(imgs_.x, imgs_.y, cla)
                                                 time.sleep(0.1)
 
+                                                certification = True
                                                 for k in range(10):
                                                     full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\registration_auction_title.PNG"
                                                     img_array = np.fromfile(full_path, np.uint8)
                                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                                     imgs_ = imgs_set_(440, 315, 555, 365, cla, img, 0.8)
                                                     if imgs_ is not None and imgs_ != False:
-                                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_cancle.PNG"
+                                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\self_certification.PNG"
                                                         img_array = np.fromfile(full_path, np.uint8)
                                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                        imgs_ = imgs_set_(370, 710, 440, 750, cla, img, 0.8)
+                                                        imgs_ = imgs_set_(450, 500, 590, 560, cla, img, 0.8)
                                                         if imgs_ is not None and imgs_ != False:
-                                                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_confirm_4.PNG"
-                                                        img_array = np.fromfile(full_path, np.uint8)
-                                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                        imgs_ = imgs_set_(500, 630, 590, 680, cla, img, 0.8)
-                                                        if imgs_ is not None and imgs_ != False:
-                                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                            certification = False
+                                                            why = "거래소 인증이 필요하다"
+                                                            line_to_me(cla, why)
+                                                            break
+                                                        else:
+                                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_cancle.PNG"
+                                                            img_array = np.fromfile(full_path, np.uint8)
+                                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                            imgs_ = imgs_set_(370, 710, 440, 750, cla, img, 0.8)
+                                                            if imgs_ is not None and imgs_ != False:
+                                                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_confirm_4.PNG"
+                                                            img_array = np.fromfile(full_path, np.uint8)
+                                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                            imgs_ = imgs_set_(500, 630, 590, 680, cla, img, 0.8)
+                                                            if imgs_ is not None and imgs_ != False:
+                                                                click_pos_reg(imgs_.x, imgs_.y, cla)
                                                         time.sleep(0.1)
                                                     else:
                                                         break
                                                     time.sleep(0.4)
+                                                if certification == False:
+                                                    for k in range(10):
+                                                        full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\registration_auction_title.PNG"
+                                                        img_array = np.fromfile(full_path, np.uint8)
+                                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                        imgs_ = imgs_set_(440, 315, 555, 365, cla, img, 0.8)
+                                                        if imgs_ is not None and imgs_ != False:
+                                                            full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\auction\\auction_cancle.PNG"
+                                                            img_array = np.fromfile(full_path, np.uint8)
+                                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                            imgs_ = imgs_set_(370, 570, 440, 750, cla, img, 0.8)
+                                                            if imgs_ is not None and imgs_ != False:
+                                                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                        else:
+                                                            for x in range(5):
+                                                                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\title\\auction_title.PNG"
+                                                                img_array = np.fromfile(full_path, np.uint8)
+                                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                                imgs_ = imgs_set_(5, 30, 150, 80, cla, img, 0.8)
+                                                                if imgs_ is not None and imgs_ != False:
+                                                                    click_pos_2(935, 55, cla)
+                                                                else:
+                                                                    break
+                                                                time.sleep(0.5)
+
+                                                            break
+                                                        time.sleep(0.3)
+
                                             else:
                                                 print("10원 이하다 취소 누르자")
                                                 for k in range(10):
